@@ -7,11 +7,18 @@ import opennlp.tools.util.FilterObjectStream;
 import opennlp.tools.util.ObjectStream;
 
 /**
- * Class for converting Strings through DataStream to SentimentSample using tokenised text.
+ * Class for converting Strings through Data Stream to SentimentSample using
+ * tokenised text.
  */
 public class SentimentSampleStream
     extends FilterObjectStream<String, SentimentSample> {
 
+  /**
+   * Initializes the sample stream.
+   *
+   * @param samples
+   *          the sentiment samples to be used
+   */
   public SentimentSampleStream(ObjectStream<String> samples) {
     super(samples);
   }

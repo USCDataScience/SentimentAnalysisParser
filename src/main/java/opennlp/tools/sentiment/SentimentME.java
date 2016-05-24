@@ -14,12 +14,28 @@ import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.TrainingParameters;
 
+/**
+ * Class for creating a maximum-entropy-based Sentiment Analysis model.
+ */
 public class SentimentME {
 
   public static final String OTHER = "other";
   public static final String START = "start";
   public static final String CONTINUE = "cont";
 
+  /**
+   * Trains a Sentiment Analysis model.
+   *
+   * @param languageCode
+   *          the code for the language of the text, e.g. "en"
+   * @param samples
+   *          the sentiment samples to be used
+   * @param trainParams
+   *          parameters for training
+   * @param factory
+   *          a Sentiment Analysis factory
+   * @return a Sentiment Analysis model
+   */
   public static SentimentModel train(String languageCode,
       ObjectStream<SentimentSample> samples, TrainingParameters trainParams,
       SentimentFactory factory) throws IOException {
@@ -33,7 +49,8 @@ public class SentimentME {
     TrainerType trainerType = TrainerFactory
         .getTrainerType(trainParams.getSettings());
 
-    ObjectStream<Event> eventStream = new SentimentEventStream(samples, factory.createContextGenerator());
+    ObjectStream<Event> eventStream = new SentimentEventStream(samples,
+        factory.createContextGenerator());
 
     EventTrainer trainer = TrainerFactory
         .getEventTrainer(trainParams.getSettings(), entries);

@@ -16,8 +16,10 @@ public class SentimentSample {
   /**
    * Initializes the current instance.
    *
-   * @param sentiment training sentiment
-   * @param sentence training sentence
+   * @param sentiment
+   *          training sentiment
+   * @param sentence
+   *          training sentence
    */
   public SentimentSample(String sentiment, String[] sentence) {
     if (sentiment == null) {
