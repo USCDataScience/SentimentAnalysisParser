@@ -6,6 +6,9 @@ import opennlp.tools.tokenize.WhitespaceTokenizer;
 import opennlp.tools.util.FilterObjectStream;
 import opennlp.tools.util.ObjectStream;
 
+/**
+ * Class for converting Strings through DataStream to SentimentSample using tokenised text.
+ */
 public class SentimentSampleStream
     extends FilterObjectStream<String, SentimentSample> {
 
@@ -13,6 +16,11 @@ public class SentimentSampleStream
     super(samples);
   }
 
+  /**
+   * Reads the text
+   *
+   * @return a ready-to-be-trained SentimentSample object
+   */
   @Override
   public SentimentSample read() throws IOException {
     String sentence = samples.read();

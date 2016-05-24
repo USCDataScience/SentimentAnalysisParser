@@ -33,8 +33,7 @@ public class SentimentME {
     TrainerType trainerType = TrainerFactory
         .getTrainerType(trainParams.getSettings());
 
-    ObjectStream<Event> eventStream = new SentimentEventStream(samples,
-        factory.createContextGenerator(), factory.createSequenceCodec());
+    ObjectStream<Event> eventStream = new SentimentEventStream(samples, factory.createContextGenerator());
 
     EventTrainer trainer = TrainerFactory
         .getEventTrainer(trainParams.getSettings(), entries);

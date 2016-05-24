@@ -15,13 +15,19 @@ import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.PlainTextByLineStream;
 import opennlp.tools.util.TrainingParameters;
 
+/**
+ * Class for performing tests on the Sentiment Analysis model training.
+ */
 public class SentimentSampleStreamTest {
 
+  /**
+   * Reads the data from the given file to perform the test.
+   */
   @Test
   public void dataReadTest() throws IOException {
     Charset charset = Charset.forName("UTF-8");
     ObjectStream<String> lineStream = new PlainTextByLineStream(
-        new FileInputStream("test"), charset);
+        new FileInputStream("result"), charset);
     ObjectStream<SentimentSample> sampleStream = new SentimentSampleStream(
         lineStream);
 

@@ -17,9 +17,9 @@ public class SentimentEventStream extends AbstractEventStream<SentimentSample> {
    */
 
   public SentimentEventStream(ObjectStream<SentimentSample> samples,
-      SentimentContextGenerator createContextGenerator,
-      SequenceCodec<String> createSequenceCodec) {
+      SentimentContextGenerator createContextGenerator) {
     super(samples);
+    contextGenerator = createContextGenerator; //????
   }
 
   @Override

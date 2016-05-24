@@ -4,7 +4,8 @@ public class SentimentContextGenerator {
 
   public String[] getContext(String text[]) {
     // TODO: complete
-    return null;
+    //return null;
+    return text;
   }
 
 }

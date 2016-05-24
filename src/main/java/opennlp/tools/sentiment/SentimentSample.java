@@ -5,11 +5,20 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Class for holding text used for sentiment analysis.
+ */
 public class SentimentSample {
 
   private final String sentiment;
   private final List<String> sentence;
 
+  /**
+   * Initializes the current instance.
+   *
+   * @param sentiment training sentiment
+   * @param sentence training sentence
+   */
   public SentimentSample(String sentiment, String[] sentence) {
     if (sentiment == null) {
       throw new IllegalArgumentException("sentiment must not be null");

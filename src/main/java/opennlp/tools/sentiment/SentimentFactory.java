@@ -12,12 +12,7 @@ public class SentimentFactory extends BaseToolFactory {
   }
 
   public SentimentContextGenerator createContextGenerator() {
-    return null;
-    // return new DefaultSentimentContextGenerator();
-  }
-
-  public SequenceCodec<String> createSequenceCodec() {
-    return null;
+    return new SentimentContextGenerator();  
   }
 
 }
