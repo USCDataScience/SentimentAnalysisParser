@@ -6,6 +6,7 @@ A parser performing sentiment analysis that uses the [Apache OpenNLP](https://op
 Use
 ===
 1. How to build Sentiment Analysis Parser
+
 ```shell
 $ cd $HOME/src
 $ git clone https://github.com/USCDataScience/SentimentAnalysisParser
@@ -13,6 +14,7 @@ $ cd SentimentAnalysisParser
 $ mvn install assembly:assembly
 ```
 2. How to train a model
+
 ```shell
 $ cd target/sentiment/bin
 $ ./sentiment SentimentTrainer -model en-sentiment.bin -lang en -data ./../../../result -encoding UTF-8
