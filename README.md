@@ -12,7 +12,6 @@ $ git clone https://github.com/USCDataScience/SentimentAnalysisParser
 $ cd SentimentAnalysisParser
 $ mvn install assembly:assembly
 ```
-
 2. How to train a model
 ```shell
 $ cd target/sentiment/bin
