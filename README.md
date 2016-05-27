@@ -1,6 +1,6 @@
 Sentiment Analysis Parser
 =========================
-A parser performing sentiment analysis that uses the [Apache OpenNLP](https://opennlp.apache.org/) and [Apache Tika](https://tika.apache.org/) libraries to perform text analysis on the the [Large Movie Review Dataset](http://ai.stanford.edu/~amaas/data/sentiment/). We have combined both negative and positive reviews together in a file result, and each review has a "positive" or a "negative" label before it.
+A parser performing sentiment analysis that uses the [Apache OpenNLP](https://opennlp.apache.org/) and [Apache Tika](https://tika.apache.org/) libraries to perform text analysis on the the [Large Movie Review Dataset](http://ai.stanford.edu/~amaas/data/sentiment/). Negative and positive reviews were combined together in a file "result", and each review has a "positive" or a "negative" label before it.
 
 
 Use
@@ -10,7 +10,7 @@ Use
 $ cd $HOME/src
 $ git clone https://github.com/USCDataScience/SentimentAnalysisParser
 $ cd SentimentAnalysisParser
-$ mvn assembly:assembly
+$ mvn install assembly:assembly
 ```
 
 2. How to train a model
