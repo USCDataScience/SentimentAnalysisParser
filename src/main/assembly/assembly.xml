@@ -19,7 +19,6 @@
 	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
-	<!-- TODO: a jarjar format would be better -->
 	<id>sentiment-analysis</id>
 	<baseDirectory>sentiment</baseDirectory>
 	<formats>
@@ -55,6 +54,13 @@
 			</includes>
 			<lineEnding>unix</lineEnding>
 			<fileMode>0755</fileMode>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/resources/mime</directory>
+			<outputDirectory>mime/org/apache/tika/mime</outputDirectory>
+			<includes>
+				<include>*.xml</include>
+			</includes>
 		</fileSet>
 	</fileSets>
 </assembly>

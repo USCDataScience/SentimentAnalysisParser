@@ -14,8 +14,8 @@ $ mvn install assembly:assembly
 ### How to train a model
 
 ```shell
-$ cd target/sentiment/bin
-$ ./sentiment SentimentTrainer -model en-sentiment.bin -lang en -data ./../../../result -encoding UTF-8
+$ cd target/sentiment
+$ bin/sentiment SentimentTrainer -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin -lang en -data ./../../result -encoding UTF-8
 ```
 
 The model is written to en-sentiment.bin

@@ -18,15 +18,18 @@
 package edu.usc.ir.sentiment.analysis.cmdline;
 
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import opennlp.tools.cmdline.BasicCmdLineTool;
 import opennlp.tools.cmdline.CmdLineTool;
-import opennlp.tools.cmdline.StreamFactoryRegistry;
 import opennlp.tools.cmdline.TerminateToolException;
 import opennlp.tools.cmdline.TypedCmdLineTool;
 import opennlp.tools.formats.SentimentSampleStreamFactory;
@@ -43,7 +46,7 @@ public class CLI {
     List<CmdLineTool> tools = new LinkedList<CmdLineTool>();
     tools.add(new SentimentTrainerTool());
     SentimentSampleStreamFactory.registerFactory();
-    
+
     for (CmdLineTool tool : tools) {
       toolLookupMap.put(tool.getName(), tool);
     }
@@ -152,5 +155,21 @@ public class CLI {
 
       System.exit(e.getCode());
     }
+  }
+
+  private static boolean isConfigured() {
+    // Borrowed from: http://wiki.apache.org/logging-log4j/UsefulCode
+    Enumeration appenders = LogManager.getRootLogger().getAllAppenders();
+    if (appenders.hasMoreElements()) {
+      return true;
+    } else {
+      Enumeration loggers = LogManager.getCurrentLoggers();
+      while (loggers.hasMoreElements()) {
+        Logger c = (Logger) loggers.nextElement();
+        if (c.getAllAppenders().hasMoreElements())
+          return true;
+      }
+    }
+    return false;
   }
 }
