@@ -12,7 +12,7 @@
 hs_err_pid*
 
 .metadata
-bin/
+#bin/
 tmp/
 *.tmp
 *.bak
