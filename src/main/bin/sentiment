@@ -17,7 +17,9 @@
 #   specific language governing permissions and limitations
 #   under the License.
 
-export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" 
 export LIB=$DIR/../lib
+TIKA=$DIR/../tika
 CLASSPATH=$(JARS=("$LIB"/*.jar); IFS=:; echo "${JARS[*]}")
+CLASSPATH=$CLASSPATH:$TIKA
 java -cp $CLASSPATH edu.usc.ir.sentiment.analysis.cmdline.CLI "$@"

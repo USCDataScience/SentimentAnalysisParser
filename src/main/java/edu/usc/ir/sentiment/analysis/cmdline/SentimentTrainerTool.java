@@ -31,6 +31,9 @@ import opennlp.tools.sentiment.SentimentModel;
 import opennlp.tools.sentiment.SentimentSample;
 import opennlp.tools.util.model.ModelUtil;
 
+/**
+ * Class for helping train a sentiment analysis model.
+ */
 public class SentimentTrainerTool
     extends AbstractTrainerTool<SentimentSample, TrainingToolParams> {
 

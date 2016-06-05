@@ -30,6 +30,9 @@ import opennlp.tools.util.InputStreamFactory;
 import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.PlainTextByLineStream;
 
+/**
+ * Class for creating a sample stream factory for sentiment analysis.
+ */
 public class SentimentSampleStreamFactory
     extends AbstractSampleStreamFactory<SentimentSample> {
 
@@ -39,13 +42,16 @@ public class SentimentSampleStreamFactory
 
   @Override
   public ObjectStream<SentimentSample> create(String[] args) {
-    BasicFormatParams params = ArgumentParser.parse(args, BasicFormatParams.class);
+    BasicFormatParams params = ArgumentParser.parse(args,
+        BasicFormatParams.class);
 
     CmdLineUtil.checkInputFile("Data", params.getData());
-    InputStreamFactory sampleDataIn = CmdLineUtil.createInputStreamFactory(params.getData());
-    ObjectStream<String> lineStream=null;
+    InputStreamFactory sampleDataIn = CmdLineUtil
+        .createInputStreamFactory(params.getData());
+    ObjectStream<String> lineStream = null;
     try {
-      lineStream = new PlainTextByLineStream(sampleDataIn, params.getEncoding());
+      lineStream = new PlainTextByLineStream(sampleDataIn,
+          params.getEncoding());
     } catch (IOException ex) {
       CmdLineUtil.handleCreateObjectStreamError(ex);
     }

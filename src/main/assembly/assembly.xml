@@ -56,10 +56,11 @@
 			<fileMode>0755</fileMode>
 		</fileSet>
 		<fileSet>
-			<directory>src/main/resources/mime</directory>
-			<outputDirectory>mime/org/apache/tika/mime</outputDirectory>
+			<directory>src/main/tika</directory>
+			<outputDirectory>tika</outputDirectory>
 			<includes>
-				<include>*.xml</include>
+				<include>**/*.xml</include>
+				<include>**/*.Parser</include>
 			</includes>
 		</fileSet>
 	</fileSets>

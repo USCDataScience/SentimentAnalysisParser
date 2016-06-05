@@ -15,10 +15,18 @@ $ mvn install assembly:assembly
 
 ```shell
 $ cd target/sentiment
-$ bin/sentiment SentimentTrainer -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin -lang en -data ./../../result -encoding UTF-8
+$ mkdir -p model/org/apache/tika/parser/sentiment/topic/
+$ bin/sentiment SentimentTrainer -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin -lang en -data ./../../examples/result -encoding UTF-8
 ```
-
 The model is written to en-sentiment.bin
+
+### How to run the parser
+
+Make sure you are in target/sentiment
+
+```shell
+$ bin/sentiment Tika ../../examples/test.sent
+```
 
 
 # Contributors

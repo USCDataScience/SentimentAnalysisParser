@@ -17,9 +17,16 @@
 
 package opennlp.tools.sentiment;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Map;
+import java.util.Properties;
 
+import opennlp.tools.ml.BeamSearch;
 import opennlp.tools.ml.model.MaxentModel;
+import opennlp.tools.ml.model.SequenceClassificationModel;
+import opennlp.tools.util.InvalidFormatException;
 import opennlp.tools.util.model.BaseModel;
 
 /**
@@ -47,6 +54,39 @@ public class SentimentModel extends BaseModel {
     super(COMPONENT_NAME, languageCode, manifestInfoEntries, factory);
     artifactMap.put(SENTIMENT_MODEL_ENTRY_NAME, sentimentModel);
     checkArtifactMap();
+  }
+
+  public SentimentModel(URL modelURL)
+      throws IOException, InvalidFormatException {
+    super(COMPONENT_NAME, modelURL);
+  }
+
+  public SentimentModel(File file) throws InvalidFormatException, IOException {
+    super(COMPONENT_NAME, file);
+  }
+
+  @Deprecated
+  public SequenceClassificationModel<String> getSentimentModel() {
+    Properties manifest = (Properties) artifactMap.get(MANIFEST_ENTRY);
+
+    String beamSizeString = manifest
+        .getProperty(BeamSearch.BEAM_SIZE_PARAMETER);
+
+    int beamSize = SentimentME.DEFAULT_BEAM_SIZE;
+    if (beamSizeString != null) {
+      beamSize = Integer.parseInt(beamSizeString);
+    }
+
+    return new BeamSearch<>(beamSize,
+        (MaxentModel) artifactMap.get(SENTIMENT_MODEL_ENTRY_NAME));
+  }
+
+  public SentimentFactory getFactory() {
+    return (SentimentFactory) this.toolFactory;
+  }
+
+  public MaxentModel getMaxentModel() {
+    return (MaxentModel) artifactMap.get(SENTIMENT_MODEL_ENTRY_NAME);
   }
 
 }

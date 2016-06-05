@@ -34,6 +34,9 @@ import opennlp.tools.cmdline.TerminateToolException;
 import opennlp.tools.cmdline.TypedCmdLineTool;
 import opennlp.tools.formats.SentimentSampleStreamFactory;
 
+/**
+ * Class for command line use.
+ */
 public class CLI {
   public static final String CMD = "sentiment";
   public static final String DEFAULT_FORMAT = "sentiment";
@@ -45,6 +48,8 @@ public class CLI {
 
     List<CmdLineTool> tools = new LinkedList<CmdLineTool>();
     tools.add(new SentimentTrainerTool());
+    tools.add(new TikaTool());
+    
     SentimentSampleStreamFactory.registerFactory();
 
     for (CmdLineTool tool : tools) {

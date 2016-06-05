@@ -17,10 +17,13 @@
 
 package opennlp.tools.sentiment;
 
+import opennlp.tools.util.BeamSearchContextGenerator;
+
 /**
  * Class for using a Context Generator for Sentiment Analysis.
  */
-public class SentimentContextGenerator {
+public class SentimentContextGenerator
+    implements BeamSearchContextGenerator<String> {
 
   /**
    * Returns the context
@@ -31,6 +34,12 @@ public class SentimentContextGenerator {
    */
   public String[] getContext(String text[]) {
     return text;
+  }
+
+  @Override
+  public String[] getContext(int index, String[] sequence,
+      String[] priorDecisions, Object[] additionalContext) {
+    return new String[] {};
   }
 
 }

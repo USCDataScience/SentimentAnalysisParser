@@ -18,7 +18,9 @@
 package opennlp.tools.sentiment;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import opennlp.tools.ml.EventTrainer;
@@ -27,9 +29,18 @@ import opennlp.tools.ml.TrainerFactory.TrainerType;
 import opennlp.tools.ml.model.Event;
 import opennlp.tools.ml.model.MaxentModel;
 import opennlp.tools.ml.model.SequenceClassificationModel;
+import opennlp.tools.namefind.BioCodec;
+import opennlp.tools.namefind.NameContextGenerator;
+import opennlp.tools.namefind.TokenNameFinderFactory;
 import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.util.ObjectStream;
+import opennlp.tools.util.Sequence;
+import opennlp.tools.util.SequenceCodec;
+import opennlp.tools.util.SequenceValidator;
+import opennlp.tools.util.Span;
 import opennlp.tools.util.TrainingParameters;
+import opennlp.tools.util.featuregen.AdditionalContextFeatureGenerator;
+import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 
 /**
  * Class for creating a maximum-entropy-based Sentiment Analysis model.
@@ -39,6 +50,28 @@ public class SentimentME {
   public static final String OTHER = "other";
   public static final String START = "start";
   public static final String CONTINUE = "cont";
+  public static final int DEFAULT_BEAM_SIZE = 3;
+
+  private static String[][] EMPTY = new String[0][0];
+
+  protected SentimentContextGenerator contextGenerator;
+  private AdditionalContextFeatureGenerator additionalContextFeatureGenerator = new AdditionalContextFeatureGenerator();
+  private Sequence bestSequence;
+  protected SequenceClassificationModel<String> model;
+  private SequenceValidator<String> sequenceValidator;
+  private SentimentFactory factory;
+  private MaxentModel maxentModel;
+  private SequenceCodec<String> seqCodec = new BioCodec();
+
+  public SentimentME(SentimentModel sentModel) {
+
+    this.model = sentModel.getSentimentModel();
+    maxentModel = sentModel.getMaxentModel();
+
+    factory = sentModel.getFactory();
+
+    contextGenerator = factory.createContextGenerator();
+  }
 
   /**
    * Trains a Sentiment Analysis model.
@@ -78,6 +111,46 @@ public class SentimentME {
     return new SentimentModel(languageCode, sentimentModel, manifestInfoEntries,
         factory);
 
+  }
+
+  public String predict(String sentence) {
+    String[] tokens = factory.getTokenizer().tokenize(sentence);
+
+    double prob[] = probabilities(tokens);
+    String sentiment = getBestSentiment(prob);
+
+    return sentiment;
+  }
+
+  public String getBestSentiment(double[] outcome) {
+    return maxentModel.getBestOutcome(outcome);
+  }
+
+  /**
+   * Categorizes the given text.
+   *
+   * @param text
+   *          the text to categorize
+   */
+  public double[] probabilities(String text[]) {
+    return maxentModel.eval(contextGenerator.getContext(text));
+  }
+
+  public Span[] predict2(String[] tokens) {
+    return predict2(tokens, EMPTY);
+  }
+
+  public Span[] predict2(String[] tokens, String[][] additionalContext) {
+
+    additionalContextFeatureGenerator.setCurrentContext(additionalContext);
+
+    bestSequence = model.bestSequence(tokens, additionalContext,
+        contextGenerator, sequenceValidator);
+
+    List<String> c = bestSequence.getOutcomes();
+
+    Span[] spans = seqCodec.decode(c);
+    return spans;
   }
 
 }
