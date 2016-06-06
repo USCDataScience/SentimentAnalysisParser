@@ -56,11 +56,17 @@ import opennlp.tools.cmdline.BasicCmdLineTool;
 public class TikaTool extends BasicCmdLineTool {
   private static final Logger LOG = Logger.getLogger(TikaTool.class.getName());
 
+  private static final String DEFAULT_MODEL = "en-sentiment.bin";
+
   private Parser parser;
   private String encoding = null;
   private Detector detector;
   private ParseContext context;
+  private String url;
 
+  /**
+   * The constructor
+   */
   public TikaTool() {
     detector = new DefaultDetector();
     parser = new AutoDetectParser(detector);
@@ -82,6 +88,9 @@ public class TikaTool extends BasicCmdLineTool {
       this.metOutput = false;
     }
 
+    /**
+     * Ends the document given
+     */
     @Override
     public void endDocument() {
       String[] names = metadata.names();
@@ -91,6 +100,12 @@ public class TikaTool extends BasicCmdLineTool {
       this.metOutput = true;
     }
 
+    /**
+     * Outputs the metadata
+     *
+     * @param names
+     *          the names provided
+     */
     public void outputMetadata(String[] names) {
       for (String name : names) {
         for (String value : metadata.getValues(name)) {
@@ -99,12 +114,25 @@ public class TikaTool extends BasicCmdLineTool {
       }
     }
 
+    /**
+     * Checks the output
+     *
+     * @return true or false
+     */
     public boolean metOutput() {
       return this.metOutput;
     }
 
   }
 
+  /**
+   * Returns a writer
+   *
+   * @param output
+   *          the output stream
+   * @param encoding
+   *          the encoding required to create a writer
+   */
   private static Writer getOutputWriter(OutputStream output, String encoding)
       throws UnsupportedEncodingException {
     if (encoding != null) {
@@ -117,15 +145,25 @@ public class TikaTool extends BasicCmdLineTool {
     }
   }
 
-  public void process(String arg) throws MalformedURLException {
+  /**
+   * Performs the analysis
+   *
+   * @param fileName
+   *          the file with text to be analysed
+   * @param model
+   *          the analysis model to be used
+   */
+  public void process(String fileName, String model)
+      throws MalformedURLException {
     URL url;
-    File file = new File(arg);
+    File file = new File(fileName);
     if (file.isFile()) {
       url = file.toURI().toURL();
     } else {
-      url = new URL(arg);
+      url = new URL(fileName);
     }
     Metadata metadata = new Metadata();
+    metadata.add(SentimentConstant.MODEL, model);
     try (InputStream input = TikaInputStream.get(url, metadata)) {
       process(input, System.out, metadata);
     } catch (IOException e) {
@@ -139,6 +177,16 @@ public class TikaTool extends BasicCmdLineTool {
     }
   }
 
+  /**
+   * Performs the analysis
+   *
+   * @param input
+   *          the input
+   * @param output
+   *          the output
+   * @param metadata
+   *          the metadata to be used
+   */
   public void process(InputStream input, OutputStream output, Metadata metadata)
       throws IOException, SAXException, TikaException {
     Parser p = parser;
@@ -152,15 +200,36 @@ public class TikaTool extends BasicCmdLineTool {
     }
   }
 
+  /**
+   * Help method
+   */
   @Override
   public String getHelp() {
     return null;
   }
 
+  /**
+   * Runs the parser and performs analysis
+   *
+   * @param args
+   *          arguments required
+   */
   @Override
   public void run(String[] args) {
+    String fileName = null;
+    String model = DEFAULT_MODEL;
+    if (args.length > 0) {
+      for (int i = 0; i < args.length - 1; i++) {
+        switch (args[i]) {
+        case "-m":
+          model = args[i + 1];
+          break;
+        }
+      }
+      fileName = args[args.length - 1];
+    }
     try {
-      process(args[0]);
+      process(fileName, model);
     } catch (MalformedURLException e) {
       e.printStackTrace();
     }
@@ -168,7 +237,7 @@ public class TikaTool extends BasicCmdLineTool {
 
   public static void main(String args[]) throws Exception {
     TikaTool tool = new TikaTool();
-    tool.process(args[0]);
+    tool.process(args[0], args[1]);
   }
 
 }

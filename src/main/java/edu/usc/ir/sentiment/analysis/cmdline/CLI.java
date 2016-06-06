@@ -49,7 +49,7 @@ public class CLI {
     List<CmdLineTool> tools = new LinkedList<CmdLineTool>();
     tools.add(new SentimentTrainerTool());
     tools.add(new TikaTool());
-    
+
     SentimentSampleStreamFactory.registerFactory();
 
     for (CmdLineTool tool : tools) {
@@ -60,12 +60,17 @@ public class CLI {
   }
 
   /**
+   * Returns all tool names
+   * 
    * @return a set which contains all tool names
    */
   public static Set<String> getToolNames() {
     return toolLookupMap.keySet();
   }
 
+  /**
+   * How to use the parser
+   */
   private static void usage() {
     System.out.print("SentimentAnalysisParser");
     System.out.println("Usage: " + CMD + " TOOL");
@@ -162,6 +167,11 @@ public class CLI {
     }
   }
 
+  /**
+   * Checks if everything is configured
+   *
+   * @return true if it is, false otherwise
+   */
   private static boolean isConfigured() {
     // Borrowed from: http://wiki.apache.org/logging-log4j/UsefulCode
     Enumeration appenders = LogManager.getRootLogger().getAllAppenders();

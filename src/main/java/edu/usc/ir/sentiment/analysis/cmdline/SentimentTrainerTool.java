@@ -37,10 +37,21 @@ import opennlp.tools.util.model.ModelUtil;
 public class SentimentTrainerTool
     extends AbstractTrainerTool<SentimentSample, TrainingToolParams> {
 
+  /**
+   * Constructor
+   */
   protected SentimentTrainerTool() {
     super(SentimentSample.class, TrainingToolParams.class);
   }
 
+  /**
+   * Runs the trainer
+   *
+   * @param format
+   *          the format to be used
+   * @param args
+   *          the arguments
+   */
   @Override
   public void run(String format, String[] args) {
     super.run(format, args);
@@ -78,11 +89,21 @@ public class SentimentTrainerTool
     }
   }
 
+  /**
+   * Returns the help message
+   *
+   * @return the message
+   */
   @Override
   public String getHelp() {
     return "Usage: " + CLI.CMD + " " + getName() + " model < documents";
   }
 
+  /**
+   * Returns the short description of the programme
+   *
+   * @return the description
+   */
   @Override
   public String getShortDescription() {
     return "learnable sentiment analysis";

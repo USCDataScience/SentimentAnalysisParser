@@ -36,10 +36,23 @@ import opennlp.tools.util.PlainTextByLineStream;
 public class SentimentSampleStreamFactory
     extends AbstractSampleStreamFactory<SentimentSample> {
 
+  /**
+   * The constructor of the class; initialises the factory
+   *
+   * @param params
+   *          any given parameters
+   */
   protected <P> SentimentSampleStreamFactory(Class<P> params) {
     super(params);
   }
 
+  /**
+   * Creates a sentiment sample stream factory
+   *
+   * @param args
+   *          the necessary arguments
+   * @return SentimentSample stream (factory)
+   */
   @Override
   public ObjectStream<SentimentSample> create(String[] args) {
     BasicFormatParams params = ArgumentParser.parse(args,
@@ -59,6 +72,9 @@ public class SentimentSampleStreamFactory
     return new SentimentSampleStream(lineStream);
   }
 
+  /**
+   * Registers a SentimentSample stream factory
+   */
   public static void registerFactory() {
     StreamFactoryRegistry.registerFactory(SentimentSample.class,
         CLI.DEFAULT_FORMAT,

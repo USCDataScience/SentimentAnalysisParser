@@ -28,9 +28,9 @@ import opennlp.tools.util.ext.ExtensionLoader;
  * Class for creating sentiment factories for training.
  */
 public class SentimentFactory extends BaseToolFactory {
-  
+
   private static final String TOKENIZER_NAME = "sentiment.tokenizer";
-  
+
   private Tokenizer tokenizer;
 
   /**
@@ -49,14 +49,19 @@ public class SentimentFactory extends BaseToolFactory {
   public SentimentContextGenerator createContextGenerator() {
     return new SentimentContextGenerator();
   }
-  
+
+  /**
+   * Returns the tokenizer
+   *
+   * @return the tokenizer
+   */
   public Tokenizer getTokenizer() {
     if (this.tokenizer == null) {
       if (artifactProvider != null) {
         String className = artifactProvider.getManifestProperty(TOKENIZER_NAME);
         if (className != null) {
-          this.tokenizer = ExtensionLoader.instantiateExtension(
-              Tokenizer.class, className);
+          this.tokenizer = ExtensionLoader.instantiateExtension(Tokenizer.class,
+              className);
         }
       }
       if (this.tokenizer == null) { // could not load using artifact provider

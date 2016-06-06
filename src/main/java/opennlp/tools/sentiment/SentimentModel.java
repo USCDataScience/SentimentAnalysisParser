@@ -56,15 +56,32 @@ public class SentimentModel extends BaseModel {
     checkArtifactMap();
   }
 
+  /**
+   * Initializes the Sentiment Analysis model.
+   *
+   * @param modelURL
+   *          the URL to a file required for the model
+   */
   public SentimentModel(URL modelURL)
       throws IOException, InvalidFormatException {
     super(COMPONENT_NAME, modelURL);
   }
 
+  /**
+   * Initializes the Sentiment Analysis model.
+   *
+   * @param file
+   *          the file required for the model
+   */
   public SentimentModel(File file) throws InvalidFormatException, IOException {
     super(COMPONENT_NAME, file);
   }
 
+  /**
+   * Return the model
+   *
+   * @return the model
+   */
   @Deprecated
   public SequenceClassificationModel<String> getSentimentModel() {
     Properties manifest = (Properties) artifactMap.get(MANIFEST_ENTRY);
@@ -81,10 +98,20 @@ public class SentimentModel extends BaseModel {
         (MaxentModel) artifactMap.get(SENTIMENT_MODEL_ENTRY_NAME));
   }
 
+  /**
+   * Returns the sentiment factory
+   *
+   * @return the sentiment factory for the model
+   */
   public SentimentFactory getFactory() {
     return (SentimentFactory) this.toolFactory;
   }
 
+  /**
+   * Returns the MaxEntropy model
+   *
+   * @return the MaxEnt model
+   */
   public MaxentModel getMaxentModel() {
     return (MaxentModel) artifactMap.get(SENTIMENT_MODEL_ENTRY_NAME);
   }

@@ -36,6 +36,19 @@ public class SentimentContextGenerator
     return text;
   }
 
+  /**
+   * Returns the context
+   *
+   * @param index
+   *          the index of the context
+   * @param sequence
+   *          String sequence given
+   * @param priorDecisions
+   *          decisions given earlier
+   * @param additionalContext
+   *          any additional context
+   * @return the context
+   */
   @Override
   public String[] getContext(int index, String[] sequence,
       String[] priorDecisions, Object[] additionalContext) {

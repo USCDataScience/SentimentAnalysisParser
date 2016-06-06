@@ -35,6 +35,7 @@ import org.apache.tika.parser.ParseContext;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 
+import edu.usc.ir.sentiment.analysis.cmdline.SentimentConstant;
 import opennlp.tools.sentiment.SentimentME;
 import opennlp.tools.sentiment.SentimentModel;
 
@@ -55,10 +56,19 @@ public class SentimentParser extends AbstractParser {
   private boolean initialised;
   private boolean available;
 
+  /**
+   * Constructor
+   */
   public SentimentParser() {
     System.out.println("Create sentiment parser");
   }
 
+  /**
+   * Initialises a sentiment parser
+   *
+   * @param url
+   *          the url to the model
+   */
   public void initialise(URL url) {
     try {
       if (this.modelUrl != null
@@ -86,6 +96,12 @@ public class SentimentParser extends AbstractParser {
     initialised = true;
   }
 
+  /**
+   * Initialises a sentiment parser
+   *
+   * @param file
+   *          the model file
+   */
   public void initialise(File file) {
     this.modelFile = file;
 
@@ -100,18 +116,37 @@ public class SentimentParser extends AbstractParser {
     initialised = true;
   }
 
+  /**
+   * Returns the types supported
+   *
+   * @param context
+   *          the parse context
+   * @return the set of types supported
+   */
   @Override
-  public Set<MediaType> getSupportedTypes(ParseContext arg0) {
+  public Set<MediaType> getSupportedTypes(ParseContext context) {
     return SUPPORTED_TYPES;
   }
 
+  /**
+   * Performs the parse
+   *
+   * @param stream
+   *          the input
+   * @param handler
+   *          the content handler
+   * @param metadata
+   *          the metadata passed
+   * @param context
+   *          the context for the parser
+   */
   @Override
   public void parse(InputStream stream, ContentHandler handler,
       Metadata metadata, ParseContext context)
       throws IOException, SAXException, TikaException {
     if (!initialised) {
-      initialise(new File(
-          "target/sentiment/model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin"));
+      String model = metadata.get(SentimentConstant.MODEL);
+      initialise(new File(model));
     }
     if (available) {
       String inputString = IOUtils.toString(stream, "UTF-8");

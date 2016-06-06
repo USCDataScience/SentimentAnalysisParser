@@ -51,10 +51,20 @@ public class SentimentSample {
         .unmodifiableList(new ArrayList<String>(Arrays.asList(sentence)));
   }
 
+  /**
+   * Returns the sentiment
+   *
+   * @return the sentiment
+   */
   public String getSentiment() {
     return sentiment;
   }
 
+  /**
+   * Returns the sentence used
+   *
+   * @return the sentence
+   */
   public String[] getSentence() {
     return sentence.toArray(new String[0]);
   }

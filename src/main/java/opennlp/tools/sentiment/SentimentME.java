@@ -63,6 +63,12 @@ public class SentimentME {
   private MaxentModel maxentModel;
   private SequenceCodec<String> seqCodec = new BioCodec();
 
+  /**
+   * Constructor, initialises
+   *
+   * @param sentModel
+   *          sentiment analysis model
+   */
   public SentimentME(SentimentModel sentModel) {
 
     this.model = sentModel.getSentimentModel();
@@ -113,6 +119,13 @@ public class SentimentME {
 
   }
 
+  /**
+   * Makes a sentiment prediction
+   *
+   * @param sentence
+   *          the text to be analysed for its sentiment
+   * @return the predicted sentiment
+   */
   public String predict(String sentence) {
     String[] tokens = factory.getTokenizer().tokenize(sentence);
 
@@ -122,12 +135,19 @@ public class SentimentME {
     return sentiment;
   }
 
+  /**
+   * Returns the best chosen sentiment for the text predicted on
+   *
+   * @param outcome
+   *          the outcome
+   * @return the best sentiment
+   */
   public String getBestSentiment(double[] outcome) {
     return maxentModel.getBestOutcome(outcome);
   }
 
   /**
-   * Categorizes the given text.
+   * Returns the analysis probabilities
    *
    * @param text
    *          the text to categorize
@@ -136,10 +156,26 @@ public class SentimentME {
     return maxentModel.eval(contextGenerator.getContext(text));
   }
 
+  /**
+   * Makes a sentiment prediction by calling the helper method
+   *
+   * @param tokens
+   *          the text to be analysed for its sentiment
+   * @return the prediction made by the helper method
+   */
   public Span[] predict2(String[] tokens) {
     return predict2(tokens, EMPTY);
   }
 
+  /**
+   * Makes a sentiment prediction
+   *
+   * @param tokens
+   *          the text to be analysed for its sentiment
+   * @param additionalContext
+   *          any required additional context
+   * @return the predictions
+   */
   public Span[] predict2(String[] tokens, String[][] additionalContext) {
 
     additionalContextFeatureGenerator.setCurrentContext(additionalContext);
