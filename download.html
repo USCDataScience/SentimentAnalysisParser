@@ -44,8 +44,8 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="#docs">Docs</a></li>
             <li><a href="#examples">Examples</a></li>
-			<li class="active"><a href="demo.html">Demo</a></li>
-			<li><a href="#download">Download</a></li>
+			<li><a href="demo.html">Demo</a></li>
+			<li class="active"><a href="download.html">Download</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser">GitHub</a></li>
@@ -57,7 +57,38 @@
 
     <div class="container">
 
-	  <div id="gun-ad"></div>
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Download and run Sentiment Analysis Parser</h1>
+		<br> </br>
+        <h3><center>How to build Sentiment Analysis Parser</center></h3>
+		<xmp>
+			$ cd $HOME/src
+			$ git clone https://github.com/USCDataScience/SentimentAnalysisParser
+			$ cd SentimentAnalysisParser
+			$ mvn install assembly:assembly
+		</xmp>
+		<br> </br>
+		<h3><center>How to train a model</center></h3>
+		<xmp>
+			$ cd target/sentiment
+			$ mkdir -p model/org/apache/tika/parser/sentiment/topic/
+			$ bin/sentiment SentimentTrainer -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin 
+			-lang en -data ./../../examples/result -encoding UTF-8	
+		</xmp>
+		<p><center>The model is written to en-sentiment.bin</center></p>
+		<br> </br>
+		<h3><center>How to run the parser</center></h3>
+		<p><center>Make sure you are in target/sentiment</center></p>
+		<xmp>
+			$ bin/sentiment Tika -m model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin 
+			../../examples/test.sent
+		</xmp>
+		
+        <!-- ><p>
+          <a class="btn btn-lg btn-primary" href="#docs" role="button">Get started &raquo;</a>
+        </p> -->
+      </div>
 
     </div> <!-- /container -->
 
@@ -69,6 +100,5 @@
     <script src="js/bootstrap.min.js"></script>
 	<script src="d3/d3.min.js"></script>
 	<script src="js/sentiment.js"></script>
-	<script src="js/chart.js"></script>
   </body>
 </html>
