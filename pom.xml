@@ -132,7 +132,8 @@
 						<configuration>
 							<serverId>ossrh</serverId>
 							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>false</autoReleaseAfterClose>
+							<autoReleaseAfterClose>true</autoReleaseAfterClose>
+							<stagingProfileId>5333d49500d264</stagingProfileId>
 						</configuration>
 					</plugin>
 					<plugin>
@@ -175,7 +176,7 @@
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
+					<!-- <plugin>
 					  <groupId>org.apache.maven.plugins</groupId>
 					  <artifactId>maven-release-plugin</artifactId>
 					  <version>2.5</version>
@@ -185,7 +186,7 @@
 					    <releaseProfiles>release</releaseProfiles>
 					    <goals>deploy</goals>
   					  </configuration>
-					</plugin>
+					</plugin>  -->
 				</plugins>
 			</build>
 		</profile>
