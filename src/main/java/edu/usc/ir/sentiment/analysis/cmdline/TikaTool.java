@@ -20,6 +20,7 @@ package edu.usc.ir.sentiment.analysis.cmdline;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -153,19 +154,52 @@ public class TikaTool extends BasicCmdLineTool {
    * @param model
    *          the analysis model to be used
    */
-  public void process(String fileName, String model)
+  public void process(String fileName, String model, String outputFile)
       throws MalformedURLException {
+    Metadata metadata = new Metadata();
+    metadata.add(SentimentConstant.MODEL, model);
     URL url;
+    File outFile = null;
     File file = new File(fileName);
-    if (file.isFile()) {
+    if (outputFile != null) {
+      outFile = new File(outputFile);
+    }
+    if (file.isDirectory()) {
+      for (File child : file.listFiles()) {
+        processStream(metadata, child.toURI().toURL(), outFile);
+      }
+      return;
+    } else if (file.isFile()) {
       url = file.toURI().toURL();
     } else {
       url = new URL(fileName);
     }
-    Metadata metadata = new Metadata();
-    metadata.add(SentimentConstant.MODEL, model);
+    processStream(metadata, url, outFile);
+  }
+
+  private void processStream(Metadata metadata, URL url, File outFile) {
     try (InputStream input = TikaInputStream.get(url, metadata)) {
-      process(input, System.out, metadata);
+      if (outFile == null) {
+        process(input, System.out, metadata);
+      } else {
+        String fileName = url.getFile();
+        int index = fileName.lastIndexOf(".");
+        if (index >= 0) {
+          fileName = fileName.substring(0, index) + ".out";
+        }
+        index = fileName.lastIndexOf(File.separatorChar);
+        if (index >= 0) {
+          fileName = fileName.substring(index);
+        }
+        File file = new File(outFile, fileName);
+        //System.out.println(file.getAbsolutePath());
+        if (!file.exists()) {
+          file.createNewFile();
+        }
+        OutputStream os = new FileOutputStream(file, false);
+        process(input, os, metadata);
+        os.close();
+      }
     } catch (IOException e) {
       e.printStackTrace();
     } catch (SAXException e) {
@@ -218,18 +252,21 @@ public class TikaTool extends BasicCmdLineTool {
   public void run(String[] args) {
     String fileName = null;
     String model = DEFAULT_MODEL;
+    String output = null;
     if (args.length > 0) {
       for (int i = 0; i < args.length - 1; i++) {
         switch (args[i]) {
         case "-m":
           model = args[i + 1];
           break;
+        case "-o":
+          output = args[i + 1];
         }
       }
       fileName = args[args.length - 1];
     }
     try {
-      process(fileName, model);
+      process(fileName, model, output);
     } catch (MalformedURLException e) {
       e.printStackTrace();
     }
@@ -237,7 +274,8 @@ public class TikaTool extends BasicCmdLineTool {
 
   public static void main(String args[]) throws Exception {
     TikaTool tool = new TikaTool();
-    tool.process(args[0], args[1]);
+    tool.process(args[0], args[1], args[2]);
+
   }
 
 }
