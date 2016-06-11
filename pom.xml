@@ -36,13 +36,13 @@
 	</scm>
 	<build>
 		<resources>
-		 <resource>
-	       <directory>src/main/resources</directory>
-	     </resource>
-	     <resource>
-	       <directory>src/main/tika</directory>
-	     </resource>
-	   	</resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/tika</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -93,16 +93,16 @@
 				</configuration>
 			</plugin>
 			<plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-jar-plugin</artifactId>
-		        <version>3.0.0</version>
-		        <configuration>
-		          <excludes>
-		            <exclude>META-INF/services/org.apache.tika.*</exclude>
-		            <exclude>org/apache/tika/**.*</exclude>
-		          </excludes>
-		        </configuration>
-		    </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<excludes>
+						<exclude>META-INF/services/org.apache.tika.*</exclude>
+						<exclude>org/apache/tika/**.*</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -176,17 +176,10 @@
 							</execution>
 						</executions>
 					</plugin>
-					<!-- <plugin>
-					  <groupId>org.apache.maven.plugins</groupId>
-					  <artifactId>maven-release-plugin</artifactId>
-					  <version>2.5</version>
-					  <configuration>
-    					<autoVersionSubmodules>true</autoVersionSubmodules>
-					    <useReleaseProfile>false</useReleaseProfile>
-					    <releaseProfiles>release</releaseProfiles>
-					    <goals>deploy</goals>
-  					  </configuration>
-					</plugin>  -->
+					<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-release-plugin</artifactId> 
+						<version>2.5</version> <configuration> <autoVersionSubmodules>true</autoVersionSubmodules> 
+						<useReleaseProfile>false</useReleaseProfile> <releaseProfiles>release</releaseProfiles> 
+						<goals>deploy</goals> </configuration> </plugin> -->
 				</plugins>
 			</build>
 		</profile>
@@ -217,6 +210,11 @@
 			<groupId>org.apache.tika</groupId>
 			<artifactId>tika-batch</artifactId>
 			<version>1.13</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.6.2</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

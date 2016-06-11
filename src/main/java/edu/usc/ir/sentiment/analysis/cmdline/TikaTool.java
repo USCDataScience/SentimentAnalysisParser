@@ -49,6 +49,8 @@ import org.xml.sax.SAXException;
 //import org.apache.tika.parser.PasswordProvider;
 import org.xml.sax.helpers.DefaultHandler;
 
+import edu.usc.ir.sentiment.analysis.cmdline.handler.NoDocumentJSONMetHandler;
+import edu.usc.ir.sentiment.analysis.cmdline.handler.NoDocumentMetHandler;
 import opennlp.tools.cmdline.BasicCmdLineTool;
 
 /**
@@ -63,7 +65,7 @@ public class TikaTool extends BasicCmdLineTool {
   private String encoding = null;
   private Detector detector;
   private ParseContext context;
-  private String url;
+  private String outputFormat = SentimentConstant.METADATA_OPTION;
 
   /**
    * The constructor
@@ -75,57 +77,7 @@ public class TikaTool extends BasicCmdLineTool {
     context.set(Parser.class, parser);
   }
 
-  private class NoDocumentMetHandler extends DefaultHandler {
-
-    protected final Metadata metadata;
-
-    protected PrintWriter writer;
-
-    private boolean metOutput;
-
-    public NoDocumentMetHandler(Metadata metadata, PrintWriter writer) {
-      this.metadata = metadata;
-      this.writer = writer;
-      this.metOutput = false;
-    }
-
-    /**
-     * Ends the document given
-     */
-    @Override
-    public void endDocument() {
-      String[] names = metadata.names();
-      Arrays.sort(names);
-      outputMetadata(names);
-      writer.flush();
-      this.metOutput = true;
-    }
-
-    /**
-     * Outputs the metadata
-     *
-     * @param names
-     *          the names provided
-     */
-    public void outputMetadata(String[] names) {
-      for (String name : names) {
-        for (String value : metadata.getValues(name)) {
-          writer.println(name + ": " + value);
-        }
-      }
-    }
-
-    /**
-     * Checks the output
-     *
-     * @return true or false
-     */
-    public boolean metOutput() {
-      return this.metOutput;
-    }
-
-  }
-
+  
   /**
    * Returns a writer
    *
@@ -156,8 +108,6 @@ public class TikaTool extends BasicCmdLineTool {
    */
   public void process(String fileName, String model, String outputFile)
       throws MalformedURLException {
-    Metadata metadata = new Metadata();
-    metadata.add(SentimentConstant.MODEL, model);
     URL url;
     File outFile = null;
     File file = new File(fileName);
@@ -166,6 +116,8 @@ public class TikaTool extends BasicCmdLineTool {
     }
     if (file.isDirectory()) {
       for (File child : file.listFiles()) {
+        Metadata metadata = new Metadata();
+        metadata.add(SentimentConstant.MODEL, model);
         processStream(metadata, child.toURI().toURL(), outFile);
       }
       return;
@@ -174,13 +126,17 @@ public class TikaTool extends BasicCmdLineTool {
     } else {
       url = new URL(fileName);
     }
+    Metadata metadata = new Metadata();
+    metadata.add(SentimentConstant.MODEL, model);
     processStream(metadata, url, outFile);
   }
 
   private void processStream(Metadata metadata, URL url, File outFile) {
+    OutputStream out = null;
     try (InputStream input = TikaInputStream.get(url, metadata)) {
       if (outFile == null) {
-        process(input, System.out, metadata);
+        out = System.out;
+        process(input, out, metadata);
       } else {
         String fileName = url.getFile();
         int index = fileName.lastIndexOf(".");
@@ -192,13 +148,12 @@ public class TikaTool extends BasicCmdLineTool {
           fileName = fileName.substring(index);
         }
         File file = new File(outFile, fileName);
-        //System.out.println(file.getAbsolutePath());
+        // System.out.println(file.getAbsolutePath());
         if (!file.exists()) {
           file.createNewFile();
         }
-        OutputStream os = new FileOutputStream(file, false);
-        process(input, os, metadata);
-        os.close();
+        out = new FileOutputStream(file, false);
+        process(input, out, metadata);
       }
     } catch (IOException e) {
       e.printStackTrace();
@@ -207,7 +162,14 @@ public class TikaTool extends BasicCmdLineTool {
     } catch (TikaException e) {
       e.printStackTrace();
     } finally {
-      System.out.flush();
+      try {
+        out.flush();
+        if (outFile != null) {
+          out.close();
+        }
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
   }
 
@@ -223,15 +185,19 @@ public class TikaTool extends BasicCmdLineTool {
    */
   public void process(InputStream input, OutputStream output, Metadata metadata)
       throws IOException, SAXException, TikaException {
-    Parser p = parser;
     final PrintWriter writer = new PrintWriter(
         getOutputWriter(output, encoding));
-    NoDocumentMetHandler handler = new NoDocumentMetHandler(metadata, writer);
-    p.parse(input, handler, metadata, context);
-
-    if (!handler.metOutput()) {
+    DefaultHandler handler = null;
+    if (SentimentConstant.JSON_OPTION.equals(outputFormat)) {
+      handler = new NoDocumentJSONMetHandler(metadata, writer);
+    } else if (SentimentConstant.METADATA_OPTION.equals(outputFormat)) {
+      handler = new NoDocumentMetHandler(metadata, writer);
+    }
+    parser.parse(input, handler, metadata, context);
+    if (handler instanceof NoDocumentMetHandler && !((NoDocumentMetHandler) handler).metOutput()) {
       handler.endDocument();
     }
+
   }
 
   /**
@@ -256,11 +222,30 @@ public class TikaTool extends BasicCmdLineTool {
     if (args.length > 0) {
       for (int i = 0; i < args.length - 1; i++) {
         switch (args[i]) {
-        case "-m":
-          model = args[i + 1];
+        case SentimentConstant.MODEL_OPTION:
+          i++;
+          if (i < args.length - 1) {
+            model = args[i];
+          } else {
+            throw new IllegalArgumentException(
+                "Model option requires a parameter");
+          }
           break;
-        case "-o":
-          output = args[i + 1];
+        case SentimentConstant.OUTPUT_OPTION:
+          i++;
+          if (i < args.length - 1) {
+            output = args[i];
+          } else {
+            throw new IllegalArgumentException(
+                "Ouput option requires a parameter");
+          }
+          break;
+        case SentimentConstant.JSON_OPTION:
+          outputFormat = SentimentConstant.JSON_OPTION;
+          break;
+        case SentimentConstant.METADATA_OPTION:
+          outputFormat = SentimentConstant.METADATA_OPTION;
+          break;
         }
       }
       fileName = args[args.length - 1];
