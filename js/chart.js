@@ -25,10 +25,10 @@ var svg = d3.select("#gun-ad").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("./data/data.tsv", type, function(error, data) {
+d3.tsv("./data/chart1.tsv", type, function(error, data) {
   if (error) throw error;
 
-  x.domain(data.map(function(d) { return d.letter; }));
+  x.domain(data.map(function(d) { return d.sentiment; }));
   y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
   svg.append("g")
@@ -50,7 +50,7 @@ d3.tsv("./data/data.tsv", type, function(error, data) {
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.letter); })
+      .attr("x", function(d) { return x(d.sentiment); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
