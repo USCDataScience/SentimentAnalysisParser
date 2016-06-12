@@ -25,7 +25,7 @@ The model is written to en-sentiment.bin
 Make sure you are in target/sentiment
 
 ```shell
-$ bin/sentiment Tika -m model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin ../../examples/test.sent
+$ bin/sentiment Tika -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin -o ../../examples/gun-output1 ../../examples/gun-ads
 ```
 
 

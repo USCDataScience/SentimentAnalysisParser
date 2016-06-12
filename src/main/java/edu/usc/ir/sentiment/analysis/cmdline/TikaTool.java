@@ -196,7 +196,10 @@ public class TikaTool extends BasicCmdLineTool {
     parser.parse(input, handler, metadata, context);
     if (handler instanceof NoDocumentMetHandler && !((NoDocumentMetHandler) handler).metOutput()) {
       handler.endDocument();
+    } else if (handler instanceof NoDocumentJSONMetHandler && !((NoDocumentJSONMetHandler) handler).metOutput()) {
+      handler.endDocument();
     }
+    writer.flush();
 
   }
 
