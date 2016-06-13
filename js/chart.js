@@ -17,7 +17,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .ticks(10, "%");
+    .ticks(10);
 
 var svg = d3.select("#gun-ad").append("svg")
     .attr("width", width + margin.left + margin.right)
