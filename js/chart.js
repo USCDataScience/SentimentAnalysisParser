@@ -1,8 +1,8 @@
 (function() {
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 260 - margin.left - margin.right,
-    height = 100 - margin.top - margin.bottom;
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);
@@ -17,7 +17,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .ticks(10, "%");
+    .ticks(1000, "%");
 
 var svg = d3.select("#gun-ad").append("svg")
     .attr("width", width + margin.left + margin.right)
