@@ -1,7 +1,7 @@
 (function() {
 
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
+    width = 500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
@@ -51,7 +51,7 @@ d3.tsv("./data/chart1.tsv", type, function(error, data) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.sentiment); })
-      .attr("width", 100)
+      .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
 });
