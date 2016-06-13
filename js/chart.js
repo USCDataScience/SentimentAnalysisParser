@@ -51,7 +51,7 @@ d3.tsv("./data/chart1.tsv", type, function(error, data) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.sentiment); })
-      .attr("width", x.rangeBand())
+      .attr("width", 100)
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
 });
