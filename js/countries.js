@@ -61,7 +61,7 @@ d3.json("./data/countries.json", function(error, dataObj) {
 
   svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + 1 + ")")
       .call(xAxis);
 
   svg.append("g")
