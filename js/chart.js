@@ -57,7 +57,6 @@ d3.tsv("./data/chart1.tsv", type, function(error, data) {
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
-	  .style("fill", function(d) { return color(d.name); });
 });
 
 function type(d) {
