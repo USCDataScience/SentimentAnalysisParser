@@ -9,6 +9,9 @@ var x = d3.scale.ordinal()
 
 var y = d3.scale.linear()
     .range([height, 0]);
+	
+var color = d3.scale.ordinal()
+	.range(["#6b486b", "#ff8c00"]);
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -54,6 +57,7 @@ d3.tsv("./data/chart1.tsv", type, function(error, data) {
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
+	  .style("fill", function(d) { return color(d.name); });
 });
 
 function type(d) {
