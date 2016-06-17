@@ -66,7 +66,7 @@ d3.json("./data/countries.json", function(error, dataObj) {
 
   svg.append("g")
       .attr("class", "y axis")
-	  .attr("transform", "translate(" + 5 + ",0)")
+	  .attr("transform", "translate(" + 15 + ",0)")
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
