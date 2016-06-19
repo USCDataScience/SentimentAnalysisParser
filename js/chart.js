@@ -49,7 +49,7 @@ d3.tsv("./data/chart1.tsv", type, function(error, data) {
       .style("text-anchor", "end")
       .text("Frequency");
 
-  svg.selectAll("bar")
+  svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
