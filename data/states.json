@@ -1,0 +1,174 @@
+{
+  "MT": {
+    "total": 3,
+    "prediction": {
+      "positive": 3
+    }
+  },
+  "WI": {
+    "total": 2,
+    "prediction": {
+      "positive": 1,
+      "negative": 1
+    }
+  },
+  "CO": {
+    "total": 3,
+    "prediction": {
+      "positive": 3
+    }
+  },
+  "CA": {
+    "total": 7,
+    "prediction": {
+      "positive": 7
+    }
+  },
+  "NE": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "TN": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "IL": {
+    "total": 4,
+    "prediction": {
+      "positive": 3,
+      "negative": 1
+    }
+  },
+  "MA": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "MS": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "IN": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "NM": {
+    "total": 2,
+    "prediction": {
+      "positive": 1,
+      "negative": 1
+    }
+  },
+  "AZ": {
+    "total": 3,
+    "prediction": {
+      "positive": 3
+    }
+  },
+  "NC": {
+    "total": 1,
+    "prediction": {
+      "negative": 1
+    }
+  },
+  "IA": {
+    "total": 2,
+    "prediction": {
+      "positive": 2
+    }
+  },
+  "ID": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "WA": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "NY": {
+    "total": 4,
+    "prediction": {
+      "positive": 3,
+      "negative": 1
+    }
+  },
+  "NJ": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "VT": {
+    "total": 1,
+    "prediction": {
+      "negative": 1
+    }
+  },
+  "FL": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "SC": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "WV": {
+    "total": 2,
+    "prediction": {
+      "positive": 2
+    }
+  },
+  "KY": {
+    "total": 1,
+    "prediction": {
+      "negative": 1
+    }
+  },
+  "OH": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "TX": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "AK": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "GA": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  },
+  "HI": {
+    "total": 1,
+    "prediction": {
+      "positive": 1
+    }
+  }
+}
