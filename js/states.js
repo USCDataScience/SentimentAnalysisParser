@@ -37,16 +37,16 @@ d3.json("./data/states.json", function(error, dataObj) {
   
   var data = [];
   for (var p in dataObj) {
-	  var country = dataObj[p];
-	  country.name = p;
+	  var state = dataObj[p];
+	  state.name = p;
 	  //var positive =  p.prediction.positive;
 	  //var negative = p.prediction.negative;
 	  //var sentiment = [positive, negative];
-	  country.sentiment = [];
-	  country.sentiment.push({ name: "positive", value: country.prediction.positive || 0});
-	  country.sentiment.push({ name: "negative", value: country.prediction.negative || 0});
-	  //country.prediction = sentiment;
-	  data.push(country);
+	  state.sentiment = [];
+	  state.sentiment.push({ name: "positive", value: state.prediction.positive || 0});
+	  state.sentiment.push({ name: "negative", value: state.prediction.negative || 0});
+	  //state.prediction = sentiment;
+	  data.push(state);
   }
 
   //var ageNames = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
@@ -76,13 +76,13 @@ d3.json("./data/states.json", function(error, dataObj) {
       .style("text-anchor", "end")
       .text("Number of ads");
 	  
-  var countryData = svg.selectAll(".country")
+  var stateData = svg.selectAll(".state")
       .data(data)
     .enter().append("g")
-      .attr("class", "country")
+      .attr("class", "state")
       .attr("transform", function(d) { return "translate(" + x0(d.name) + ",0)"; });
 
-  countryData.selectAll("rect")
+  stateData.selectAll("rect")
       .data(function(d) { return d.sentiment; })
     .enter().append("rect")
       .attr("width", x1.rangeBand())
