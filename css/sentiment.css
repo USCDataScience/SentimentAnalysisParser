@@ -5,6 +5,14 @@
 .fix-height{
 	height: 800px;
 }
+.student img {
+  margin: 0 auto;
+  width: 150px;
+}
+
+.student {
+  text-align: center;
+}
 .bar {
   fill: steelblue;
   /*fill: #6b486b;

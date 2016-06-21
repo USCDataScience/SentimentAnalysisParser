@@ -11,3 +11,11 @@
 .filler-height{
 	height: 150px;
 }
+.student img {
+  margin: 0 auto;
+  width: 150px;
+}
+
+.student {
+  text-align: center;
+}
