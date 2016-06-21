@@ -17,12 +17,22 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sentiment.css" rel="stylesheet">
+	
+    <!-- App CSS -->
+    <link href="css/app.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+		
+	    <style type="text/css">
+	        .student {
+	            margin: 15px;
+	        }
+	    </style>
+		
   </head>
 
   <body>
@@ -41,11 +51,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
             <li><a href="use.html">Use</a></li>
 			<li><a href="demo.html">Demo</a></li>
 			<li><a href="http://repo1.maven.org/maven2/edu/usc/ir/sentiment-analysis-parser/">Download</a></li>
-			<li><a href="contact.html">Contact</a></li>
+			<li class="active"><a href="contact.html">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser">GitHub</a></li>
@@ -59,11 +69,15 @@
 
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Sentiment Analysis Parser</h1>
-        <p>A parser that combines Apache OpenNLP and Apache Tika and provides facilities for automatically deriving sentiment from text.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="use.html" role="button">Get started &raquo;</a>
-        </p>
+	      <div class="row">
+	        <div class="col-lg-12">
+        		<h1 class="section-heading">Contact our contributors</h1>
+        		<div>
+            		<h3>Contributors</h3>
+            		<div class="contacts" id="contacts"></div>
+        		</div>
+			</div>
+		</div>
       </div>
 
     </div> <!-- /container -->
@@ -76,5 +90,56 @@
     <script src="js/bootstrap.min.js"></script>
 	<script src="d3/d3.min.js"></script>
 	<script src="js/sentiment.js"></script>
+	<script>
+	    function makeStudent(id, student, terms){
+	        //console.log(student)
+	        var res = $("<div>", {"id": id, "class": "col-md-4"});
+	        var element = $("<div>", {"class": "student"})
+	                .append($("<a>", {"href": student.url, "target": "blank"})
+	                        .append($("<img>", {"alt": student.name, "src": student.photo != null ? student.photo: "images/headshots/avatar-placeholder.svg"}))
+	                        .append("<br/>")
+	                        .append($("<label>", {"text": student.name}))
+	                );
+	        if (student.email != null && student.email != ""){
+	            element.append("<br/>")
+	                    .append($("<a>", {"href": "mailto:"+student.email, "text": student.email}))
+	        }
+	        if (terms){
+	            element.append("<br/>");
+	            element.append(terms.join(", "));
+	        }
+	        res.append(element)
+	        return res;
+	    }
+
+	    function makeStudentsSection(sect, data){
+	        var section = $("<div>", {'class': 'panel panel-default'});
+	        var sectid = sect.title.replace(/\s+/g, '-').toLowerCase();
+	        $("<div>", {"id": sectid, 'class': 'panel-heading'})
+	                .append($("<h3>", {'class': 'panel-title', text: sect.title}))
+	                .appendTo(section);
+	        var row;
+	        for (var i = 0; i < sect.students.length; i++) {
+	            if (i % 3 == 0){
+	                row = $("<div>", {"class": "row"}).appendTo(section);
+	            }
+	            makeStudent(sectid+sect.students[i], data.profiles[sect.students[i]]).appendTo(row)
+	        }
+	        return section
+	    }
+
+	  url = "data/contact.json";
+	  $.getJSON(url, function(data){
+	      //console.log(data);
+	      var profiles = data['profiles'];
+	      var drStEle = $("#contacts");
+	      var drs = data['contacts'];
+	      for (var i = 0; i < drs.length; i++){
+	          var sem = drs[i]
+	          var sectionEl = makeStudentsSection(sem, data)
+	          drStEle.append(sectionEl)
+	      }
+	  })
+	 </script>
   </body>
 </html>
