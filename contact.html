@@ -18,8 +18,8 @@
     <!-- Custom styles for this template -->
     <link href="css/sentiment.css" rel="stylesheet">
 	
-    <!-- App CSS -->
-    <link href="css/app.css" rel="stylesheet">
+    <!-- App CSS 
+    <link href="css/app.css" rel="stylesheet"> -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -96,7 +96,7 @@
 	<script src="js/sentiment.js"></script>
 	<script src="js/jquery.js"></script>
 	<script>
-	    function makeStudent(id, student, terms){
+	    function makeContact(id, student, terms){
 	        //console.log(student)
 	        var res = $("<div>", {"id": id, "class": "col-md-4"});
 	        var element = $("<div>", {"class": "student"})
@@ -117,7 +117,7 @@
 	        return res;
 	    }
 
-	    function makeStudentsSection(sect, data){
+	    function makeContactSection(sect, data){
 	        var section = $("<div>", {'class': 'panel panel-default'});
 	        var sectid = sect.title.replace(/\s+/g, '-').toLowerCase();
 	        $("<div>", {"id": sectid, 'class': 'panel-heading'})
@@ -128,7 +128,7 @@
 	            if (i % 3 == 0){
 	                row = $("<div>", {"class": "row"}).appendTo(section);
 	            }
-	            makeStudent(sectid+sect.students[i], data.profiles[sect.students[i]]).appendTo(row)
+	            makeContact(sectid+sect.students[i], data.profiles[sect.students[i]]).appendTo(row)
 	        }
 	        return section
 	    }
@@ -137,12 +137,12 @@
 	  $.getJSON(url, function(data){
 	      //console.log(data);
 	      var profiles = data['profiles'];
-	      var drStEle = $("#contacts");
-	      var drs = data['contacts'];
-	      for (var i = 0; i < drs.length; i++){
-	          var sem = drs[i]
-	          var sectionEl = makeStudentsSection(sem, data)
-	          drStEle.append(sectionEl)
+	      var elem = $("#contacts");
+	      var contact = data['contacts'];
+	      for (var i = 0; i < contact.length; i++){
+	          var sem = contact[i]
+	          var sectionEl = makeContactSection(sem, data)
+	          elem.append(sectionEl)
 	      }
 	  })
 	 </script>
