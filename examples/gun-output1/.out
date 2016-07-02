@@ -1,5 +1,7 @@
-Content-Length: 14340
-Content-Type: application/octet-stream
-X-Parsed-By: org.apache.tika.parser.EmptyParser
-model: target/sentiment/model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin
-resourceName: .DS_Store
+{
+  "Content-Length": "14340",
+  "Content-Type": "application/octet-stream",
+  "X-Parsed-By": "org.apache.tika.parser.EmptyParser",
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": ".DS_Store"
+}

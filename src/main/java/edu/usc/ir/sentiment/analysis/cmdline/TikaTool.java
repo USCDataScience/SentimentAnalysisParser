@@ -147,15 +147,26 @@ public class TikaTool extends BasicCmdLineTool {
         if (index >= 0) {
           fileName = fileName.substring(index);
         }
-        File file = new File(outFile, fileName);
+        File file;
+        if (outFile.getAbsolutePath().endsWith(fileName)) {
+          file = outFile;
+        }
+        else {
+          file = new File(outFile, fileName);
+        }
         // System.out.println(file.getAbsolutePath());
         if (!file.exists()) {
-          file.createNewFile();
+          try {
+            file.createNewFile();
+          } catch (IOException e) {
+            System.err.println("Problem reading file " + file.getAbsolutePath());
+          }
         }
         out = new FileOutputStream(file, false);
         process(input, out, metadata);
       }
     } catch (IOException e) {
+      //System.err.println("Problem reading file ");
       e.printStackTrace();
     } catch (SAXException e) {
       e.printStackTrace();

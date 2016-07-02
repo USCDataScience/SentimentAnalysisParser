@@ -27,7 +27,7 @@ public class SentimentCount {
 		
 	public static void main(String args[]) throws FileNotFoundException {
 		SentimentCount sentCount = new SentimentCount();
-		File file = new File("./out");
+		File file = new File("./out1");
 		sentCount.counter(file);
 		System.out.println("Positive: " + sentCount.pos);
 		System.out.println("Negative: " + sentCount.neg);

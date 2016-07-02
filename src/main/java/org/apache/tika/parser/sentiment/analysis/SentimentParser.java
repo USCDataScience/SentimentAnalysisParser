@@ -151,7 +151,7 @@ public class SentimentParser extends AbstractParser {
     if (available) {
       String inputString = IOUtils.toString(stream, "UTF-8");
       String output = sentiment.predict(inputString);
-      metadata.add("Sentiment: ", output);
+      metadata.add("Sentiment", output);
     } else {
       metadata.add("Error", "Model is not available");
     }

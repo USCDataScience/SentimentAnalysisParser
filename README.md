@@ -16,7 +16,7 @@ $ mvn install assembly:assembly
 ```shell
 $ cd target/sentiment
 $ mkdir -p model/org/apache/tika/parser/sentiment/topic/
-$ bin/sentiment SentimentTrainer -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin -lang en -data ./../../examples/result -encoding UTF-8
+$ bin/sentiment SentimentTrainer -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin -lang en -data ./../../examples/categorical_dataset -encoding UTF-8
 ```
 The model is written to en-sentiment.bin
 
@@ -25,7 +25,7 @@ The model is written to en-sentiment.bin
 Make sure you are in target/sentiment
 
 ```shell
-$ bin/sentiment Tika -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin -o ../../examples/gun-output1 ../../examples/gun-ads
+$ bin/sentiment Tika -model model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin -o ../../examples/gun-output1 -j ../../examples/gun-ads
 ```
 
 

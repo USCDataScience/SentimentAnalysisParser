@@ -1,0 +1,11 @@
+{
+  "Content-Length": "0",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "positive",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "2931.sent"
+}
