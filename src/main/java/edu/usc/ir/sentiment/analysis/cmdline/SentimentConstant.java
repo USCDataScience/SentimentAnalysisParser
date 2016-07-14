@@ -14,4 +14,6 @@ public final class SentimentConstant {
   public static final String MODEL_OPTION = "-model";
   
   public static final String OUTPUT_OPTION = "-o";
+  
+  public static final String CONFIG_OPTION = "--config=";
 }

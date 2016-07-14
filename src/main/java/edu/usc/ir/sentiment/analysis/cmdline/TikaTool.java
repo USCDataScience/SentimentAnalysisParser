@@ -260,6 +260,8 @@ public class TikaTool extends BasicCmdLineTool {
         case SentimentConstant.METADATA_OPTION:
           outputFormat = SentimentConstant.METADATA_OPTION;
           break;
+        case SentimentConstant.CONFIG_OPTION:
+          break;
         }
       }
       fileName = args[args.length - 1];
