@@ -1,0 +1,15 @@
+<div class="extra-tags-container">
+    <input type="hidden" id="extra-tags-url" value="/classifieds/search?location=lynchburg&amp;category=all&amp;page=1&amp;tag=muzzle-loader" />        
+
+
+    <ul class="inline-list">
+        <li class="small-text">
+            <input id="tag_198" type="checkbox" name="tag" value="ruger" /> 
+            <label for="tag_198" title="Ruger (1)">Ruger (1)</label>
+        </li>
+</ul><ul class="inline-list">    </ul>
+
+
+      
+</div>
+

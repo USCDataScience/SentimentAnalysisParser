@@ -1,0 +1,1001 @@
+{
+  "Content-Length": "100029",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "10068.sent"
+}{
+  "Content-Length": "100034",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "105.sent"
+}{
+  "Content-Length": "100044",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "10635.sent"
+}{
+  "Content-Length": "100074",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "10649.sent"
+}{
+  "Content-Length": "100073",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "10671.sent"
+}{
+  "Content-Length": "100362",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "1074.sent"
+}{
+  "Content-Length": "100025",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "10966.sent"
+}{
+  "Content-Length": "100042",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "11309.sent"
+}{
+  "Content-Length": "100047",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "11668.sent"
+}{
+  "Content-Length": "100004",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "11802.sent"
+}{
+  "Content-Length": "100375",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "12036.sent"
+}{
+  "Content-Length": "100032",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "12688.sent"
+}{
+  "Content-Length": "101072",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "1336.sent"
+}{
+  "Content-Length": "100069",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "13587.sent"
+}{
+  "Content-Length": "101877",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "1393.sent"
+}{
+  "Content-Length": "100017",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "14220.sent"
+}{
+  "Content-Length": "101509",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "15142.sent"
+}{
+  "Content-Length": "101205",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "15164.sent"
+}{
+  "Content-Length": "100004",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "15393.sent"
+}{
+  "Content-Length": "100011",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "15641.sent"
+}{
+  "Content-Length": "100982",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "15802.sent"
+}{
+  "Content-Length": "101819",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "15939.sent"
+}{
+  "Content-Length": "100910",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "16062.sent"
+}{
+  "Content-Length": "101369",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "16185.sent"
+}{
+  "Content-Length": "100261",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "16371.sent"
+}{
+  "Content-Length": "100020",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "16834.sent"
+}{
+  "Content-Length": "100315",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "16982.sent"
+}{
+  "Content-Length": "100039",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "17147.sent"
+}{
+  "Content-Length": "100018",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "17221.sent"
+}{
+  "Content-Length": "100053",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "17693.sent"
+}{
+  "Content-Length": "100034",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "17776.sent"
+}{
+  "Content-Length": "100051",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "18061.sent"
+}{
+  "Content-Length": "100051",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "18362.sent"
+}{
+  "Content-Length": "100046",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "19148.sent"
+}{
+  "Content-Length": "101234",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "19208.sent"
+}{
+  "Content-Length": "101051",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "19294.sent"
+}{
+  "Content-Length": "100042",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "19336.sent"
+}{
+  "Content-Length": "100066",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "19600.sent"
+}{
+  "Content-Length": "100066",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "20155.sent"
+}{
+  "Content-Length": "100009",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "20392.sent"
+}{
+  "Content-Length": "100034",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "20540.sent"
+}{
+  "Content-Length": "100336",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "20940.sent"
+}{
+  "Content-Length": "101321",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "22512.sent"
+}{
+  "Content-Length": "101658",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "22605.sent"
+}{
+  "Content-Length": "100028",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "23384.sent"
+}{
+  "Content-Length": "100045",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "23684.sent"
+}{
+  "Content-Length": "100030",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "239.sent"
+}{
+  "Content-Length": "100228",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "24104.sent"
+}{
+  "Content-Length": "100027",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "25283.sent"
+}{
+  "Content-Length": "100259",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "25316.sent"
+}{
+  "Content-Length": "100029",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "2534.sent"
+}{
+  "Content-Length": "100022",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "25922.sent"
+}{
+  "Content-Length": "101684",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "27045.sent"
+}{
+  "Content-Length": "100582",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "27343.sent"
+}{
+  "Content-Length": "100296",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "27372.sent"
+}{
+  "Content-Encoding": "ISO-8859-1",
+  "Content-Length": "1650",
+  "Content-Type": "text/html; charset\u003dISO-8859-1",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.html.HtmlParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "27630.sent"
+}{
+  "Content-Length": "100024",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "27771.sent"
+}{
+  "Content-Length": "101170",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "28100.sent"
+}{
+  "Content-Length": "100067",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "2878.sent"
+}{
+  "Content-Length": "100047",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "28815.sent"
+}{
+  "Content-Length": "100043",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "28865.sent"
+}{
+  "Content-Length": "32",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "sad",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "28968.sent"
+}{
+  "Content-Length": "100056",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "29223.sent"
+}{
+  "Content-Encoding": "ISO-8859-1",
+  "Content-Length": "467",
+  "Content-Type": "text/html; charset\u003dISO-8859-1",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.html.HtmlParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "29247.sent"
+}{
+  "Content-Length": "101263",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "29739.sent"
+}{
+  "Content-Length": "100021",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30012.sent"
+}{
+  "Content-Length": "100003",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30097.sent"
+}{
+  "Content-Length": "100005",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30121.sent"
+}{
+  "Content-Length": "100011",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30207.sent"
+}{
+  "Content-Length": "100056",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "304.sent"
+}{
+  "Content-Length": "100310",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30484.sent"
+}{
+  "Content-Length": "100294",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30660.sent"
+}{
+  "Content-Length": "100575",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30665.sent"
+}{
+  "Content-Length": "100271",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30735.sent"
+}{
+  "Content-Length": "4057",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "like",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30850.sent"
+}{
+  "Content-Encoding": "ISO-8859-1",
+  "Content-Length": "1655",
+  "Content-Type": "text/html; charset\u003dISO-8859-1",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.html.HtmlParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "30946.sent"
+}{
+  "Content-Length": "100291",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "31813.sent"
+}{
+  "Content-Length": "100295",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "31864.sent"
+}{
+  "Content-Length": "100031",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "32401.sent"
+}{
+  "Content-Length": "100279",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "32423.sent"
+}{
+  "Content-Length": "100821",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "32578.sent"
+}{
+  "Content-Length": "100011",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "32649.sent"
+}{
+  "Content-Length": "100019",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "3565.sent"
+}{
+  "Content-Length": "101293",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "3750.sent"
+}{
+  "Content-Length": "101549",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "3983.sent"
+}{
+  "Content-Length": "100935",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "4263.sent"
+}{
+  "Content-Length": "100028",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "44.sent"
+}{
+  "Content-Length": "100007",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "4402.sent"
+}{
+  "Content-Length": "100027",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "4792.sent"
+}{
+  "Content-Length": "100087",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "4903.sent"
+}{
+  "Content-Length": "100005",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "5465.sent"
+}{
+  "Content-Length": "100003",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "5492.sent"
+}{
+  "Content-Length": "100240",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "5516.sent"
+}{
+  "Content-Length": "101116",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "6542.sent"
+}{
+  "Content-Length": "100010",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "6703.sent"
+}{
+  "Content-Length": "100279",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "6768.sent"
+}{
+  "Content-Length": "100049",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "8003.sent"
+}{
+  "Content-Length": "100044",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "8162.sent"
+}{
+  "Content-Length": "100052",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "9575.sent"
+}{
+  "Content-Length": "100018",
+  "Content-Type": "application/sentiment",
+  "Sentiment": "neutral",
+  "X-Parsed-By": [
+    "org.apache.tika.parser.DefaultParser",
+    "org.apache.tika.parser.sentiment.analysis.SentimentParser"
+  ],
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "resourceName": "9942.sent"
+}

@@ -1,0 +1,35 @@
+<div class="extra-tags-container">
+    <input type="hidden" id="extra-tags-url" value="/classifieds/search?location=minnesota&amp;category=all&amp;page=1&amp;tag=45acp" />        
+
+
+    <ul class="inline-list">
+        <li class="small-text">
+            <input id="tag_245" type="checkbox" name="tag" value="double-single-action" /> 
+            <label for="tag_245" title="Double / Single Action (41)">Double / Single Action (41)</label>
+        </li>
+        <li class="small-text">
+            <input id="tag_244" type="checkbox" name="tag" value="double-action" /> 
+            <label for="tag_244" title="Double Action (15)">Double Action (15)</label>
+        </li>
+</ul><ul class="inline-list">        <li class="small-text">
+            <input id="tag_254" type="checkbox" name="tag" value="semi-automatic" /> 
+            <label for="tag_254" title="Semi-automatic (10)">Semi-automatic (10)</label>
+        </li>
+        <li class="small-text">
+            <input id="tag_243" type="checkbox" name="tag" value="single-action" /> 
+            <label for="tag_243" title="Single Action (99)">Single Action (99)</label>
+        </li>
+</ul><ul class="inline-list">        <li class="small-text">
+            <input id="tag_331" type="checkbox" name="tag" value="single-shot" /> 
+            <label for="tag_331" title="Single Shot (1)">Single Shot (1)</label>
+        </li>
+</ul><ul class="inline-list">        <li class="small-text">
+            <input id="tag_246" type="checkbox" name="tag" value="striker-fire" /> 
+            <label for="tag_246" title="Striker Fire (42)">Striker Fire (42)</label>
+        </li>
+    </ul>
+
+
+      
+</div>
+
