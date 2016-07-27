@@ -37,14 +37,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Sentiment Analysis Parser</a>
+          <a class="navbar-brand" href="index.html">Sentiment Analysis Parser</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="use.html">Use</a></li>
 			<li><a href="demo.html">Demo</a></li>
-			<li><a href="models.html">Models</a></li>
+			<li class="active"><a href="models.html">Models</a></li>
 			<li><a href="http://repo1.maven.org/maven2/edu/usc/ir/sentiment-analysis-parser/">Download</a></li>
 			<li><a href="contact.html">Contact</a></li>
 			<li><a href="https://github.com/USCDataScience/SentimentAnalysisParser">GitHub</a></li>
@@ -52,22 +52,72 @@
           <!-- <ul class="nav navbar-nav navbar-right">
             <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser">GitHub</a></li>
           </ul> -->
-		  <a href="http://usc.edu" class="usc-logo pull-right"><img src="./images/usc-shield-name-black.png"></a>
+			  <a href="http://usc.edu" class="usc-logo pull-right"><img src="./images/usc-shield-name-black.png"></a>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-
     <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Sentiment Analysis Parser</h1>
-        <p>A parser that combines Apache OpenNLP and Apache Tika and provides facilities for automatically deriving sentiment from text.</p>
-        <p>
-          <a class="btn btn-lg btn-primary" href="use.html" role="button">Get started &raquo;</a>
-        </p>
-      </div>
+		
+	<!--	<div class="jumbotron">	-->
+		
+	        <h1>Sentiment Analysis Parser Model Datasets</h1>
+			<br> </br>
+	        <h2>The distribution of sentiment among datasets used</h1>
+			<br> </br>
+	        <h3>BINARY</h3>
+			<br> </br>
+			<ol>
+				<li><b>Netflix model --> /examples/result</b></li>
+				<ul>
+					<li>Positive: 625</li>
+					<li>Negative: 394</li>
+				</ul>
+				<br> </br>
+				<div id="netflix"></div>
+				<br> </br>
+				<li><b>Erotic Reviews model --> /reviews/review_bin_dataset</b></li>
+				
+				<ul>
+					<li>Positive: 943</li>
+					<li>Negative: 114</li>
+				</ul>
+				<br> </br>
+				<div id="reviews-bin"></div>
+				<br> </br>
+			</ol>
+			<br> </br>
+	        <h3>CATEGORICAL</h3>
+			<br> </br>
+			<ol>
+				<li><b>Stanford model --> /examples/categorical_dataset</b></li>
+				<ul>
+					<li>Angry: 11432</li>
+					<li>Sad: 43952</li>
+					<li>Neutral: 119468</li>
+					<li>Like: 57135</li>
+					<li>Love: 17960</li>
+				</ul>
+				<br> </br>
+				<div id="stanford"></div>
+				<br> </br>
+				<li><b>Erotic Reviews model --> /reviews/review_categ_dataset</b></li>
+				<ul>
+					<li>Angry: 49</li>
+					<li>Sad: 65</li>
+					<li>Neutral: 278</li>
+					<li>Like: 639</li>
+					<li>Love: 133</li>
+				</ul>
+				<br> </br>
+				<div id="reviews-categ"></div>
+				<br> </br>
+			</ol>
+			<br> </br>
+		
+	<!--	</div>	-->
+		
+	  	
 
     </div> <!-- /container -->
 
@@ -79,5 +129,9 @@
     <script src="js/bootstrap.min.js"></script>
 	<script src="d3/d3.min.js"></script>
 	<script src="js/sentiment.js"></script>
+	<script src="js/netflix-chart.js"></script>
+	<script src="js/review-bin-chart.js"></script>
+	<script src="js/stanford-chart.js"></script>
+	<script src="js/review-categ-chart.js"></script>
   </body>
 </html>
