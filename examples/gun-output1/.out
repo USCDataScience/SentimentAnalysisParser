@@ -1,7 +1,7 @@
 {
-  "Content-Length": "14340",
+  "Content-Length": "12292",
   "Content-Type": "application/octet-stream",
   "X-Parsed-By": "org.apache.tika.parser.EmptyParser",
-  "model": "model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin",
+  "model": "model/org/apache/tika/parser/sentiment/topic/en-netflix-sentiment.bin",
   "resourceName": ".DS_Store"
 }

@@ -35,6 +35,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+import org.apache.tika.config.TikaConfig;
 import org.apache.tika.detect.DefaultDetector;
 import org.apache.tika.detect.Detector;
 import org.apache.tika.exception.TikaException;
@@ -42,9 +43,9 @@ import org.apache.tika.exception.TikaException;
 import org.apache.tika.io.TikaInputStream;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.AutoDetectParser;
+import org.apache.tika.parser.DigestingParser;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
-import org.apache.tika.parser.sentiment.analysis.SentimentParser;
 import org.xml.sax.SAXException;
 //import org.apache.tika.parser.PasswordProvider;
 import org.xml.sax.helpers.DefaultHandler;
@@ -65,19 +66,22 @@ public class TikaTool extends BasicCmdLineTool {
   private String encoding = null;
   private Detector detector;
   private ParseContext context;
+  private String configFilePath;
+  private TikaConfig config;
+  private DigestingParser.Digester digester = null;
   private String outputFormat = SentimentConstant.METADATA_OPTION;
 
   /**
    * The constructor
    */
   public TikaTool() {
-    detector = new DefaultDetector();
-    parser = new AutoDetectParser(detector);
     context = new ParseContext();
-    context.set(Parser.class, parser);
+//    detector = new DefaultDetector();
+//    parser = new AutoDetectParser(detector);
+//    context = new ParseContext();
+//    context.set(Parser.class, parser);
   }
 
-  
   /**
    * Returns a writer
    *
@@ -150,8 +154,7 @@ public class TikaTool extends BasicCmdLineTool {
         File file;
         if (outFile.getAbsolutePath().endsWith(fileName)) {
           file = outFile;
-        }
-        else {
+        } else {
           file = new File(outFile, fileName);
         }
         // System.out.println(file.getAbsolutePath());
@@ -159,14 +162,15 @@ public class TikaTool extends BasicCmdLineTool {
           try {
             file.createNewFile();
           } catch (IOException e) {
-            System.err.println("Problem reading file " + file.getAbsolutePath());
+            System.err
+                .println("Problem reading file " + file.getAbsolutePath());
           }
         }
         out = new FileOutputStream(file, false);
         process(input, out, metadata);
       }
     } catch (IOException e) {
-      //System.err.println("Problem reading file ");
+      // System.err.println("Problem reading file ");
       e.printStackTrace();
     } catch (SAXException e) {
       e.printStackTrace();
@@ -205,9 +209,11 @@ public class TikaTool extends BasicCmdLineTool {
       handler = new NoDocumentMetHandler(metadata, writer);
     }
     parser.parse(input, handler, metadata, context);
-    if (handler instanceof NoDocumentMetHandler && !((NoDocumentMetHandler) handler).metOutput()) {
+    if (handler instanceof NoDocumentMetHandler
+        && !((NoDocumentMetHandler) handler).metOutput()) {
       handler.endDocument();
-    } else if (handler instanceof NoDocumentJSONMetHandler && !((NoDocumentJSONMetHandler) handler).metOutput()) {
+    } else if (handler instanceof NoDocumentJSONMetHandler
+        && !((NoDocumentJSONMetHandler) handler).metOutput()) {
       handler.endDocument();
     }
     writer.flush();
@@ -260,17 +266,42 @@ public class TikaTool extends BasicCmdLineTool {
         case SentimentConstant.METADATA_OPTION:
           outputFormat = SentimentConstant.METADATA_OPTION;
           break;
-        case SentimentConstant.CONFIG_OPTION:
+        default://case SentimentConstant.CONFIG_OPTION:
+          if (args[i].startsWith(SentimentConstant.CONFIG_OPTION)) {
+            String config = args[i].substring(SentimentConstant.CONFIG_OPTION.length());
+            try {
+              configure(config);
+            } catch (Exception e) {
+              e.printStackTrace();
+            }
+          }
           break;
         }
       }
       fileName = args[args.length - 1];
+    }
+    if (parser == null) {
+      detector = new DefaultDetector();
+      parser = new AutoDetectParser(detector);
+      //context = new ParseContext();
+      context.set(Parser.class, parser);
     }
     try {
       process(fileName, model, output);
     } catch (MalformedURLException e) {
       e.printStackTrace();
     }
+  }
+
+  private void configure(String configFilePath) throws Exception {
+    this.configFilePath = configFilePath;
+    config = new TikaConfig(new File(configFilePath));
+    parser = new AutoDetectParser(config);
+    if (digester != null) {
+      parser = new DigestingParser(parser, digester);
+    }
+    detector = config.getDetector();
+    context.set(Parser.class, parser);
   }
 
   public static void main(String args[]) throws Exception {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<parsers>
+		<parser class="org.apache.tika.parser.DefaultParser">
+			<!-- Don't use DefaultParser for these mimetypes, alternate config below -->
+			<mime-exclude>text/html</mime-exclude>
+			<!-- Exclude (blacklist) these parsers, have them ignored by DefaultParser -->
+			<parser-exclude class="org.apache.tika.parser.html.HtmlParser" />
+		</parser>
+		<!-- No HTML, thank you! -->
+		<parser class="org.apache.tika.parser.EmptyParser">
+			<mime>text/html</mime>
+		</parser>
+	</parsers>
+</properties>
