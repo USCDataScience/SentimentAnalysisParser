@@ -47,7 +47,7 @@ d3.tsv("./data/categ-chart1.tsv", type, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
+      .text("# of ads");
 
   svg.selectAll(".bar")
       .data(data)

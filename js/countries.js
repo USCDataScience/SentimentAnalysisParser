@@ -73,7 +73,7 @@ d3.json("./data/countries.json", function(error, dataObj) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Number of ads");
+      .text("# of ads");
 	  
   var countryData = svg.selectAll(".country")
       .data(data)
