@@ -1,6 +1,6 @@
 (function() {
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 550 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -47,7 +47,7 @@ d3.tsv("./data/stanford.tsv", type, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
+      .text("# of reviews");
 
   svg.selectAll(".bar")
       .data(data)

@@ -47,7 +47,7 @@ d3.tsv("./data/netflix.tsv", type, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Frequency");
+      .text("# of reviews");
 
   svg.selectAll(".bar")
       .data(data)
