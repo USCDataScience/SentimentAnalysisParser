@@ -77,7 +77,8 @@
 		<div>
 		<ul>
 		<ul><li><font size="2"><span style="line-height:27px">Initial version reported the sentiment in a binary fashion (<i>positive</i> or <i>negative</i>).</span></font></li>
-		<li><font size="2"><span style="line-height:27px">The latest version allows the user to train the model on either binary dataset (that allows for the binary output explained above) or the categorical dataset (that allows for the categorical output similar to Facebook reactions as follows: <i>angry</i>, <i>sad</i>, <i>neutral</i>, <i>like</i>, or <i>love</i>).</span></font></li></ul></ul>
+		<li><font size="2"><span style="line-height:27px">The latest version allows the user to train the model on either binary dataset (that allows for the binary output explained above) or the categorical dataset (that allows for the categorical output similar to Facebook reactions as follows: <i>angry</i>, <i>sad</i>, <i>neutral</i>, <i>like</i>, or <i>love</i>).</span></font></li>
+		<li><font size="2"><span style="line-height:27px">Both versions were run on certain amount of MEMEX gun ads (and, finally, all ~4 million ads) to get the results (see Part III for the results) and update all the Solr files with the resulting categorical sentiment.</span></font></li></ul></ul>
 		<div><font size="2"><span style="line-height:27px"><br>
 		</span></font></div>
 		</div>
@@ -124,9 +125,24 @@
 		<li><font size="2"><span style="line-height:27px">Models -- The analysis of the four datasets used for training the models (the distribution of sentiment in all of them shown in the form of graphs).</span></font></li>
 		<li><font size="2"><span style="line-height:27px">Training Datasets -- The four datasets used to train the four models respectively (two binary and two categorical).</span></font></li>
 		<li><font size="2"><span style="line-height:27px">Download -- A link to the Maven Repository, where the parser can be downloaded as a jar file.</span></font></li></ul></ul>
-		</div>
-		<div><font size="2"><span style="line-height:27px"><br>
+		<div><font size="2"><span style="line-height: 27px;"><br>
 		</span></font></div>
+		</div>
+		<div><font size="2"><span style="line-height: 27px;"><br>
+		</span></font></div>
+		<div style="text-align: center;"><span style="line-height: 27px;"><b><u><font size="4">Part IV</font></u></b></span></div>
+		<div style="text-align: center;"><span style="line-height: 27px;"><b><font size="4"><a href="http://irds.usc.edu/SentimentAnalysisParser/demo.html" target="_blank">GitHub Page Link</a></font></b></span></div>
+		<div style="text-align: center;"><span style="line-height: 27px;"><b><u><font size="4"><br>
+		</font></u></b></span></div>
+		<div style="text-align: left;"><font size="2"><span style="line-height: 27px;"><span>&nbsp; &nbsp; For the remaining part of the programme I worked on analysing Human Trafficking Reviews from MEMEX that involved:</span><br>
+		</span></font></div>
+		<div style="text-align: left;">
+		<ul>
+		<ul><li><font size="2"><span style="line-height: 27px;">Getting the data from the server.</span></font></li>
+		<li><font size="2"><span style="line-height: 27px;">Getting the needed information from the data using Gsoup and later Gson.</span></font></li>
+		<li><font size="2"><span style="line-height: 27px;">Parsing the data with the Sentiment Analysis Parser.</span></font></li>
+		<li><font size="2"><span style="line-height: 27px;">Visualising the results (see last eight graphs on the Demo page).</span></font></li></ul></ul>
+		</div>
 		</div>
 		<div><br>
 		</div>
