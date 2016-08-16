@@ -52,8 +52,8 @@ public class GunAdsParser {
     solrCore = new HttpSolrClient(url, httpClient);
   }
 
-  public void getAds(String modelFile, int start) throws SolrServerException, IOException {
-    File modelFile = new File(modelFile);
+  public void getAds(String modelFilePath, int start) throws SolrServerException, IOException {
+    File modelFile = new File(modelFilePath);
     
     // Construct a SolrQuery
     SolrQuery query = new SolrQuery();
