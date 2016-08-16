@@ -1,3 +1,20 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.memex;
 
 import java.io.File;
@@ -14,7 +31,6 @@ import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
-//import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -25,54 +41,30 @@ import opennlp.tools.sentiment.SentimentModel;
 
 public class GunAdsParser {
 
-  private static String url = "http://darpamemex:darpamemex@imagecat.dyndns.org/solr/imagecatdev/";
-  // private static String field1 = "content";
-  // private static String field2 = "country";
   private static String fq = "mainType:text";
   private static int start = 0;
   private static int rows = 10;
-  private SolrClient solrCore;// = new
-                              // HttpSolrClient.Builder(url).build();
-  //private static String m = "/model/org/apache/tika/parser/sentiment/topic/en-stanford-sentiment.bin";
+  private SolrClient solrCore;
   private static File modelFile = null;
 
-  public GunAdsParser() throws MalformedURLException {
-    //SystemDefaultHttpClient httpClient = new SystemDefaultHttpClient();
-    //HttpClientBuilder.
-    //HttpClientBuilder httpClient = HttpClientBuilder.create();
-    //HttpClient httpClient = new HttpClient();
+  public GunAdsParser(String url) throws MalformedURLException {
     SystemDefaultHttpClient httpClient = new SystemDefaultHttpClient();
-    //CloseableHttpClient hc = new CloseableHttpClient();
-    solrCore = new HttpSolrClient(url, httpClient);//new HttpSolrClient.Builder(url).build();//new HttpSolrClient(url);//new HttpSolrClient(url);// .build();
-    // this.solrCore = new HttpSolrServer(url);
-    //modelFile = new File(m);
+    solrCore = new HttpSolrClient(url, httpClient);
   }
 
-  public void getAds(String m, int num) throws SolrServerException, IOException {
-    // Get an instance of server first
-    // SolrServer server = getSolrServer();
-
-    File modelFile = new File(m);
+  public void getAds(String modelFile, int start) throws SolrServerException, IOException {
+    File modelFile = new File(modelFile);
     
     // Construct a SolrQuery
     SolrQuery query = new SolrQuery();
     query.setQuery("*:*");
     query.setFields("content", "id");
     query.addFilterQuery(fq);
-    query.setStart(num);
+    query.setStart(start);
     query.setRows(rows);
-    // query.addSort(field1, SolrQuery.ORDER.asc); //used to be addSortField -->
-    // sorts in ascending order
 
-    // Query the server
     QueryResponse rsp = this.solrCore.query(query);
-
-    // Get the results
     SolrDocumentList list = rsp.getResults();
-
-//    for (SolrDocument doc : docs) {
-//      //System.out.println(doc.getFieldNames());
-//    }
    
     SentimentModel model = new SentimentModel(modelFile);
     SentimentME sentiment = new SentimentME(model);
@@ -84,9 +76,7 @@ public class GunAdsParser {
         SolrInputDocument document = new SolrInputDocument();
         Map<String, Object> operation = new HashMap<>();
         operation.put("set",  result);
-        //SolrSearchUtil.addToDocument(document, "id", doc.getFieldValue("id").toString());
         document.addField("id", doc.getFieldValue("id"));
-        //SolrSearchUtil.addToDocument(document, "sentiment_s_md", operation);
         document.addField("sentiment_s_md", operation);
         System.out.println(doc.getFieldValue("id"));
         solrCore.add(document);
@@ -105,57 +95,15 @@ public class GunAdsParser {
         list = rsp.getResults();
       }
     }
-    //solrCore.commit();
     
-//    long st = docs.getStart();
-//    long numFound = docs.getNumFound();
-//    
-//    long counter = st;
-//    
-//    while (counter <= numFound) {
-//      String result = sentiment.predict((docs.get((int) counter).getFieldValue("content")).toString());
-//      System.out.println(result);
-//      counter++;
-//    }
-    
-    //int counter = 1;
-    
-//    while (counter <= 10) {
-//      int j = counter;
-//      //curl  "$URL$j" > all-ads-out/$j.doc
-//      for (SolrDocument doc : docs) {
-//        String result = sentiment.predict((doc.getFieldValue("content")).toString());
-//        System.out.println(result);
-//      }
-//      //String result = sentiment.predict(sentence);
-//      int i = 0;
-//      while (i < 2) {
-//        int k = j + i;
-//        i++;
-//      }
-//      counter += 2;
-////          curl  "$URL$j" > all-ads-out/$j.doc
-////          i=0
-////          while [  $i -lt 100  ]; do
-////            k=$((j + i))
-////            cat all-ads-out/$j.doc | ./jq -r .response.docs[$i].content > all-ads-out/$k.sent
-////            let i=i+1
-////          done
-////
-////          let COUNTER=COUNTER+100
-//    }
-
-    //System.out.println(docs);
   }
   
   
 
   public static void main(String[] args)
       throws SolrServerException, IOException {
-    GunAdsParser parser = new GunAdsParser();
-    parser.getAds(args[args.length - 2], Integer.valueOf(args[args.length - 1]));
-    //parser.getAds(args[1], Integer.valueOf(args[2]));
-    //parser.getAds(args[args.length - 2], args[args.length - 1]);
+    GunAdsParser parser = new GunAdsParser(args[0]);
+    parser.getAds(args[1], Integer.valueOf(args[2]));
   }
 
 }

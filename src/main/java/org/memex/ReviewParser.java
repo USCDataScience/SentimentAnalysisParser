@@ -1,3 +1,20 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.memex;
 
 import java.io.File;
@@ -77,7 +94,6 @@ public class ReviewParser {
         label = getCategLabel(total);
       }
       if (label != null) {
-        //this.reviews.append(input.getName());
         this.reviews.append(label);
         for (Element review : revs) {
           this.reviews.append(" ");
@@ -87,20 +103,6 @@ public class ReviewParser {
       }
 
     }
-
-    // Node rank = type.nextSibling();
-    // Elements dl = doc.select("dl.review-statistics");
-    // Element rank = dl.select("dl").first();
-    // System.out.println(type.text());
-
-    // Elements links = doc.select("a[href]"); // a with href
-    // Elements pngs = doc.select("img[src$=.png]");
-    // img with src ending .png
-
-    // Element masthead = doc.select("div.masthead").first();
-    // div with class=masthead
-
-    // Elements resultLinks = doc.select("h3.r > a"); // direct a after h3
 
   }
 
