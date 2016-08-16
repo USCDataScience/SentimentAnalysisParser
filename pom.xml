@@ -187,28 +187,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.tika</groupId>
-			<artifactId>tika-core</artifactId>
-			<version>1.13</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tika</groupId>
-			<artifactId>tika-parsers</artifactId>
-			<version>1.13</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.opennlp</groupId>
-					<artifactId>opennlp-tools</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tika</groupId>
-			<artifactId>tika-langdetect</artifactId>
-			<version>1.13</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tika</groupId>
-			<artifactId>tika-batch</artifactId>
+			<artifactId>tika-serialization</artifactId>
 			<version>1.13</version>
 		</dependency>
 		<dependency>
