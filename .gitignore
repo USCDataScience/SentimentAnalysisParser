@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -99,3 +100,14 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /bin/
+=======
+*.iml
+.idea
+target
+.classpath
+.project
+.settings
+nbactions.xml
+nb-configuration.xml
+*.DS_Store
+>>>>>>> 99323ad68c5eb3f9bae4314984931acca3699521
