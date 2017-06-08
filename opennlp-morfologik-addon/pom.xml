@@ -34,7 +34,7 @@
 							     many file have more than 100 chars.
 							     Right now only javadoc files are too long.
 							 -->
-							 <tarLongFileMode>gnu</tarLongFileMode>
+							 <tarLongFileMode>posix</tarLongFileMode>
 							 
 							 <finalName>apache-opennlp-morfologik-addon-${project.version}</finalName>
 						</configuration>
