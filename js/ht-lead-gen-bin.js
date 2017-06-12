@@ -1,7 +1,7 @@
 (function() {
 
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 1000 - margin.left - margin.right,
+    width = 500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var x0 = d3.scale.ordinal()
@@ -23,7 +23,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .tickFormat(d3.format(10));
+    .tickFormat(d3.format(5));
 
 var svg = d3.select("#ht-lead-g-bin").append("svg")
     .attr("width", width + margin.left + margin.right)
