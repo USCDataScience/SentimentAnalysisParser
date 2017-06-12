@@ -13,7 +13,7 @@ var y = d3.scale.linear()
     .range([height, 0]);
 
 var color = d3.scale.ordinal()
-	.range(["#6b486b", "#ff8c00", "#d0743c", "#e9ed2a", "#ed2998"]);
+	.range(["#6b486b", "#ff8c00"]);
     //.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 var xAxis = d3.svg.axis()
@@ -34,7 +34,37 @@ var svg = d3.select("#ht-lead-g-categ").append("svg")
 d3.json("./data/ht-lead-gen-categ.json", function(error, dataObj) {
   if (error) throw error;
   
-  var data = [];
+  x.domain(data.map(function(d) { return d.sentiment; }));
+  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("# of reviews");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.sentiment); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.frequency); })
+      .attr("height", function(d) { return height - y(d.frequency); });
+	  //.style("fill", function(d) { return d.color; });
+	  //.style("fill", function(d) { return color(d.name); });
+	  //.style("fill", color);
+});
+ /* var data = [];
   for (var p in dataObj) {
 	  var truth = dataObj[p];
 	  truth.name = p;
@@ -49,7 +79,7 @@ d3.json("./data/ht-lead-gen-categ.json", function(error, dataObj) {
 	  truth.sentiment.push({ name: "love", value: truth.prediction.love || 0});
 	  //country.prediction = sentiment;
 	  data.push(truth);
-  }
+  }*/
 
   //var ageNames = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
 
