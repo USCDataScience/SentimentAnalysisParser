@@ -23,7 +23,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .tickFormat(d3.format(".2s"));
+    .tickFormat(d3.format(10));
 
 var svg = d3.select("#ht-lead-g-bin").append("svg")
     .attr("width", width + margin.left + margin.right)
