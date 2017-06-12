@@ -1,7 +1,7 @@
 (function() {
 
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 1000 - margin.left - margin.right,
+var margin = {top: 20, right: 20, bottom: 30, left: 80},
+    width = 800 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var x0 = d3.scale.ordinal()
@@ -23,7 +23,7 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .tickFormat(d3.format(".2s"));
+    .tickFormat(d3.format(5));
 
 var svg = d3.select("#ht-lead-g-categ").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -34,37 +34,7 @@ var svg = d3.select("#ht-lead-g-categ").append("svg")
 d3.json("./data/ht-lead-gen-categ.json", function(error, dataObj) {
   if (error) throw error;
   
-  x.domain(data.map(function(d) { return d.sentiment; }));
-  y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("# of reviews");
-
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.sentiment); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
-	  //.style("fill", function(d) { return d.color; });
-	  //.style("fill", function(d) { return color(d.name); });
-	  //.style("fill", color);
-});
- /* var data = [];
+  var data = [];
   for (var p in dataObj) {
 	  var truth = dataObj[p];
 	  truth.name = p;
@@ -79,7 +49,7 @@ d3.json("./data/ht-lead-gen-categ.json", function(error, dataObj) {
 	  truth.sentiment.push({ name: "love", value: truth.prediction.love || 0});
 	  //country.prediction = sentiment;
 	  data.push(truth);
-  }*/
+  }
 
   //var ageNames = d3.keys(data[0]).filter(function(key) { return key !== "State"; });
 

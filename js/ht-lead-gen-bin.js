@@ -98,7 +98,7 @@ d3.json("./data/ht-lead-gen-bin.json", function(error, dataObj) {
 
   legend.append("rect")
       .attr("x", width - 18)
-      .attr("width", 5)
+      .attr("width", 18)
       .attr("height", 18)
       .style("fill", color);
 

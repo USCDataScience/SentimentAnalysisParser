@@ -1,6 +1,6 @@
 {
   "RELEVANT": {
-    "total": ,
+    "total": 19028,
     "prediction": {
       "angry": 1,
       "sad": 0,
@@ -11,11 +11,11 @@
   },
   "NOT RELEVANT": {
     "total": ,
-    "prediction": {
+    "prediction": 19535 {
       "angry": 0,
       "sad": 0,
   	  "neutral": 19467,
-  	  "like": 66,
+  	  "like": 68,
   	  "love": 0
     }
   }
