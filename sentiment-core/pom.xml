@@ -11,19 +11,11 @@
 	language governing permissions and limitations under the License. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	
-	<parent>
-	    <groupId>org.apache.opennlp</groupId>
-	    <artifactId>opennlp</artifactId>
-	    <version>1.7.0-SNAPSHOT</version>
-	    <relativePath>../pom.xml</relativePath>
-	</parent>
-	
-	<!--<groupId>edu.usc.ir</groupId>-->
-	<artifactId>sentiment-analysis-parser</artifactId>
-	<packaging>pom</packaging>
-	<!--<version>0.1</version>-->
+	<modelVersion>4.0.0</modelVersion>	
+	<groupId>edu.usc.ir</groupId>
+	<artifactId>sentiment-core</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
 	<name>SentimentAnalysisParser</name>
 	<description>Combines Apache OpenNLP and Apache Tika and provides facilities for automatically deriving sentiment from text.</description>
 	<url>https://github.com/USCDataScience/SentimentAnalysisParser</url>
@@ -185,10 +177,6 @@
 							</execution>
 						</executions>
 					</plugin>
-					<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-release-plugin</artifactId> 
-						<version>2.5</version> <configuration> <autoVersionSubmodules>true</autoVersionSubmodules> 
-						<useReleaseProfile>false</useReleaseProfile> <releaseProfiles>release</releaseProfiles> 
-						<goals>deploy</goals> </configuration> </plugin> -->
 				</plugins>
 			</build>
 		</profile>
@@ -212,9 +200,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.apache.opennlp</groupId>
-			<artifactId>opennlp-tools</artifactId>
-			<!-- <version>1.6.0</version> -->
+			<artifactId>opennlp-tools-sent</artifactId>
+			<version>1.7.0</version>
 		</dependency>
+                <dependency>
+                        <groupId>org.apache.opennlp</groupId>
+                        <artifactId>opennlp-tools</artifactId>
+                        <version>1.7.0</version>
+                </dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>

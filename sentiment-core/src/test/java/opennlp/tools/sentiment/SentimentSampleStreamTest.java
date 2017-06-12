@@ -19,6 +19,7 @@ package opennlp.tools.sentiment;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
@@ -33,6 +34,7 @@ import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.PlainTextByLineStream;
 import opennlp.tools.util.Span;
 import opennlp.tools.util.TrainingParameters;
+import opennlp.tools.util.InputStreamFactory;
 
 /**
  * Class for performing tests on the Sentiment Analysis model training.
@@ -45,8 +47,13 @@ public class SentimentSampleStreamTest {
   @Test
   public void dataReadTest() throws IOException {
     Charset charset = Charset.forName("UTF-8");
-    ObjectStream<String> lineStream = new PlainTextByLineStream(
-        new FileInputStream("../sentiment-examples/categorical_dataset"), charset);
+    InputStreamFactory isf = new InputStreamFactory() {
+            public InputStream createInputStream() throws IOException {
+                return new FileInputStream("../sentiment-examples/categorical_dataset");
+            }
+        };
+
+    ObjectStream<String> lineStream = new PlainTextByLineStream(isf, charset);
     ObjectStream<SentimentSample> sampleStream = new SentimentSampleStream(
         lineStream);
 
