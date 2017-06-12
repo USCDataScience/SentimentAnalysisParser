@@ -18,21 +18,16 @@
 package opennlp.tools.sentiment;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import opennlp.tools.ml.EventTrainer;
 import opennlp.tools.ml.TrainerFactory;
-import opennlp.tools.ml.TrainerFactory.TrainerType;
 import opennlp.tools.ml.model.Event;
 import opennlp.tools.ml.model.MaxentModel;
 import opennlp.tools.ml.model.SequenceClassificationModel;
 import opennlp.tools.namefind.BioCodec;
-import opennlp.tools.namefind.NameContextGenerator;
-import opennlp.tools.namefind.TokenNameFinderFactory;
-import opennlp.tools.namefind.TokenNameFinderModel;
 import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.Sequence;
 import opennlp.tools.util.SequenceCodec;
@@ -41,7 +36,6 @@ import opennlp.tools.util.Span;
 import opennlp.tools.util.TrainingParameters;
 import opennlp.tools.util.featuregen.AdaptiveFeatureGenerator;
 import opennlp.tools.util.featuregen.AdditionalContextFeatureGenerator;
-import opennlp.tools.util.featuregen.WindowFeatureGenerator;
 
 /**
  * Class for creating a maximum-entropy-based Sentiment Analysis model.
@@ -56,7 +50,8 @@ public class SentimentME {
   private static String[][] EMPTY = new String[0][0];
 
   protected SentimentContextGenerator contextGenerator;
-  private AdditionalContextFeatureGenerator additionalContextFeatureGenerator = new AdditionalContextFeatureGenerator();
+  private AdditionalContextFeatureGenerator additionalContextFeatureGenerator =
+    new AdditionalContextFeatureGenerator();
   private Sequence bestSequence;
   protected SequenceClassificationModel<String> model;
   private SequenceValidator<String> sequenceValidator;
@@ -102,11 +97,6 @@ public class SentimentME {
 
     MaxentModel sentimentModel = null;
 
-    SequenceClassificationModel<String> seqModel = null;
-
-    TrainerType trainerType = TrainerFactory
-        .getTrainerType(trainParams.getSettings());
-
     ObjectStream<Event> eventStream = new SentimentEventStream(samples,
         factory.createContextGenerator());
 
@@ -130,6 +120,11 @@ public class SentimentME {
    */
   public String predict(String sentence) {
     String[] tokens = factory.getTokenizer().tokenize(sentence);
+
+    return predict(tokens);
+  }
+
+  public String predict(String[] tokens) {
 
     double prob[] = probabilities(tokens);
     String sentiment = getBestSentiment(prob);
@@ -157,7 +152,16 @@ public class SentimentME {
   public double[] probabilities(String text[]) {
     return maxentModel.eval(contextGenerator.getContext(text));
   }
-  
+
+  /**
+   * Returns an array of probabilities for each of the specified spans which is
+   * the arithmetic mean of the probabilities for each of the outcomes which
+   * make up the span.
+   *
+   * @param spans
+   *          The spans of the sentiments for which probabilities are desired.
+   * @return an array of probabilities for each of the specified spans.
+   */
   public double[] probs(Span[] spans) {
 
     double[] sprobs = new double[spans.length];
@@ -179,6 +183,13 @@ public class SentimentME {
     return sprobs;
   }
 
+  /**
+   * Sets the probs for the spans
+   *
+   * @param spans
+   *          the spans to be analysed
+   * @return the span of probs
+   */
   private Span[] setProbs(Span[] spans) {
     double[] probs = probs(spans);
     if (probs != null) {
@@ -191,13 +202,22 @@ public class SentimentME {
     return spans;
   }
 
+  /**
+   * Generates sentiment tags for the given sequence, typically a sentence,
+   * returning token spans for any identified sentiments.
+   *
+   * @param tokens
+   *          an array of the tokens or words of the sequence, typically a
+   *          sentence
+   * @return an array of spans for each of the names identified.
+   */
   public Span[] find(String[] tokens) {
     return find(tokens, EMPTY);
   }
 
   /**
-   * Generates name tags for the given sequence, typically a sentence, returning
-   * token spans for any identified names.
+   * Generates sentiment tags for the given sequence, typically a sentence,
+   * returning token spans for any identified sentiments.
    *
    * @param tokens
    *          an array of the tokens or words of the sequence, typically a

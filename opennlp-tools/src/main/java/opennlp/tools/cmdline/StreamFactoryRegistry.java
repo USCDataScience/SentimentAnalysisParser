@@ -34,6 +34,7 @@ import opennlp.tools.formats.LemmatizerSampleStreamFactory;
 import opennlp.tools.formats.NameSampleDataStreamFactory;
 import opennlp.tools.formats.ParseSampleStreamFactory;
 import opennlp.tools.formats.SentenceSampleStreamFactory;
+import opennlp.tools.formats.SentimentSampleStreamFactory;
 import opennlp.tools.formats.TokenSampleStreamFactory;
 import opennlp.tools.formats.WordTagSampleStreamFactory;
 import opennlp.tools.formats.ad.ADChunkSampleStreamFactory;
@@ -105,6 +106,8 @@ public final class StreamFactoryRegistry {
     ConstitParseSampleStreamFactory.registerFactory();
 
     BratNameSampleStreamFactory.registerFactory();
+	
+	SentimentSampleStreamFactory.registerFactory();
   }
 
   public static final String DEFAULT_FORMAT = "opennlp";

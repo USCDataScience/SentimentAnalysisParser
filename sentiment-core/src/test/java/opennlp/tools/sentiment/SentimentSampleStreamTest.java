@@ -46,7 +46,7 @@ public class SentimentSampleStreamTest {
   public void dataReadTest() throws IOException {
     Charset charset = Charset.forName("UTF-8");
     ObjectStream<String> lineStream = new PlainTextByLineStream(
-        new FileInputStream("examples/categorical_dataset"), charset);
+        new FileInputStream("../sentiment-examples/categorical_dataset"), charset);
     ObjectStream<SentimentSample> sampleStream = new SentimentSampleStream(
         lineStream);
 
