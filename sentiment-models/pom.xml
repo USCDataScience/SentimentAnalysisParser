@@ -20,17 +20,35 @@
 -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>edu.usc.irds</groupId>
-	<artifactId>sentiment-analysis-parser</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
 
-	<name>USC IRDS: Sentiment Analysis Parser</name>
-        <modules>
-	  <module>opennlp-tools-sent</module>
-	  <module>sentiment-models</module>
-          <module>sentiment-core</module>
-	</modules>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.usc.irds</groupId>
+  <artifactId>sentiment-models</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>USC IRDS: Sentiment Analysis Parser: Models</name>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+         <descriptorRefs>
+           <descriptorRef>src</descriptorRef>
+	 </descriptorRefs>
+	 <tarLongFileMode>posix</tarLongFileMode>
+        </configuration>
+        <executions>
+          <execution>
+            <id>create-archive</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

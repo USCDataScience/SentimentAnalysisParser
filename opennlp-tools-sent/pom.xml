@@ -29,7 +29,7 @@
   </parent>
    
   <artifactId>opennlp-tools-sent</artifactId>
-  <name>Apache OpenNLP Tools - Sentiment Extension</name>
+  <name>Apache OpenNLP Tools: Sentiment Extension</name>
 
 <profiles>
     <profile>
