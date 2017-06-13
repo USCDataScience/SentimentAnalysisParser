@@ -10,8 +10,8 @@
     }
   },
   "NOT RELEVANT": {
-    "total": ,
-    "prediction": 19535 {
+    "total": 19535,
+    "prediction": {
       "angry": 0,
       "sad": 0,
   	  "neutral": 19467,
