@@ -1,0 +1,35 @@
+<div class="extra-tags-container">
+    <input type="hidden" id="extra-tags-url" value="/classifieds/search?location=michigan&amp;category=all&amp;page=1&amp;tag=9mm-luger" />        
+
+
+    <ul class="inline-list">
+        <li class="small-text">
+            <input id="tag_245" type="checkbox" name="tag" value="double-single-action" /> 
+            <label for="tag_245" title="Double / Single Action (82)">Double / Single Action (82)</label>
+        </li>
+        <li class="small-text">
+            <input id="tag_244" type="checkbox" name="tag" value="double-action" /> 
+            <label for="tag_244" title="Double Action (44)">Double Action (44)</label>
+        </li>
+</ul><ul class="inline-list">        <li class="small-text">
+            <input id="tag_254" type="checkbox" name="tag" value="semi-automatic" /> 
+            <label for="tag_254" title="Semi-automatic (10)">Semi-automatic (10)</label>
+        </li>
+        <li class="small-text">
+            <input id="tag_243" type="checkbox" name="tag" value="single-action" /> 
+            <label for="tag_243" title="Single Action (24)">Single Action (24)</label>
+        </li>
+</ul><ul class="inline-list">        <li class="small-text">
+            <input id="tag_331" type="checkbox" name="tag" value="single-shot" /> 
+            <label for="tag_331" title="Single Shot (1)">Single Shot (1)</label>
+        </li>
+</ul><ul class="inline-list">        <li class="small-text">
+            <input id="tag_246" type="checkbox" name="tag" value="striker-fire" /> 
+            <label for="tag_246" title="Striker Fire (124)">Striker Fire (124)</label>
+        </li>
+    </ul>
+
+
+      
+</div>
+
