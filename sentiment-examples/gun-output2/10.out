@@ -1,7 +1,0 @@
-Content-Length: 100051
-Content-Type: application/sentiment
-Sentiment: negative
-X-Parsed-By: org.apache.tika.parser.DefaultParser
-X-Parsed-By: org.apache.tika.parser.sentiment.analysis.SentimentParser
-model: target/sentiment/model/org/apache/tika/parser/sentiment/topic/en-sentiment.bin
-resourceName: 10.sent

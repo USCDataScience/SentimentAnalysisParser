@@ -49,7 +49,7 @@ public class SentimentSampleStreamTest {
     Charset charset = Charset.forName("UTF-8");
     InputStreamFactory isf = new InputStreamFactory() {
             public InputStream createInputStream() throws IOException {
-                return new FileInputStream("../sentiment-examples/categorical_dataset");
+                return new FileInputStream("../sentiment-examples/src/main/resources/edu/usc/irds/sentiment/train/categorical-stanford-train");
             }
         };
 

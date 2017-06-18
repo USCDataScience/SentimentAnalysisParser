@@ -31,6 +31,7 @@
 	  <module>opennlp-tools-sent</module>
 	  <module>sentiment-models</module>
           <module>sentiment-core</module>
+		  <module>sentiment-examples</module>
 	</modules>
 
 </project>
