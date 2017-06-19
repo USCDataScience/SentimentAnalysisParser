@@ -30,6 +30,7 @@ import org.apache.log4j.Logger;
 
 import opennlp.tools.cmdline.BasicCmdLineTool;
 import opennlp.tools.cmdline.CmdLineTool;
+import opennlp.tools.cmdline.StreamFactoryRegistry;
 import opennlp.tools.cmdline.TerminateToolException;
 import opennlp.tools.cmdline.TypedCmdLineTool;
 import opennlp.tools.formats.SentimentSampleStreamFactory;
@@ -39,7 +40,7 @@ import opennlp.tools.formats.SentimentSampleStreamFactory;
  */
 public class CLI {
   public static final String CMD = "sentiment";
-  public static final String DEFAULT_FORMAT = "sentiment";
+  public static final String DEFAULT_FORMAT = StreamFactoryRegistry.DEFAULT_FORMAT;//"sentiment";
 
   private static Map<String, CmdLineTool> toolLookupMap;
 

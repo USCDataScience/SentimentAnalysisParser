@@ -52,7 +52,7 @@ public class OutputAnalyzer {
 	    boolean relevant = false;
 	    for (File file1 : input1.listFiles()) {
 	    	String id = file1.getName();
-	    	if (id.equals(".DS_Store"))
+	    	if (id.equals(".DS_Store") || id.equals("..out") || id.equals(".out"))
 	    		continue;
 	    	
 	    	String out1 = FileUtils.readFileToString(file1);
@@ -83,7 +83,7 @@ public class OutputAnalyzer {
 	    boolean relevant = false;
 	    for (File file1 : input1.listFiles()) {
 	    	String id = file1.getName();
-	    	if (id.equals(".DS_Store"))
+	    	if (id.equals(".DS_Store") || id.equals("..out") || id.equals(".out"))
 	    		continue;
 	    	
 	    	String out1 = FileUtils.readFileToString(file1);
@@ -128,11 +128,11 @@ public class OutputAnalyzer {
 	     */
 		OutputAnalyzer analyze = new OutputAnalyzer(args[0]);
 
-		analyze.parse(args[1], args[2]);
-		System.out.println("POS REL: " + analyze.positiveRelevant);
-		System.out.println("POS NOT_REL: " + analyze.positiveNotRelevant);
-		System.out.println("NEG REL: " + analyze.negativeRelevant);
-		System.out.println("NEG NOT_REL: " + analyze.negativeNotRelevant);
+//		analyze.parse(args[1], args[2]);
+//		System.out.println("POS REL: " + analyze.positiveRelevant);
+//		System.out.println("POS NOT_REL: " + analyze.positiveNotRelevant);
+//		System.out.println("NEG REL: " + analyze.negativeRelevant);
+//		System.out.println("NEG NOT_REL: " + analyze.negativeNotRelevant);
 		
 		System.out.println();
 		

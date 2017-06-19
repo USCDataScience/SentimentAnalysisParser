@@ -31,13 +31,15 @@ import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.logging.Logger;
 
+import org.apache.tika.config.Param;
 import org.apache.tika.config.TikaConfig;
-import org.apache.tika.detect.DefaultDetector;
 import org.apache.tika.detect.Detector;
+import org.apache.tika.exception.TikaConfigException;
 import org.apache.tika.exception.TikaException;
 //import org.apache.tika.fork.ForkParser;
 import org.apache.tika.io.TikaInputStream;
@@ -46,6 +48,8 @@ import org.apache.tika.parser.AutoDetectParser;
 import org.apache.tika.parser.DigestingParser;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
+import org.apache.tika.parser.sentiment.analysis.SentimentParser;
+import org.apache.tika.utils.AnnotationUtils;
 import org.xml.sax.SAXException;
 //import org.apache.tika.parser.PasswordProvider;
 import org.xml.sax.helpers.DefaultHandler;
@@ -281,10 +285,23 @@ public class TikaTool extends BasicCmdLineTool {
       fileName = args[args.length - 1];
     }
     if (parser == null) {
-      detector = new DefaultDetector();
-      parser = new AutoDetectParser(detector);
-      //context = new ParseContext();
-      context.set(Parser.class, parser);
+    	SentimentParser sentParser = new SentimentParser();
+		Map<String, Param> params = new HashMap<>();
+		params.put("modelPath", new Param<String>("modelPath", model));
+		try {
+			AnnotationUtils.assignFieldParams(sentParser, params);
+			sentParser.initialize(params);
+		} catch (TikaConfigException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+		parser = sentParser;
+		context.set(Parser.class, parser);
+//      detector = new DefaultDetector();
+//      parser = new AutoDetectParser(detector);
+//      //context = new ParseContext();
+//      context.set(Parser.class, parser);
     }
     try {
       process(fileName, model, output);

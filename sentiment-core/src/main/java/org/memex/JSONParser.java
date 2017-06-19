@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.Type;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -13,6 +15,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.ParseContext;
+//import org.apache.tika.parser.tagRatio.TextToTagRatio;
 //import org.apache.maven.scm.provider.svn.svnexe.command.changelog.IllegalOutputException;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
@@ -54,7 +59,7 @@ public class JSONParser {
 		// we use java 8 auto closable feature (the stream will be close
 		// automatically).
 		try (BufferedReader reader = Files.newBufferedReader(inputFileName);
-				PrintWriter writer = separateFile ? null : new PrintWriter(Files.newBufferedWriter(outputFileName))) {
+				PrintWriter writer = separateFile ? null : new PrintWriter(Files.newBufferedWriter(outputFileName, Charset.forName("UTF-8")))) {
 			Gson gson = new GsonBuilder().create();
 
 			// create typeToken to map json objects to the map
@@ -81,7 +86,7 @@ public class JSONParser {
 					if (csv) {
 						String name = valueString(json, pathFileId);
 						Path outputFile = Paths.get(outputName, name /*+ ".csv"*/);
-						try(PrintWriter fileWriter = new PrintWriter(Files.newBufferedWriter(outputFile))) {
+						try(PrintWriter fileWriter = new PrintWriter(Files.newBufferedWriter(outputFile, Charset.forName("UTF-8")))) {
 							printCSV(paths, values, fileWriter);
 						}
 					}
@@ -173,6 +178,14 @@ public class JSONParser {
 		String outputName = args[1];
 
 		JSONParser parser = new JSONParser(fileName, outputName);
-		parser.process("_id", new String[] { /*"cluster_id", */ /*"_source.extracted_text"*/ "annotation", "_source.extracted_text" });
+		//parser.process("_id", new String[] { /*"cluster_id", */ /*"_source.extracted_text"*/ "annotation", "_source.extracted_text" });
+		parser.process("_id", new String[] { "annotation", "_source.raw_content" });
+		
+		
+//		TextToTagRatio textToTagRatio=new TextToTagRatio();
+//    	Metadata metadata = new Metadata();
+//    	StringWriter writer = new StringWriter();
+//    	ParseContext context = new ParseContext();
+//    	context.set(org.apache.tika.parser.tagRatio.TextToTagRatio.class,textToTagRatio);
 	}
 }
