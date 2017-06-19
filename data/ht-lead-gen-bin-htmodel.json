@@ -2,15 +2,15 @@
   "RELEVANT": {
     "total": 18284,
     "prediction": {
-      "positive": 8124,
-      "negative": 10160
+      "positive": 14833,
+      "negative": 3451
     }
   },
   "NOT RELEVANT": {
     "total": 20279,
     "prediction": {
-      "positive": 9127,
-	  "negative": 11152
+      "positive": 15164,
+	  "negative": 5115
     }
   }
 }

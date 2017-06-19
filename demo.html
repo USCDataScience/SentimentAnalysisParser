@@ -246,41 +246,146 @@
 	        <h3>HT LEAD GENERATION ANALYSIS</h3>
 			<br> </br>
 			<ol>
-				<li><b>Correlation between the binary sentiment and the truth of the HT data</b></li>
+				<li><b>Correlation between the binary sentiment and the truth of the HT data (Netflix model)</b></li>
 				<h5>RELEVANT</h5>
 				<ul>
-					<li>Postive: 15615</li>
-					<li>Negative: 3413</li>
+					<li>Postive: 8,124</li>
+					<li>Negative: 10,160</li>
 				</ul>
 				<h5>NOT RELEVANT</h5>
 				<ul>
-					<li>Postive: 14421</li>
-					<li>Negative: 5114</li>
+					<li>Postive: 9,127</li>
+					<li>Negative: 11,152</li>
 				</ul>
 				<br> </br>
 				<div id="ht-lead-g-bin"></div>
 				<br> </br>
-				<li><b>Correlation between the categorical sentiment and the truth of the HT data</b></li>
+				<li><b>Correlation between the binary sentiment and the truth of the HT data (HT Review model)</b></li>
 				<h5>RELEVANT</h5>
 				<ul>
-					<li>Angry: 1</li>
-					<li>Sad: 0</li>
-					<li>Neutral: 18843</li>
-					<li>Like: 183</li>
-					<li>Love: 1</li>
+					<li>Postive: 14,833</li>
+					<li>Negative: 3,451</li>
 				</ul>
 				<h5>NOT RELEVANT</h5>
 				<ul>
+					<li>Postive: 15,164</li>
+					<li>Negative: 5,115</li>
+				</ul>
+				<br> </br>
+				<div id="ht-lead-g-bin-htmodel"></div>
+				<br> </br>
+				<li><b>Correlation between the categorical sentiment and the truth of the HT data (Stanford model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
 					<li>Angry: 0</li>
-					<li>Sad: 0</li>
-					<li>Neutral: 19467</li>
-					<li>Like: 68</li>
+					<li>Sad: 68</li>
+					<li>Neutral: 17,889</li>
+					<li>Like: 318</li>
+					<li>Love: 9</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Angry: 3</li>
+					<li>Sad: 114</li>
+					<li>Neutral: 19,868</li>
+					<li>Like: 294</li>
 					<li>Love: 0</li>
 				</ul>
 				<br> </br>
 				<div id="ht-lead-g-categ"></div>
 				<br> </br>
+				<li><b>Correlation between the categorical sentiment and the truth of the HT data (HT Review model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Angry: 377</li>
+					<li>Sad: 5,030</li>
+					<li>Neutral: 1,796</li>
+					<li>Like: 11,088</li>
+					<li>Love: 93</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Angry: 449</li>
+					<li>Sad: 6,994</li>
+					<li>Neutral: 1,183</li>
+					<li>Like: 11,553</li>
+					<li>Love: 0</li>
+				</ul>
+				<br> </br>
+				<div id="ht-lead-g-categ-htmodel"></div>
+				<br> </br>
 			</ol>
+			<br> </br>
+	        <h3>HT LEAD GENERATION - OVERALL ANALYSIS</h3>
+			<br> </br>
+			<!--	insert table here	-->
+			<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;}
+			.tg td{font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+			.tg th{font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+			.tg .tg-baqh{text-align:center;vertical-align:top}
+			.tg .tg-yw4l{vertical-align:top}
+			</style>
+			<table class="tg">
+			  <tr>
+			    <th class="tg-yw4l">Indicator</th>
+			    <th class="tg-baqh" colspan="2">Netflix</th>
+			    <th class="tg-baqh" colspan="5">Stanford</th>
+			    <th class="tg-baqh" colspan="2">HT binary</th>
+			    <th class="tg-baqh" colspan="5">HT categorical</th>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l"></td>
+			    <td class="tg-baqh">POS</td>
+			    <td class="tg-baqh">NEG</td>
+			    <td class="tg-yw4l">ANGRY</td>
+			    <td class="tg-yw4l">SAD</td>
+			    <td class="tg-yw4l">NEUTRAL</td>
+			    <td class="tg-baqh">LIKE</td>
+			    <td class="tg-yw4l">LOVE</td>
+			    <td class="tg-baqh">POS</td>
+			    <td class="tg-baqh">NEG</td>
+			    <td class="tg-baqh">ANGRY</td>
+			    <td class="tg-yw4l">SAD</td>
+			    <td class="tg-yw4l">NEUTRAL</td>
+			    <td class="tg-yw4l">LIKE</td>
+			    <td class="tg-yw4l">LOVE</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l">HT Relevant</td>
+			    <td class="tg-baqh">8,124</td>
+			    <td class="tg-baqh">10,160</td>
+			    <td class="tg-yw4l">0</td>
+			    <td class="tg-yw4l">68</td>
+			    <td class="tg-yw4l">17,889</td>
+			    <td class="tg-baqh">318</td>
+			    <td class="tg-yw4l">9</td>
+			    <td class="tg-baqh">14,833</td>
+			    <td class="tg-baqh">3,451</td>
+			    <td class="tg-baqh">377</td>
+			    <td class="tg-yw4l">5,030</td>
+			    <td class="tg-yw4l">1,696</td>
+			    <td class="tg-yw4l">11,088</td>
+			    <td class="tg-yw4l">93</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l">Not HT Relevant</td>
+			    <td class="tg-baqh">9,127</td>
+			    <td class="tg-baqh">11,152</td>
+			    <td class="tg-yw4l">3</td>
+			    <td class="tg-yw4l">114</td>
+			    <td class="tg-yw4l">19,868</td>
+			    <td class="tg-baqh">294</td>
+			    <td class="tg-yw4l">0</td>
+			    <td class="tg-baqh">15,164</td>
+			    <td class="tg-baqh">5,115</td>
+			    <td class="tg-baqh">449</td>
+			    <td class="tg-yw4l">6,994</td>
+			    <td class="tg-yw4l">1,283</td>
+			    <td class="tg-yw4l">11,553</td>
+			    <td class="tg-yw4l">0</td>
+			  </tr>
+			</table>
 			<br> </br>
 		
 	<!--	</div>	-->
@@ -312,5 +417,7 @@
 	<script src="js/ht-categ-stanford-new.js"></script>
 	<script src="js/ht-lead-gen-bin.js"></script>
 	<script src="js/ht-lead-gen-categ.js"></script>
+	<script src="js/ht-lead-gen-bin-htmodel.js"></script>
+	<script src="js/ht-lead-gen-categ-htmodel.js"></script>
   </body>
 </html>
