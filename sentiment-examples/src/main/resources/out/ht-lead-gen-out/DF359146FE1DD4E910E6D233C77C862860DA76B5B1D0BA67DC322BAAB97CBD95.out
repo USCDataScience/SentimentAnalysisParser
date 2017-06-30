@@ -1,0 +1,4 @@
+Content-Length: 1032
+Sentiment: VERY_RELEVANT
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-lg-model-raw.bin
+resourceName: DF359146FE1DD4E910E6D233C77C862860DA76B5B1D0BA67DC322BAAB97CBD95.sent

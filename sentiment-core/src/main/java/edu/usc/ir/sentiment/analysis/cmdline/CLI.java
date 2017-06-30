@@ -39,7 +39,6 @@ import opennlp.tools.formats.SentimentSampleStreamFactory;
  * Class for command line use.
  */
 public class CLI {
-  public static final String CMD = "sentiment";
   public static final String DEFAULT_FORMAT = StreamFactoryRegistry.DEFAULT_FORMAT;//"sentiment";
 
   private static Map<String, CmdLineTool> toolLookupMap;
@@ -74,7 +73,7 @@ public class CLI {
    */
   private static void usage() {
     System.out.print("SentimentAnalysisParser");
-    System.out.println("Usage: " + CMD + " TOOL");
+    System.out.println("Usage: " + DEFAULT_FORMAT + " TOOL");
     System.out.println("where TOOL is one of:");
 
     // distance of tool name from line start

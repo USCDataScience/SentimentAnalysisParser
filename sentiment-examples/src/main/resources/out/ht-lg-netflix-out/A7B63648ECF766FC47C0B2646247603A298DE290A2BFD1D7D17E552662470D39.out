@@ -1,0 +1,4 @@
+Content-Length: 2020
+Sentiment: positive
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/en-netflix-sentiment.bin
+resourceName: A7B63648ECF766FC47C0B2646247603A298DE290A2BFD1D7D17E552662470D39.sent

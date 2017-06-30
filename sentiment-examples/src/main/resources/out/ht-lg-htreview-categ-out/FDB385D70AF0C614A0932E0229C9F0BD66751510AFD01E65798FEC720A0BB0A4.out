@@ -1,0 +1,4 @@
+Content-Length: 351
+Sentiment: neutral
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-categ.bin
+resourceName: FDB385D70AF0C614A0932E0229C9F0BD66751510AFD01E65798FEC720A0BB0A4.sent

@@ -21,20 +21,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.Arrays;
 
 import org.junit.Test;
 
-import opennlp.tools.sentiment.SentimentFactory;
-import opennlp.tools.sentiment.SentimentME;
-import opennlp.tools.sentiment.SentimentModel;
-import opennlp.tools.sentiment.SentimentSample;
-import opennlp.tools.sentiment.SentimentSampleStream;
+import opennlp.tools.util.InputStreamFactory;
 import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.PlainTextByLineStream;
-import opennlp.tools.util.Span;
 import opennlp.tools.util.TrainingParameters;
-import opennlp.tools.util.InputStreamFactory;
 
 /**
  * Class for performing tests on the Sentiment Analysis model training.
@@ -49,7 +42,7 @@ public class SentimentSampleStreamTest {
     Charset charset = Charset.forName("UTF-8");
     InputStreamFactory isf = new InputStreamFactory() {
             public InputStream createInputStream() throws IOException {
-                return new FileInputStream("../sentiment-examples/src/main/resources/edu/usc/irds/sentiment/train/categorical-stanford-train");
+                return new FileInputStream("../sentiment-examples/src/main/resources/train/categorical-stanford-train");
             }
         };
 

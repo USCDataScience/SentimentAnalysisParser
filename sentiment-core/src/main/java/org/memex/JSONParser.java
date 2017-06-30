@@ -58,8 +58,9 @@ public class JSONParser {
 
 		// we use java 8 auto closable feature (the stream will be close
 		// automatically).
-		try (BufferedReader reader = Files.newBufferedReader(inputFileName);
-				PrintWriter writer = separateFile ? null : new PrintWriter(Files.newBufferedWriter(outputFileName, Charset.forName("UTF-8")))) {
+		Charset encoding = Charset.forName("UTF-8");
+		try (BufferedReader reader = Files.newBufferedReader(inputFileName, encoding);
+				PrintWriter writer = separateFile ? null : new PrintWriter(Files.newBufferedWriter(outputFileName, encoding))) {
 			Gson gson = new GsonBuilder().create();
 
 			// create typeToken to map json objects to the map

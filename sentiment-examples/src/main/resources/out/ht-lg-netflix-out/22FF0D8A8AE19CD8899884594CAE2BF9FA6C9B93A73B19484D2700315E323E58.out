@@ -1,0 +1,4 @@
+Content-Length: 2022
+Sentiment: negative
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/en-netflix-sentiment.bin
+resourceName: 22FF0D8A8AE19CD8899884594CAE2BF9FA6C9B93A73B19484D2700315E323E58.sent

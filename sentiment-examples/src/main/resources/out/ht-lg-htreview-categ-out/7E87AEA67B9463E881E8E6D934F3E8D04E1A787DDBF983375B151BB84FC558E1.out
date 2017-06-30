@@ -1,0 +1,4 @@
+Content-Length: 245
+Sentiment: like
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-categ.bin
+resourceName: 7E87AEA67B9463E881E8E6D934F3E8D04E1A787DDBF983375B151BB84FC558E1.sent

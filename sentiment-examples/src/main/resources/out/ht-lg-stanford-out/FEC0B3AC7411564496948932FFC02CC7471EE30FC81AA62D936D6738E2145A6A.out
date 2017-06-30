@@ -1,0 +1,4 @@
+Content-Length: 1777
+Sentiment: sad
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/en-stanford-sentiment.bin
+resourceName: FEC0B3AC7411564496948932FFC02CC7471EE30FC81AA62D936D6738E2145A6A.sent

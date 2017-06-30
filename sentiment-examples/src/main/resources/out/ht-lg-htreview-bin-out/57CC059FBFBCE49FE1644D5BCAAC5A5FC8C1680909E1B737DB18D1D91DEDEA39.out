@@ -1,0 +1,4 @@
+Content-Length: 2021
+Sentiment: positive
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-bin.bin
+resourceName: 57CC059FBFBCE49FE1644D5BCAAC5A5FC8C1680909E1B737DB18D1D91DEDEA39.sent

@@ -22,7 +22,7 @@ import java.io.IOException;
 import opennlp.tools.cmdline.ArgumentParser;
 import opennlp.tools.cmdline.CmdLineUtil;
 import opennlp.tools.cmdline.StreamFactoryRegistry;
-import opennlp.tools.cmdline.params.BasicFormatParams;
+import opennlp.tools.cmdline.sentiment.SentimentFormatParams;
 import opennlp.tools.sentiment.SentimentSample;
 import opennlp.tools.sentiment.SentimentSampleStream;
 import opennlp.tools.util.InputStreamFactory;
@@ -32,52 +32,47 @@ import opennlp.tools.util.PlainTextByLineStream;
 /**
  * Class for creating a sample stream factory for sentiment analysis.
  */
-public class SentimentSampleStreamFactory
-    extends AbstractSampleStreamFactory<SentimentSample> {
+public class SentimentSampleStreamFactory extends AbstractSampleStreamFactory<SentimentSample> {
 
-  /**
-   * The constructor of the class; initialises the factory
-   *
-   * @param params
-   *          any given parameters
-   */
-  protected <P> SentimentSampleStreamFactory(Class<P> params) {
-    super(params);
-  }
+	/**
+	 * The constructor of the class; initialises the factory
+	 *
+	 * @param params
+	 *            any given parameters
+	 */
+	protected <P> SentimentSampleStreamFactory(Class<P> params) {
+		super(params);
+	}
 
-  /**
-   * Creates a sentiment sample stream factory
-   *
-   * @param args
-   *          the necessary arguments
-   * @return SentimentSample stream (factory)
-   */
-  @Override
-  public ObjectStream<SentimentSample> create(String[] args) {
-    BasicFormatParams params = ArgumentParser.parse(args,
-        BasicFormatParams.class);
+	/**
+	 * Creates a sentiment sample stream factory
+	 *
+	 * @param args
+	 *            the necessary arguments
+	 * @return SentimentSample stream (factory)
+	 */
+	@Override
+	public ObjectStream<SentimentSample> create(String[] args) {
+		SentimentFormatParams params = ArgumentParser.parse(args, SentimentFormatParams.class);
 
-    CmdLineUtil.checkInputFile("Data", params.getData());
-    InputStreamFactory sampleDataIn = CmdLineUtil
-        .createInputStreamFactory(params.getData());
-    ObjectStream<String> lineStream = null;
-    try {
-      lineStream = new PlainTextByLineStream(sampleDataIn,
-          params.getEncoding());
-    } catch (IOException ex) {
-      CmdLineUtil.handleCreateObjectStreamError(ex);
-    }
+		CmdLineUtil.checkInputFile("Data", params.getData());
+		InputStreamFactory sampleDataIn = CmdLineUtil.createInputStreamFactory(params.getData());
+		ObjectStream<String> lineStream = null;
+		try {
+			lineStream = new PlainTextByLineStream(sampleDataIn, params.getEncoding());
+		} catch (IOException ex) {
+			CmdLineUtil.handleCreateObjectStreamError(ex);
+		}
 
-    return new SentimentSampleStream(lineStream);
-  }
+		return new SentimentSampleStream(lineStream, params.getJsonl(), params.getLabel(), params.getText());
+	}
 
-  /**
-   * Registers a SentimentSample stream factory
-   */
-  public static void registerFactory() {
-    StreamFactoryRegistry.registerFactory(SentimentSample.class,
-        StreamFactoryRegistry.DEFAULT_FORMAT,
-        new SentimentSampleStreamFactory(BasicFormatParams.class));
-  }
+	/**
+	 * Registers a SentimentSample stream factory
+	 */
+	public static void registerFactory() {
+		StreamFactoryRegistry.registerFactory(SentimentSample.class, StreamFactoryRegistry.DEFAULT_FORMAT,
+				new SentimentSampleStreamFactory(SentimentFormatParams.class));
+	}
 
 }

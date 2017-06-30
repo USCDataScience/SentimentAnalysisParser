@@ -1,0 +1,4 @@
+Content-Length: 610
+Sentiment: love
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-categ.bin
+resourceName: 17C806D67BD475C4BAE6E6730F0FFC35000F89772F5ADD6E7BCCE4B19A0F2100.sent

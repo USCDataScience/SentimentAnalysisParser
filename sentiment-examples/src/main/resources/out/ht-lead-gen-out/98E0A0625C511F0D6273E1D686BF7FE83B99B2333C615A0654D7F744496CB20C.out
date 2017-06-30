@@ -1,0 +1,4 @@
+Content-Length: 2019
+Sentiment: NOT_RELEVANT
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-lg-model-raw.bin
+resourceName: 98E0A0625C511F0D6273E1D686BF7FE83B99B2333C615A0654D7F744496CB20C.sent

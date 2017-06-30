@@ -52,6 +52,17 @@
         <groupId>org.apache.opennlp</groupId>
         <artifactId>opennlp-tools</artifactId> 
         <version>1.7.0</version>
+        <exclusions>
+        <exclusion>
+          <groupId>edu.usc.ir</groupId>
+          <artifactId>sentiment-analysis-parser</artifactId>
+        </exclusion>
+      </exclusions> 
       </dependency>
+      <dependency>
+		<groupId>com.google.code.gson</groupId>
+		<artifactId>gson</artifactId>
+		<version>2.6.2</version>
+	  </dependency>
   </dependencies>
 </project>

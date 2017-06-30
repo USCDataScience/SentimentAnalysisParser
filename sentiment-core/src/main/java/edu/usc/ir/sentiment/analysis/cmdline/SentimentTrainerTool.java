@@ -41,7 +41,7 @@ public class SentimentTrainerTool
    * Constructor
    */
   protected SentimentTrainerTool() {
-    super(SentimentSample.class, TrainingToolParams.class);
+		super(SentimentSample.class, TrainingToolParams.class);
   }
 
   /**
@@ -63,7 +63,7 @@ public class SentimentTrainerTool
       if (mlParams == null) {
         mlParams = ModelUtil.createDefaultTrainingParameters();
       }
-
+      
       File modelOutFile = params.getModel();
 
       CmdLineUtil.checkOutputFile("sentiment analysis model", modelOutFile);

@@ -1,0 +1,4 @@
+Content-Length: 755
+Sentiment: positive
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-bin.bin
+resourceName: D27D4167A75683E8A1BDB1892AEF3F0367D3B4A3258E12D24B2CA8084E74CD7A.sent

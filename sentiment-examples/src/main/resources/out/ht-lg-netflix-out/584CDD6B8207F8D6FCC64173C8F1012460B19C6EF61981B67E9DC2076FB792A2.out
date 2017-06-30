@@ -1,0 +1,4 @@
+Content-Length: 692
+Sentiment: negative
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/en-netflix-sentiment.bin
+resourceName: 584CDD6B8207F8D6FCC64173C8F1012460B19C6EF61981B67E9DC2076FB792A2.sent

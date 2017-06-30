@@ -1,0 +1,4 @@
+Content-Length: 2018
+Sentiment: positive
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-bin.bin
+resourceName: 0BE0808E736D2F51002CB6420C05DBFABC993B1FC1EDC7B25FA9C5392D68AAC8.sent

@@ -1,0 +1,4 @@
+Content-Length: 1839
+Sentiment: sad
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-categ.bin
+resourceName: 62E56706DE5277D00A952AE4E08DBCE8B7B29F78A5C5D893FA6251B32B3B43C2.sent

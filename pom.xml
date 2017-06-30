@@ -27,6 +27,25 @@
 	<packaging>pom</packaging>
 
 	<name>USC IRDS: Sentiment Analysis Parser</name>
+        <description>Combines Apache OpenNLP and Apache Tika and provides facilities for automatically deriving sentiment from text.</description>
+	<url>https://github.com/USCDataScience/SentimentAnalysisParser</url>
+	
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Anastasija Mensikova</name>
+			<organization>Trinity</organization>
+		</developer>
+	</developers>
+	<scm>
+		<url>https://github.com/USCDataScience/SentimentAnalysisParser.git</url>
+		<connection>scm:git:git://github.com/USCDataScience/SentimentAnalysisParser.git</connection>
+	</scm>
         <modules>
 	  <module>opennlp-tools-sent</module>
 	  <module>sentiment-models</module>

@@ -1,0 +1,4 @@
+Content-Length: 2022
+Sentiment: positive
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-bin.bin
+resourceName: 6D52DEE4DDE2B221C64B13B749F359F6D507BCA7F35DA9E11179019797907F9D.sent
