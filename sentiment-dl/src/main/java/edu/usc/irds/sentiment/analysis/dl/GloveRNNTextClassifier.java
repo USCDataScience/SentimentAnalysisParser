@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -297,10 +298,13 @@ public class GloveRNNTextClassifier {
 
         if (args.filePaths != null && !args.filePaths.isEmpty()) {
             numOps++;
+            System.out.println("Labels:" + args.labels);
             for (String filePath: args.filePaths) {
                 File file = new File(filePath);
                 String text = FileUtils.readFileToString(file);
-                classifier.predict(text);
+                double[] probs = classifier.predict(text);
+                System.out.println(">>" + filePath);
+                System.out.println("Probabilities:" + Arrays.toString(probs));
             }
         }
 
