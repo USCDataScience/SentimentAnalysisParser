@@ -1,7 +1,22 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package edu.usc.irds.sentiment.analysis.dl;
 
 import org.nd4j.linalg.api.ndarray.INDArray;
-import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.indexing.INDArrayIndex;
 import org.nd4j.linalg.indexing.NDArrayIndex;
@@ -9,12 +24,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -150,27 +163,5 @@ public class GlobalVectors {
             features.put(new INDArrayIndex[]{NDArrayIndex.point(0), NDArrayIndex.all(), NDArrayIndex.point(j)}, vector);
         }
         return features;
-    }
-
-    public static void main(String[] args) throws IOException {
-        String path = "/home/tg/work/datasets/glove.6B/glove.6B.50d.txt";
-        GlobalVectors glove;
-        try (InputStream stream = new FileInputStream(path)) {
-            glove = new GlobalVectors(stream, 1000);
-        }
-
-        String dataPath = "/home/tg/work/datasets/aclImdb/train";
-
-
-        DataReader reader = new DataReader(dataPath, Arrays.asList("pos", "neg"), glove, 128, 200);
-        int count = 0;
-        while (reader.hasNext()) {
-            DataSet set = reader.next();
-            count++;
-            if (count % 50 == 0){
-                System.out.println(count);
-            }
-        }
-        System.out.println("Total " + count);
     }
 }
