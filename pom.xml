@@ -27,11 +27,12 @@
 	<packaging>pom</packaging>
 
 	<name>USC IRDS: Sentiment Analysis Parser</name>
-        <modules>
+	<modules>
 	  <module>opennlp-tools-sent</module>
 	  <module>sentiment-models</module>
-          <module>sentiment-core</module>
-		  <module>sentiment-examples</module>
+    <module>sentiment-core</module>
+		<module>sentiment-examples</module>
+		<module>sentiment-dl</module>
 	</modules>
 
 </project>
