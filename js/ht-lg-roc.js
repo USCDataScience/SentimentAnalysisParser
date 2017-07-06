@@ -1,7 +1,7 @@
 (function() {
 	
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 300 - margin.left - margin.right,
+    width = 800 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var svg = d3.select("#ht-lg-roc").append("svg")
@@ -11,10 +11,10 @@ var svg = d3.select("#ht-lg-roc").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
 
-var x = d3.scaleLinear()
+var x = d3.scale.linear()
     .rangeRound([0, width]);
 
-var y = d3.scaleLinear()
+var y = d3.scale.linear()
     .rangeRound([height, 0]);
 
 var line = d3.line()
@@ -45,7 +45,7 @@ d3.tsv("./data/data.tsv", function(d) {
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("text-anchor", "end")
-      .text("Price ($)");
+      .text("True Positive Rate");
 
   svg.append("path")
       .datum(data)
