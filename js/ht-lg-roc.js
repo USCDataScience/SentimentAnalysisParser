@@ -10,16 +10,23 @@ var svg = d3.select("#ht-lg-roc").append("svg")
   	.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
-
 var x = d3.scale.linear()
-    .rangeRound([0, width]);
+    .range([0, width]);
 
 var y = d3.scale.linear()
-    .rangeRound([height, 0]);
+    .range([height, 0]);
 
-var line = d3.line()
+var line = d3.svg.line()
     .x(function(d) { return x(d.fpr); })
     .y(function(d) { return y(d.tpr); });
+	
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
 
 d3.tsv("./data/data.tsv", function(d) {
   d.fpr = +d.fpr;
@@ -33,12 +40,12 @@ d3.tsv("./data/data.tsv", function(d) {
 
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
+      .call(xAxis)
     .select(".domain")
       .remove();
 
   svg.append("g")
-      .call(d3.axisLeft(y))
+      .call(yAxis)
     .append("text")
       .attr("fill", "#000")
       .attr("transform", "rotate(-90)")
