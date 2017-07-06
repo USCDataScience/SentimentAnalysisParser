@@ -15,18 +15,18 @@ var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
 var line = d3.line()
-    .x(function(d) { return x(d.FalsePositiveRate); })
-    .y(function(d) { return y(d.TruePositiveRate); });
+    .x(function(d) { return x(d.fpr); })
+    .y(function(d) { return y(d.tpr); });
 
-d3.tsv("./data/roc_data.tsv", function(d) {
-  d.FalsePositiveRate = parseTime(d.FalsePositiveRate);
-  d.TruePositiveRate = +d.TruePositiveRate;
+d3.tsv("./data/data.tsv", function(d) {
+  d.fpr = +d.fpr;
+  d.tpr = +d.tpr;
   return d;
 }, function(error, data) {
   if (error) throw error;
 
-  x.domain(d3.extent(data, function(d) { return d.FalsePositiveRate; }));
-  y.domain(d3.extent(data, function(d) { return d.TruePositiveRate; }));
+  x.domain(d3.extent(data, function(d) { return d.fpr; }));
+  y.domain(d3.extent(data, function(d) { return d.tpr; }));
 
   g.append("g")
       .attr("transform", "translate(0," + height + ")")
