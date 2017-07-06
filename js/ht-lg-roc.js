@@ -1,14 +1,17 @@
 (function() {
+	
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 800 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
-var svg = d3.select("#ht-lg-roc").append("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = +svg.attr("width") - margin.left - margin.right,
-    height = +svg.attr("height") - margin.top - margin.bottom,
-    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var svg = d3.select("#ht-lg-roc").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  	.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
 
-var parseTime = d3.timeParse("%d-%b-%y");
-
-var x = d3.scaleTime()
+var x = d3.scaleLinear()
     .rangeRound([0, width]);
 
 var y = d3.scaleLinear()
@@ -28,13 +31,13 @@ d3.tsv("./data/data.tsv", function(d) {
   x.domain(d3.extent(data, function(d) { return d.fpr; }));
   y.domain(d3.extent(data, function(d) { return d.tpr; }));
 
-  g.append("g")
+  svg.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x))
     .select(".domain")
       .remove();
 
-  g.append("g")
+  svg.append("g")
       .call(d3.axisLeft(y))
     .append("text")
       .attr("fill", "#000")
@@ -44,7 +47,7 @@ d3.tsv("./data/data.tsv", function(d) {
       .attr("text-anchor", "end")
       .text("Price ($)");
 
-  g.append("path")
+  svg.append("path")
       .datum(data)
       .attr("fill", "none")
       .attr("stroke", "steelblue")
