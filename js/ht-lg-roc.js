@@ -45,8 +45,8 @@ d3.tsv("./data/data.tsv", function(d) {
       .remove();
 	  
   svg.append("text")      // text label for the x axis
-      .attr("x", 400)
-      .attr("y", 450)
+      .attr("x", 550)
+      .attr("y", 480)
       .attr("text-anchor", "end")
         //.style("text-anchor", "middle")
       .text("False Positive Rate");
