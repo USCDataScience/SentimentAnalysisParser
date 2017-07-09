@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="../../favicon.ico"> -->
+
+    <title>Sentiment Analysis Parser</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sentiment.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Sentiment Analysis Parser</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="use.html">Use</a></li>
+			<li><a href="demo.html">Demo</a></li>
+			<li class="active"><a href="htlg.html">HT LG</a></li>
+			<li><a href="models.html">Models</a></li>
+			<li><a href="datasets.html">Training Datasets</a></li>
+			<!-- <li><a href="blog.html">Blog</a></li> -->
+			<li><a href="http://repo1.maven.org/maven2/edu/usc/ir/sentiment-analysis-parser/">Download</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="https://github.com/USCDataScience/SentimentAnalysisParser">GitHub</a></li>
+          </ul>
+          <!-- <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser">GitHub</a></li>
+          </ul> -->
+			  <a href="http://usc.edu" class="usc-logo pull-right"><img src="./images/usc-shield-name-black.png"></a>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+		
+	<!--	<div class="jumbotron">	-->
+		
+	    <h1>Human Trafficking - Lead Generation Analysis</h1>
+		<br> </br>
+		<h2>Training models used</h2>
+		<br> </br>
+		<ol>
+		  <li><b><u>Binary</u> - Netflix Review Model</b>: a model trained by examining film and TV show reviews on Netflix.</li>
+		  <li><b><u>Binary</u> - HT Provider Review Model</b>: a model trained by examining services reviews.</li>
+		  <li><b><u>Categorical</u> - Stanford Model</b>: a model trained by examining data provided by Stanford University.</li>
+		  <li><b><u>Categorical</u> - HT Provider Review Model</b>: a model trained by examining HT services reviews.</li>
+		  <li><b><u>HT Binary</u> - HT Lead Generation Binary</b>: a model trained by examining HT Lead Generation ads classified as HT Relevant or Not HT Relevant.</li>
+		</ol>
+		<br> </br>
+		 <h3>To find out more about the models we trained please visit our <a href="models.html">Models</a> and <a href="datasets.html">Datasets</a> pages.</h3>
+		<br> </br>
+		<br> </br>
+		<h2>Datasets evaluated</h2>
+		<br> </br>
+		<ol>
+		  <li><b>Gun Ads</b>: the MEMEX gun ads data. The gun ads/reviews get examined for their sentiment.</li>
+		  <li><b>HT Reviews</b>: the MEMEX services reviews examined for their sentiment and therefore possible issues.</li>
+		  <li><b>HT Lead Generation Ads</b>: the MEMEX services ads examined for their relevance to human trafficking and sentiment, and therefore possible issues.</li>
+		</ol>
+		<br> </br>
+		<br> </br>
+	        
+	        <h3>HT LEAD GENERATION ANALYSIS - the HT LG Ground Truth Data</h3>
+			<br> </br>
+			<h4>Using the HT LG Ground Truth Data</h4>
+			<br> </br>
+			<ol>
+				<li><b>Correlation between the binary sentiment and the ground truth of the HT data (Netflix model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Postive: 3,688</li>
+					<li>Negative: 7,435</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Postive: 5,587</li>
+					<li>Negative: 5,536</li>
+				</ul>
+				<br> </br>
+				<div id="ht-gt-netflix"></div>
+				<br> </br>
+				<li><b>Correlation between the binary sentiment and the ground truth of the HT data (HT Review model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Postive: 8,838</li>
+					<li>Negative: 2,285</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Postive: 8,550</li>
+					<li>Negative: 2,573</li>
+				</ul>
+				<br> </br>
+				<div id="ht-gt-htbin"></div>
+				<br> </br>
+				<li><b>Correlation between the categorical sentiment and the ground truth of the HT data (Stanford model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Angry: 0</li>
+					<li>Sad: 83</li>
+					<li>Neutral: 10,958</li>
+					<li>Like: 77</li>
+					<li>Love: 5</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Angry: 30</li>
+					<li>Sad: 35</li>
+					<li>Neutral: 10,820</li>
+					<li>Like: 238</li>
+					<li>Love: 0</li>
+				</ul>
+				<br> </br>
+				<div id="ht-gt-stanford"></div>
+				<br> </br>
+				<li><b>Correlation between the categorical sentiment and the ground truth of the HT data (HT Review model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Angry: 112</li>
+					<li>Sad: 3,433</li>
+					<li>Neutral: 1,536</li>
+					<li>Like: 5,904</li>
+					<li>Love: 138</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Angry: 296</li>
+					<li>Sad: 3,795</li>
+					<li>Neutral: 1,494</li>
+					<li>Like: 5,538</li>
+					<li>Love: 0</li>
+				</ul>
+				<br> </br>
+				<div id="ht-gt-htcateg"></div>
+				<br> </br>
+			</ol>
+			<br> </br>
+	        <h3>HT LEAD GENERATION ANALYSIS - the HT LG Model</h3>
+			<br> </br>
+			<ol>
+				<li><b>Correlation between the binary sentiment and the truth of the HT data (Netflix model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Postive: 8,124</li>
+					<li>Negative: 10,160</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Postive: 9,127</li>
+					<li>Negative: 11,152</li>
+				</ul>
+				<br> </br>
+				<div id="ht-lead-g-bin"></div>
+				<br> </br>
+				<li><b>Correlation between the binary sentiment and the truth of the HT data (HT Review model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Postive: 14,833</li>
+					<li>Negative: 3,451</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Postive: 15,164</li>
+					<li>Negative: 5,115</li>
+				</ul>
+				<br> </br>
+				<div id="ht-lead-g-bin-htmodel"></div>
+				<br> </br>
+				<li><b>Correlation between the categorical sentiment and the truth of the HT data (Stanford model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Angry: 0</li>
+					<li>Sad: 68</li>
+					<li>Neutral: 17,889</li>
+					<li>Like: 318</li>
+					<li>Love: 9</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Angry: 3</li>
+					<li>Sad: 114</li>
+					<li>Neutral: 19,868</li>
+					<li>Like: 294</li>
+					<li>Love: 0</li>
+				</ul>
+				<br> </br>
+				<div id="ht-lead-g-categ"></div>
+				<br> </br>
+				<li><b>Correlation between the categorical sentiment and the truth of the HT data (HT Review model)</b></li>
+				<h5>RELEVANT</h5>
+				<ul>
+					<li>Angry: 377</li>
+					<li>Sad: 5,030</li>
+					<li>Neutral: 1,796</li>
+					<li>Like: 11,088</li>
+					<li>Love: 93</li>
+				</ul>
+				<h5>NOT RELEVANT</h5>
+				<ul>
+					<li>Angry: 449</li>
+					<li>Sad: 6,994</li>
+					<li>Neutral: 1,183</li>
+					<li>Like: 11,553</li>
+					<li>Love: 0</li>
+				</ul>
+				<br> </br>
+				<div id="ht-lead-g-categ-htmodel"></div>
+				<br> </br>
+			</ol>
+			<br> </br>
+			<br> </br>
+	        <h3>HT LEAD GENERATION - OVERALL ANALYSIS</h3>
+			<br> </br>
+	        <h4>Using the HT LG Ground Truth Data</h4>
+			<br> </br>
+			<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;}
+			.tg td{font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+			.tg th{font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+			.tg .tg-baqh{text-align:center;vertical-align:top}
+			.tg .tg-yw4l{vertical-align:top}
+			</style>
+			<table class="tg">
+			  <tr>
+			    <th class="tg-yw4l">Indicator</th>
+			    <th class="tg-baqh" colspan="2">Netflix</th>
+			    <th class="tg-baqh" colspan="5">Stanford</th>
+			    <th class="tg-baqh" colspan="2">HT binary</th>
+			    <th class="tg-baqh" colspan="5">HT categorical</th>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l"></td>
+			    <td class="tg-baqh">POS</td>
+			    <td class="tg-baqh">NEG</td>
+			    <td class="tg-yw4l">ANGRY</td>
+			    <td class="tg-yw4l">SAD</td>
+			    <td class="tg-yw4l">NEUTRAL</td>
+			    <td class="tg-baqh">LIKE</td>
+			    <td class="tg-yw4l">LOVE</td>
+			    <td class="tg-baqh">POS</td>
+			    <td class="tg-baqh">NEG</td>
+			    <td class="tg-baqh">ANGRY</td>
+			    <td class="tg-yw4l">SAD</td>
+			    <td class="tg-yw4l">NEUTRAL</td>
+			    <td class="tg-yw4l">LIKE</td>
+			    <td class="tg-yw4l">LOVE</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l">HT Relevant</td>
+			    <td class="tg-baqh">3,688</td>
+			    <td class="tg-baqh">7,435</td>
+			    <td class="tg-yw4l">0</td>
+			    <td class="tg-yw4l">83</td>
+			    <td class="tg-yw4l">10,958</td>
+			    <td class="tg-baqh">77</td>
+			    <td class="tg-yw4l">5</td>
+			    <td class="tg-baqh">8,838</td>
+			    <td class="tg-baqh">2,285</td>
+			    <td class="tg-baqh">112</td>
+			    <td class="tg-yw4l">3,433</td>
+			    <td class="tg-yw4l">1,536</td>
+			    <td class="tg-yw4l">5,904</td>
+			    <td class="tg-yw4l">138</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l">Not HT Relevant</td>
+			    <td class="tg-baqh">5,587</td>
+			    <td class="tg-baqh">5,536</td>
+			    <td class="tg-yw4l">30</td>
+			    <td class="tg-yw4l">35</td>
+			    <td class="tg-yw4l">10,820</td>
+			    <td class="tg-baqh">238</td>
+			    <td class="tg-yw4l">0</td>
+			    <td class="tg-baqh">8,550</td>
+			    <td class="tg-baqh">2,573</td>
+			    <td class="tg-baqh">296</td>
+			    <td class="tg-yw4l">3,795</td>
+			    <td class="tg-yw4l">1,494</td>
+			    <td class="tg-yw4l">5,538</td>
+			    <td class="tg-yw4l">0</td>
+			  </tr>
+			</table>
+			<br> </br>
+			<br> </br>
+	        <h4>Using the HT LG Model</h4>
+			<br> </br>
+			<!--	insert table here	-->
+			<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;}
+			.tg td{font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+			.tg th{font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+			.tg .tg-baqh{text-align:center;vertical-align:top}
+			.tg .tg-yw4l{vertical-align:top}
+			</style>
+			<table class="tg">
+			  <tr>
+			    <th class="tg-yw4l">Indicator</th>
+			    <th class="tg-baqh" colspan="2">Netflix</th>
+			    <th class="tg-baqh" colspan="5">Stanford</th>
+			    <th class="tg-baqh" colspan="2">HT binary</th>
+			    <th class="tg-baqh" colspan="5">HT categorical</th>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l"></td>
+			    <td class="tg-baqh">POS</td>
+			    <td class="tg-baqh">NEG</td>
+			    <td class="tg-yw4l">ANGRY</td>
+			    <td class="tg-yw4l">SAD</td>
+			    <td class="tg-yw4l">NEUTRAL</td>
+			    <td class="tg-baqh">LIKE</td>
+			    <td class="tg-yw4l">LOVE</td>
+			    <td class="tg-baqh">POS</td>
+			    <td class="tg-baqh">NEG</td>
+			    <td class="tg-baqh">ANGRY</td>
+			    <td class="tg-yw4l">SAD</td>
+			    <td class="tg-yw4l">NEUTRAL</td>
+			    <td class="tg-yw4l">LIKE</td>
+			    <td class="tg-yw4l">LOVE</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l">HT Relevant</td>
+			    <td class="tg-baqh">8,124</td>
+			    <td class="tg-baqh">10,160</td>
+			    <td class="tg-yw4l">0</td>
+			    <td class="tg-yw4l">68</td>
+			    <td class="tg-yw4l">17,889</td>
+			    <td class="tg-baqh">318</td>
+			    <td class="tg-yw4l">9</td>
+			    <td class="tg-baqh">14,833</td>
+			    <td class="tg-baqh">3,451</td>
+			    <td class="tg-baqh">377</td>
+			    <td class="tg-yw4l">5,030</td>
+			    <td class="tg-yw4l">1,696</td>
+			    <td class="tg-yw4l">11,088</td>
+			    <td class="tg-yw4l">93</td>
+			  </tr>
+			  <tr>
+			    <td class="tg-yw4l">Not HT Relevant</td>
+			    <td class="tg-baqh">9,127</td>
+			    <td class="tg-baqh">11,152</td>
+			    <td class="tg-yw4l">3</td>
+			    <td class="tg-yw4l">114</td>
+			    <td class="tg-yw4l">19,868</td>
+			    <td class="tg-baqh">294</td>
+			    <td class="tg-yw4l">0</td>
+			    <td class="tg-baqh">15,164</td>
+			    <td class="tg-baqh">5,115</td>
+			    <td class="tg-baqh">449</td>
+			    <td class="tg-yw4l">6,994</td>
+			    <td class="tg-yw4l">1,283</td>
+			    <td class="tg-yw4l">11,553</td>
+			    <td class="tg-yw4l">0</td>
+			  </tr>
+			</table>
+			<br> </br>
+	        <h4>Dividing the train set into 80:20 (80% = training; 20% = testing)</h4>
+			<br> </br>
+			<!--	insert table here	-->
+			<style type="text/css">
+			.tg  {border-collapse:collapse;border-spacing:0;}
+			.tg td{font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+			.tg th{font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+			.tg .tg-baqh{text-align:center;vertical-align:top}
+			.tg .tg-yw4l{vertical-align:top}
+			</style>
+			<table class="tg">
+			  <tr>
+			      <th colspan="2" rowspan="2"></th>
+			      <th colspan="2">Predicted</th>
+			    </tr>
+			    <tr>
+			      <td>RELEVANT</td>
+			      <td>NOT RELEVANT</td>
+			    </tr>
+			    <tr>
+			      <td rowspan="2">Actual</td>
+			      <td>RELEVANT</td>
+			      <td>2,213</td>
+			      <td>29</td>
+			    </tr>
+			    <tr>
+			      <td>NOT RELEVANT</td>
+			      <td>42</td>
+			      <td>2,165</td>
+			    </tr>
+			</table>
+			<br> </br>
+			<br> </br>
+			<div id="ht-lg-roc"></div>
+			<br> </br>
+			<br> </br>
+		
+	<!--	</div>	-->
+		
+	  	
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="d3/d3.min.js"></script>
+	<script src="js/ht-lead-gen-bin.js"></script>
+	<script src="js/ht-lead-gen-categ.js"></script>
+	<script src="js/ht-lead-gen-bin-htmodel.js"></script>
+	<script src="js/ht-lead-gen-categ-htmodel.js"></script>
+	<script src="js/ht-gt-netflix.js"></script>
+	<script src="js/ht-gt-stanford.js"></script>
+	<script src="js/ht-gt-htbin.js"></script>
+	<script src="js/ht-gt-htcateg.js"></script>
+	<script src="js/ht-lg-roc.js"></script>
+  </body>
+</html>

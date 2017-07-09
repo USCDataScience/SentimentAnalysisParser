@@ -43,6 +43,13 @@ d3.tsv("./data/data.tsv", function(d) {
       .call(xAxis)
     .select(".domain")
       .remove();
+	  
+  svg.append("text")      // text label for the x axis
+      .attr("x", 265 )
+      .attr("y",  10 )
+      .attr("text-anchor", "end")
+        //.style("text-anchor", "middle")
+      .text("Flase Positive Rate");
 
   svg.append("g")
       .call(yAxis)
