@@ -45,7 +45,7 @@ d3.tsv("./data/data.tsv", function(d) {
       .remove();
 	  
   svg.append("text")      // text label for the x axis
-      .attr("x", 600)
+      .attr("x", 560)
       .attr("y", 500)
       .attr("text-anchor", "end")
         //.style("text-anchor", "middle")
