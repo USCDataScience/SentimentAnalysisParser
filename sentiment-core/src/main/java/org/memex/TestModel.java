@@ -1,3 +1,20 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.memex;
 
 import java.io.BufferedReader;
@@ -11,6 +28,9 @@ import java.nio.file.Paths;
 
 import org.apache.commons.io.FileUtils;
 
+/*
+ * A class to help divide the given training dataset into train and test data (80:20)
+ */
 public class TestModel {
 
   private static String inputFile;
@@ -22,10 +42,10 @@ public class TestModel {
 //  private static int match;
 //  private static int notMatch;
   
-  private static int trueRel;
-  private static int trueNotRel;
-  private static int falseRel;
-  private static int falseNotRel;
+  private double trueRel;
+  private double trueNotRel;
+  private double falseRel;
+  private double falseNotRel;
 
   public TestModel(String input, String output) {
     this.inputFile = input;
@@ -42,10 +62,6 @@ public class TestModel {
 
     BufferedReader reader = Files.newBufferedReader(inputFileName,
         Charset.forName("UTF-8"));
-    // Path outputFileName = Paths.get(outputFile);
-    // try (Scanner sc = new Scanner(new File(inputFile))) {
-    // Scanner sc = new Scanner(new File(inputFile));
-    // while (sc.hasNextLine()) {
     String line;
     int i = 0;
     while ((line = reader.readLine()) != null) {
@@ -56,18 +72,10 @@ public class TestModel {
       PrintWriter fileWriter = new PrintWriter(
           Files.newBufferedWriter(output, Charset.forName("UTF-8")));
       fileWriter.write(label);
-      
-      // PrintWriter outputStream = new PrintWriter(outputFile);
-      // outputStream.println(sc.next());// write first word from line
-//      fileWriter.write(sc.next());
       fileWriter.close();
       i++;
-//      sc.nextLine();// consume rest of text from that line
     }
   }
-  // catch (IOException e) {
-  // e.printStackTrace();
-  // }
 
   public void removeLabels() throws IOException {
     Path inputFileName = Paths.get(inputFile);
@@ -75,8 +83,6 @@ public class TestModel {
 
     BufferedReader reader = Files.newBufferedReader(inputFileName,
         Charset.forName("UTF-8"));
-    // PrintWriter writer = new
-    // PrintWriter(Files.newBufferedWriter(outputFileName));
 
     String line;
     int i = 0;
@@ -120,23 +126,38 @@ public class TestModel {
 
   }
 
+  public double getTrueRel() {
+    return trueRel;
+  }
+
+  public void setTrueRel(int trueRel) {
+    this.trueRel = trueRel;
+  }
+
   public static void main(String[] args) throws IOException {
 
     String fileName = args[0];
     String outputName = args[1];
 
-    // TestModel test = new TestModel(fileName, outputName);
     TestModel test = new TestModel(fileName, outputName);
     //test.saveLabels();
      //test.removeLabels();
     test.compareLabels();
-    System.out.println("TNR: " + trueNotRel);
-    System.out.println("TR: " + trueRel);
-    System.out.println("FNR: " + falseNotRel);
-    System.out.println("FR: " + falseRel);
+    System.out.println("TNR: " + test.trueNotRel);
+    System.out.println("TR: " + test.getTrueRel());
+    System.out.println("FNR: " + test.falseNotRel);
+    System.out.println("FR: " + test.getFalseRel());
     // System.out.println("MATCH: " + match);
     // System.out.println("NOT MATCH: " + notMatch);
 
+  }
+
+  public double getFalseRel() {
+    return falseRel;
+  }
+
+  public void setFalseRel(int falseRel) {
+    this.falseRel = falseRel;
   }
 
 }
