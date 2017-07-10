@@ -83,7 +83,10 @@
 		<br> </br>
 		<h3>Dataset evaluated</h3>
 		<br> </br>
-		<b>HT Lead Generation Ads</b>: the MEMEX services ads examined for their relevance to human trafficking and sentiment, and therefore possible issues.
+		<ol>
+		  <li><b>HT Lead Generation Ads - pre-labeled (22,246)</b>: the MEMEX services ads examined for their relevance to human trafficking and sentiment, and therefore possible issues.</li>
+		  <li><b>HT Lead Generation Ads - NOT labeled (38,563)</b>: the MEMEX services reviews examined for their sentiment and therefore possible issues.</li>
+		</ol>
 		<br> </br>
 		<br> </br>
 	        <h2>Step II.A</h2>
@@ -166,6 +169,8 @@
 			<br> </br>
 			<h2>Step II.B</h2>
 	        <h3>HT LEAD GENERATION ANALYSIS - the HT LG Model</h3>
+			<br> </br>
+			<p><b>Step II.B</b> analyses the correlation between the results of running the HT LG model on the dataset #2 (the not labeled test ads) and their respective results when run through the first four models: binary Netflix and HT, categorical Stanford and HT. To perform this, just like previous, analysis, an <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/OutputAnalyzer.java">Output Analyzer</a> was created, which uses a brute-force approach to create correlations between the HT relevancy, as predicted by the HT LG Model, and the results of running the four models. In short, given the 38,563 non-labeled ads with their respective IDs, the Output Analyzer analysed the HT relevancy label, as given by the newly produced HT LG model, for each ad and the label given by one of the sentiment models, which thereafter allowed to calculate the number of RELEVANT  and NOT RELEVANT ads within each sentiment label (e.g. the number of RELEVANT positive ads, NOT RELEVANT postive, RELEVANT negative and NOT RELEVANT negative ads as analysed by the Netflix model).</p>
 			<br> </br>
 			<ol>
 				<li><b>Correlation between the binary sentiment and the truth of the HT data (Netflix model)</b></li>
