@@ -72,8 +72,12 @@
 		  <li><b><u>Binary</u> - HT Provider Review Model</b>: a model trained by examining services reviews.</li>
 		  <li><b><u>Categorical</u> - Stanford Model</b>: a model trained by examining data provided by Stanford University.</li>
 		  <li><b><u>Categorical</u> - HT Provider Review Model</b>: a model trained by examining HT services reviews.</li>
-		  <li><b><u>HT Binary</u> - HT Lead Generation Binary</b>: a model trained by examining HT Lead Generation ads classified as HT Relevant or Not HT Relevant.</li>
+		  <li><b><u>HT LG Binary</u> - HT Lead Generation Binary</b>: a model trained by examining HT Lead Generation ads classified as HT Relevant or Not HT Relevant.</li>
 		</ol>
+		<br> </br>
+		<h5>HT Lead Generation Binary model: a short description</h5>
+		<br> </br>
+		<p>Using a MEMEX provided JSON data file (contact mattmann@usc.edu for more information on the source file), the final training dataset was created using a <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/JSONParser.java">JSON Parser</a.>, which was also separately implemented within Apache Tika in conjunction with the Text-To-Tag-Ratio algorithm, and a <a href= "https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/PrepareData.java">Data Preapartion Parser</a>. The first parser was used to extract the value of the <i>raw_content</i> field in the JSON file and its corresponding <i>annotation</i>, or the label (NOT_RELEVANT or VERY_RELEVANT). Since the value of the <i>raw_content</i> was the HTML source code of the entire ad, the parser's implementation within Tika, along with the Text-To-Tag-Ratio algorithm, was essential to get rid of any site navigation and unnecessary tags, which made the model more reliable. The latter parser made the training dataset even more reliable by ensuring an equal presence of examples per each label and shuffling the data. In the end we ended up with an almost perfect training dataset of total 22,246 lines (11,123 NOT_RELEVANT and 11,123 VERY_RELEVANT examples), where each line started out with a label (NOT_RELEVANT or VERY_RELEVANT) followed by the respective ad. As a result, the model is capable of analysing the given data for its relevancy to human trafficking.</p>
 		<br> </br>
 		 <h3>To find out more about the models we trained please visit our <a href="models.html">Models</a> and <a href="datasets.html">Datasets</a> pages.</h3>
 		<br> </br>
@@ -81,7 +85,6 @@
 		<h2>Datasets evaluated</h2>
 		<br> </br>
 		<ol>
-		  <li><b>Gun Ads</b>: the MEMEX gun ads data. The gun ads/reviews get examined for their sentiment.</li>
 		  <li><b>HT Reviews</b>: the MEMEX services reviews examined for their sentiment and therefore possible issues.</li>
 		  <li><b>HT Lead Generation Ads</b>: the MEMEX services ads examined for their relevance to human trafficking and sentiment, and therefore possible issues.</li>
 		</ol>
@@ -413,6 +416,8 @@
 			    </tr>
 			</table>
 			<br> </br>
+			<br> </br>
+			<h4>Plotting an ROC curve on the 80:20 data</h4>
 			<br> </br>
 			<div id="ht-lg-roc"></div>
 			<br> </br>
