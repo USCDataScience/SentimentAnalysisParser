@@ -1,3 +1,20 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.memex;
 
 import java.io.File;
@@ -13,6 +30,9 @@ import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
+/*
+ * A class to build training dataset for the hybrid model.
+ */
 public class HybridModel {
 
   private static String stanfordFile;
@@ -39,12 +59,8 @@ public class HybridModel {
 
   public void parse() throws IOException {
     File input1 = new File(stanfordFile);
-//    File input2 = new File(htReviewFile);
-//    File input3 = new File(geotFile);
-//    File input4 = new File(adFile);
     Path outputFileName = Paths.get(outputFile);
     Charset encoding = Charset.forName("UTF-8");
-    //PrintWriter outputStream = new PrintWriter(Files.newBufferedWriter(outputFileName, encoding));
     for (File file1 : input1.listFiles()) {
       String id = file1.getName();
       if (id.equals(".DS_Store") || id.equals("..out") || id.equals(".out")) {
@@ -58,20 +74,16 @@ public class HybridModel {
       String htLabel = FileUtils.readFileToString(ht_lg);
       Map<String, String> stanfordMap = new HashMap<String, String>();
       Map<String, String> htMap = new HashMap<String, String>();
-      //Map<String, String> htLGMap = new HashMap<String, String>();
       List<String> lines1 = FileUtils.readLines(file1, "utf-8");
       List<String> lines2 = FileUtils.readLines(file2, "utf-8");
       List<String> lines3 = FileUtils.readLines(file3, "utf-8");
-      //List<String> lines4 = FileUtils.readLines(ht_lg, "utf-8");
       for (int i = 0; i < lines1.size(); i++) {
         String[] s1 = lines1.get(i).split(": ");
         String[] s2 = lines2.get(i).split(": ");
-        //String[] s3 = lines4.get(i).split(": ");
         stanfordMap.put(s1[0], s1[1]);
         htMap.put(s2[0], s2[1]);
-        //htLGMap.put(s3[0], s3[1]);
       }
-      if (htLabel.equals("NOT_RELEVANT")) {//(htLGMap.get("Sentiment").equals("NOT_RELEVANT")) {
+      if (htLabel.equals("NOT_RELEVANT")) {
         outputStream.write("NOT_RELEVANT ");
       } else {
         outputStream.write("RELEVANT ");
