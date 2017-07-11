@@ -44,8 +44,8 @@
             <li><a href="use.html">Use</a></li>
 			<li><a href="demo.html">Demo</a></li>
 			<li><a href="htlg.html">HT LG</a></li>
-			<li><a href="dhs.html">Standards</a></li>
-			<li class="active"><a href="datasets.html">Training Data</a></li>
+			<li class="active"><a href="dhs.html">Standards</a></li>
+			<li><a href="datasets.html">Training Data</a></li>
 			<!-- <li><a href="blog.html">Blog</a></li> -->
 			<li><a href="http://repo1.maven.org/maven2/edu/usc/ir/sentiment-analysis-parser/">Download</a></li>
 			<li><a href="contact.html">Contact</a></li>
@@ -59,39 +59,56 @@
       </div>
     </nav>
 
-
     <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Datasets used for training the four given models</h1>
-		<br> </br>
-        <h2><center>BINARY</center></h2>
-		<br> </br>
-        <h3><center><a href="http://ai.stanford.edu/~amaas/data/sentiment/">The Netflix dataset</a></center></h3>
-		<br> </br>
-		<h4><center>Trained in movie and TV show reviews posted on Netflix.</center></h4>
-		<br> </br>
-        <h3><center><a href="#">The ads HT dataset</a></center></h3>
-		<br> </br>
-		<h4><center>Trained in web pages involved in Human Trafficking. Contact mattmann@usc.edu for more information.</center></h4>
-		<br> </br>
-		<br> </br>
-        <h2><center>CATEGORICAL</center></h2>
-		<br> </br>
-        <h3><center><a href="https://nlp.stanford.edu/sentiment/index.html">The Stanford dataset</a></center></h3>
-		<br> </br>
-		<h4><center>Trained in data provided by <a href="http://nlp.stanford.edu/sentiment/code.html">Stanford University.</a/></center></h4>
-		<br> </br>
-        <h3><center><a href="#">The HT ads dataset</a></center></h3>
-		<br> </br>
-		<h4><center>Trained in web pages involved in Human Trafficking. Contact mattmann@usc.edu for more information.</center></h4>
-		<br> </br>
 		
-        <!-- ><p>
-          <a class="btn btn-lg btn-primary" href="#docs" role="button">Get started &raquo;</a>
-        </p> -->
-      </div>
+	<!--	<div class="jumbotron">	-->
+		
+	    <h1>Sentiment Analysis Parser - IEEE Standards</h1>
+		<br> </br>
+		<h2>Training models used</h2>
+		<br> </br>
+		<ol>
+		  <li><b><u>Categorical</u> - IEEE Standards Abstracts Model</b>: a model trained by extracting abstracts from IEEE standards and using the most common keyword in the respective standard as its category (15 categories).</li>
+		</ol>
+		<br> </br>
+		<br> </br>
+		<h2>Datasets evaluated</h2>
+		<br> </br>
+		<ol>
+		  <li><b>IEEE Standards Abstracts (new)</b>: the new (different) abstracts from IEEE standards.</li>
+		</ol>
+		<br> </br>
+		<br> </br>
+	    <h2>Running IEEE Model (#1) on standards abstracts</h2>
+			<br> </br>
+				<li><b>Categorical IEEE STandards Abstracts Model results</b></li>
+				<ul>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+					<li>: </li>
+				</ul>
+				<br> </br>
+				<div id="ieee-on-ieee"></div>
+				<br> </br>
+			</ol>
+			<br> </br>
+		
+	<!--	</div>	-->
+		
+	  	
 
     </div> <!-- /container -->
 
@@ -102,6 +119,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<script src="d3/d3.min.js"></script>
-	<script src="js/sentiment.js"></script>
+	<script src="js/ieee.js"></script>
   </body>
 </html>
