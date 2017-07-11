@@ -68,7 +68,8 @@
 		<h2>Training models used</h2>
 		<br> </br>
 		<ol>
-		  <li><b><u>Categorical</u> - IEEE Standards Abstracts Model</b>: a model trained by extracting abstracts from IEEE standards and using the most common keyword in the respective standard as its category (15 categories).</li>
+		  <li><b><u>Categorical</u> - IEEE Standards Abstracts Model</b>: a model trained by extracting abstracts from IEEE standards and using the most common keyword in the respective standard as its category (14 categories).</li>
+		  <li><b><u>Categorical</u> - IEEE Standards Abstracts Model with merged categories</b>: a model trained by extracting abstracts from IEEE standards and using the most common keyword in the respective standard as its category (12 categories).</li>
 		</ol>
 		<br> </br>
 		<br> </br>
@@ -81,7 +82,7 @@
 		<br> </br>
 	    <h2>Running IEEE Model (#1) on 1,273 standards abstracts</h2>
 			<br> </br>
-				<li><b>Categorical IEEE Standards Abstracts Model results</b></li>
+				<li><b>Results: Categorical IEEE Standards Abstracts Model</b></li>
 				<ul>
 					<li>Networks: 53</li>
 					<li>Software: 23</li>
@@ -101,6 +102,24 @@
 				<br> </br>
 				<div id="ieee-on-ieee"></div>
 				<br> </br>
+				<li><b>Results: Categorical IEEE Standards Abstracts Model trained on some categories merged</b></li>
+				<ul>
+					<li>Wireless Networks: 95</li>
+					<li>Software: 13</li>
+					<li>Devices: 54</li>
+					<li>Interface: 1</li>
+					<li>System: 892</li>
+					<li>Circuits: 45</li>
+					<li>Management: 11</li>
+					<li>Equipment: 52</li>
+					<li>Security: 5</li>
+					<li>Design: 67</li>
+					<li>Data: 12</li>
+					<li>Radio: 26</li>
+				</ul>
+				<br> </br>
+				<div id="ieee-on-ieee-merged"></div>
+				<br> </br>
 			</ol>
 			<br> </br>
 		
@@ -118,5 +137,6 @@
     <script src="js/bootstrap.min.js"></script>
 	<script src="d3/d3.min.js"></script>
 	<script src="js/ieee.js"></script>
+	<script src="js/ieee_merged.js"></script>
   </body>
 </html>
