@@ -1,6 +1,6 @@
 (function() {
 
-var margin = {top: 20, right: 20, bottom: 30, left: 65},
+var margin = {top: 20, right: 20, bottom: 90, left: 65},
     width = 550 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -37,7 +37,13 @@ d3.tsv("./data/ieee_on_ieee.tsv", type, function(error, data) {
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .call(xAxis)
+  .selectAll("text")
+      .attr("y", 0)
+      .attr("x", 9)
+      .attr("dy", ".35em")
+      .attr("transform", "rotate(45)")
+      .style("text-anchor", "start");
 
   svg.append("g")
       .attr("class", "y axis")
