@@ -439,13 +439,27 @@
 			<h2>Step IV</h2>
 	        <h3>HT LEAD GENERATION - THE HYBRID MODEL</h3>
 			<br> </br>
-			<p><b>Step IV</b> involves building a <u>Hybrid Model</u>.</p>
+			<p><b>Step IV</b> involves building a <u>Hybrid Model</u> using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/HybridModel.java">Hybrid Model builder</a>. The purpose of the model is to determine the HT Relevancy of an ad with more precision. In short, to build the training dataset the following steps were undertaken:</p>
+			<ol>
+				<li>Use the pre-labeled dataset (#1) and save its labels only</li>
+				<li>Run the Stanford model on the ads from dataset #1 and give each ad a label of <i>yes</i> (indicating that the ad was labeled with "love") or <i>no</i> (indicating that the ad was labeled as either "like", "neutral", "sad" or "angry").</li>
+				<li>Run the HT Categorical model on the ads and give each ad a label the same way.</li>
+				<li>Run the GeoTopicParser on each ad and save the main geolocation found.</li>
+				<li>Use that main geolocation as the next label.</li>
+				<li>Parse each ad text and search for presence of negation ("no"). If it is present in the ad, save "yes" as the next label, save "no" otherwise</li>
+				<li>As a result each line of the training file (of 22,246 lines in total) looked like this: <i>NOT_RELEVANT no, no, New York City, no</i></li>
+			</ol>
 			<br> </br>
 			<ol>
 				<li><b>Running the Hybrid Model on the HT LG Data (dataset #2)</b></li>
 				<ul>
 					<li>RELEVANT: 20,396</li>
 					<li>NOT RELEVANT: 18,167</li>
+				</ul>
+				<p>Compared to HT LG Binary model (#5) results on the same data:</p>
+				<ul>
+					<li>RELEVANT: 18,284</li>
+					<li>NOT RELEVANT: 20,279</li>
 				</ul>
 				<br> </br>
 			<div id="hybrid-1"></div>
