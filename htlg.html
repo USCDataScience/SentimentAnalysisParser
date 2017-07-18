@@ -168,6 +168,7 @@
 				<br> </br>
 			</ol>
 			<br> </br>
+			<br> </br>
 			<h2>Step II.B</h2>
 	        <h3>HT LEAD GENERATION ANALYSIS - the HT LG Model</h3>
 			<br> </br>
@@ -246,9 +247,46 @@
 			<br> </br>
 			<br> </br>
 			<h2>Step III.A</h2>
+	        <h3>HT LEAD GENERATION CLUSTER ANALYSIS - the HT LG Model</h3>
+			<br> </br>
+			<p><b>Step III.A</b> analyses the relative distribution of categorical sentiment in the HT Lead Generation ads (dataset #2). To build the following two graphs, these steps were undertaken:</p>
+			<ol>
+				<li>Run the chosen model (either #3 or #4) on the test dataset (HT LG dataset #2).</li>
+				<li>Record the <i>cluster_id</i> of each ad.</li>
+				<li>For each cluster, calculate the total number of angry, sad, neutral, like and love ads.</li>
+				<li>To calculate the contribution of each cluster to the total value of each label on the graph, for each label calculate the <u># of ads classified for a label/total # of ads</u>.</li>
+				<li>For example, the cluster ce3fb900eb7ca45e4a1dab30624b822fa40418d1, as analysed by the Stanford Model, has a total of 62 ads with 0 love, like, sad and angry ads, and 62 neutral ads, which means that it contributes 62/62=1.0 to the neutral bar and 0/62=0 to the rest.</li>
+			</ol>
+			<br> </br>
+			<ol>
+				<li><b>The relative distribution of categorical sentiment among HT LG ads using the Stanford Model (#3)</b></li>
+				<ul>
+					<li>Angry: 0.01121</li>
+					<li>Sad: 0.17895</li>
+					<li>Neutral: 125.07799</li>
+					<li>Like: 4.70649</li>
+					<li>Love: 0.02534</li>
+				</ul>
+				<br> </br>
+				<div id="ht-lg-cluster-stan"></div>
+				<br> </br>
+				<li><b>The relative distribution of categorical sentiment among HT LG ads using the HT Categorical Model (#4)</b></li>
+				<ul>
+					<li>Angry: 2.35796</li>
+					<li>Sad: 26.67812</li>
+					<li>Neutral: 18.13439</li>
+					<li>Like: 82.00351</li>
+					<li>Love: 0.82603</li>
+				</ul>
+				<br> </br>
+				<div id="ht-lg-cluster-htcat"></div>
+				<br> </br>
+			<br> </br>
+			<br> </br>
+			<h2>Step IV.A</h2>
 	        <h3>HT LEAD GENERATION - OVERALL ANALYSIS</h3>
 			<br> </br>
-			<p><b>Step III.A</b> involves looking at Steps II.A and II.B from far. In short, it portrays the results of the analyses in two tables - for Step II.A and II.B respectively.</p>
+			<p><b>Step IV.A</b> involves looking at Steps II.A and II.B from far. In short, it portrays the results of the analyses in two tables - for Step II.A and II.B respectively.</p>
 			<br> </br>
 	        <h4>Using the HT LG Ground Truth Data</h4>
 			<br> </br>
@@ -392,10 +430,10 @@
 			</table>
 			<br> </br>
 			<br> </br>
-			<h2>Step III.B</h2>
+			<h2>Step IV.B</h2>
 	        <h3>HT LEAD GENERATION - ANALYSING THE PERFORMANCE OF THE MODEL</h3>
 			<br> </br>
-			<p><b>Step III.B</b> involves analysing the performance of the HT LG Model. To do this, the dataset #1 (the pre-labeled training dataset) was divided into 80% for training and 20% for testing. The NOT_RELEVANT and VERY_RELEVANT labels remained in the new training dataset, and were removed and saved separately in the test dataset. The new model was trained on the 80% of the data and run on the 20% testing dataset. The results of this run were thereafter compared to the actual saved labels, and the matches were calculated (as true positive, false positive, true negative, false negative). All of this was performed using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/TestModel.java">Test Model Parser</a>. </p>
+			<p><b>Step IV.B</b> involves analysing the performance of the HT LG Model. To do this, the dataset #1 (the pre-labeled training dataset) was divided into 80% for training and 20% for testing. The NOT_RELEVANT and VERY_RELEVANT labels remained in the new training dataset, and were removed and saved separately in the test dataset. The new model was trained on the 80% of the data and run on the 20% testing dataset. The results of this run were thereafter compared to the actual saved labels, and the matches were calculated (as true positive, false positive, true negative, false negative). All of this was performed using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/TestModel.java">Test Model Parser</a>. </p>
 			<p><b>The ROC Curve</b> was later on built using the results of the 80:20 run, which was performed using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/ROC.java">ROC creator</a>. To get the X axis and Y axis coordinates for the purpose of plotting the curve, for each test ad in the 20% evaluated, the False Positive Rate (FPR) and the True Positive Rate (TPR) were calculated respectively. To calculate the TRP, the current count of true positive (or, in our case, true relevant) was divided by the total count of true positive. The same was done for FPR, but using the the false postive (or false relevant) count instead.</p>
 			<br> </br>
 	        <h4>Dividing the train set into 80:20 (80% = training; 20% = testing)</h4>
@@ -436,10 +474,10 @@
 			<div id="ht-lg-roc"></div>
 			<br> </br>
 			<br> </br>
-			<h2>Step IV</h2>
+			<h2>Step V</h2>
 	        <h3>HT LEAD GENERATION - THE HYBRID MODEL</h3>
 			<br> </br>
-			<p><b>Step IV</b> involves building a <u>Hybrid Model</u> using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/HybridModel.java">Hybrid Model builder</a>. The purpose of the model is to determine the HT Relevancy of an ad with more precision. In short, to build the training dataset the following steps were undertaken:</p>
+			<p><b>Step V</b> involves building a <u>Hybrid Model</u> using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/HybridModel.java">Hybrid Model builder</a>. The purpose of the model is to determine the HT Relevancy of an ad with more precision. In short, to build the training dataset the following steps were undertaken:</p>
 			<ol>
 				<li>Use the pre-labeled dataset (#1) and save its labels only</li>
 				<li>Run the Stanford model on the ads from dataset #1 and give each ad a label of <i>yes</i> (indicating that the ad was labeled with "love") or <i>no</i> (indicating that the ad was labeled as either "like", "neutral", "sad" or "angry").</li>
@@ -488,5 +526,7 @@
 	<script src="js/ht-gt-htcateg.js"></script>
 	<script src="js/ht-lg-roc.js"></script>
 	<script src="js/hybrid1.js"></script>
+	<script src="js/ht-lg-cluster-stanford.js"></script>
+	<script src="js/ht-lg-cluster-htcat.js"></script>
   </body>
 </html>
