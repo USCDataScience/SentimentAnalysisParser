@@ -254,7 +254,7 @@
 				<li>Run the chosen model (either #3 or #4) on the test dataset (HT LG dataset #2).</li>
 				<li>Record the <i>cluster_id</i> of each ad.</li>
 				<li>For each cluster, calculate the total number of angry, sad, neutral, like and love ads.</li>
-				<li>To calculate the contribution of each cluster to the total value of each label on the graph, for each label calculate the <u># of ads classified for a label/total # of ads</u>.</li>
+				<li>To calculate the contribution of each cluster to the total value of each label on the graph, for each label calculate the <u># of ads classified for a label/total # of ads</u>, which was done using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/ClusterAnalysis.java">Cluster Analysis parser</a>.</li>
 				<li>For example, the cluster ce3fb900eb7ca45e4a1dab30624b822fa40418d1, as analysed by the Stanford Model, has a total of 62 ads with 0 love, like, sad and angry ads, and 62 neutral ads, which means that it contributes 62/62=1.0 to the neutral bar and 0/62=0 to the rest.</li>
 			</ol>
 			<br> </br>
