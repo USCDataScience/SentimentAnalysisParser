@@ -1,0 +1,1 @@
+A high order language for testing is defined. This language is designed to describe tests in terms that are independent of any specific test system, and has been constrained to ensure that it can be implemented on automatic test equipment.

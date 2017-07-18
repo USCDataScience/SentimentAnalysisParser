@@ -1,0 +1,4 @@
+Content-Length: 483
+Sentiment: circuits
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ieee-merged.bin
+resourceName: 590.sent

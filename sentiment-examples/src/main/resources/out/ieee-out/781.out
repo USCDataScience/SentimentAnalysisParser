@@ -1,0 +1,4 @@
+Content-Length: 609
+Sentiment: radio
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ieee-standards-model.bin
+resourceName: 781.sent

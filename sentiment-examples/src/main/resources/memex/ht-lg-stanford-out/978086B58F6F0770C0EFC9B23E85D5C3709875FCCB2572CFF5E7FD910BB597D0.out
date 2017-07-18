@@ -1,0 +1,4 @@
+Content-Length: 1863
+Sentiment: neutral
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/en-stanford-sentiment.bin
+resourceName: 978086B58F6F0770C0EFC9B23E85D5C3709875FCCB2572CFF5E7FD910BB597D0.sent

@@ -1,0 +1,1 @@
+This standard defines how the necessary information is passed from scan insertion to pattern generation and from pattern generation to diagnosis such that different tool vendors could be used for each step independent of on-chip scan compression logic used.

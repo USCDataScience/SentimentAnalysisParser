@@ -33,15 +33,22 @@ import com.opencsv.CSVReader;
  */
 public class CSVParser {
 
-  private static String input;
+  private String inputOld;
+  private String inputNew;
+  private String outputName;
   private PrintWriter outputStream;
 
-  public CSVParser(String inputFile, String outputFile) throws IOException {
-    this.input = inputFile;
-    Path outputFileName = Paths.get(outputFile);
-    Charset encoding = Charset.forName("UTF-8");
-    outputStream = new PrintWriter(
-        Files.newBufferedWriter(outputFileName, encoding));
+  public CSVParser(String inputFileOld, String inputFileNew, String outputPath)
+      throws IOException {
+    this.inputOld = inputFileOld;
+    this.inputNew = inputFileNew;
+    this.outputName = outputPath;
+    // File old = new File(inputFileOld);
+
+    // Path outputFileName = Paths.get(outputFile);
+    // Charset encoding = Charset.forName("UTF-8");
+    // outputStream = new PrintWriter(
+    // Files.newBufferedWriter(outputFileName, encoding));
   }
 
   private int getHeaderLocation(String[] headers, String columnName) {
@@ -49,32 +56,68 @@ public class CSVParser {
   }
 
   public void read() throws IOException {
+    Path inputFileOld = Paths.get(this.inputOld);
+    Path inputFileNew = Paths.get(this.inputNew);
+    // Path outputFileName = Paths.get(outputName);
     // FileInputStream file = new FileInputStream(new File(input));
-    CSVReader reader = new CSVReader(new FileReader(input));
+    //CSVReader readerOld = new CSVReader(new FileReader(inputOld));
+    CSVReader readerNew = new CSVReader(new FileReader(inputNew));
 
-    String[] firstLine = reader.readNext();
+    //String[] firstLineNew = readerNew.readNext();
+    //String[] firstLineOld = readerOld.readNext(); //all the unnecessary stuff in the 1st line of the old file
 
-    String[] nextLine;
+    String[] nextLineNew; 
+    String[] nextLineOld; 
     int categoryPosition, abstractPosition;
 
-    nextLine = reader.readNext();
-    categoryPosition = getHeaderLocation(nextLine, "Category");
-    abstractPosition = getHeaderLocation(nextLine, "Abstract");
+    nextLineNew = readerNew.readNext(); //column headers in the new file
+    //nextLineOld = readerOld.readNext(); //column headers in the old file
+    abstractPosition = getHeaderLocation(nextLineNew, "Abstract"); //10
 
-    while ((nextLine = reader.readNext()) != null && categoryPosition > -1) {
-      // nextLine[] is an array of values from the line
-      if (nextLine[categoryPosition].length() > 1
-          && nextLine[abstractPosition].length() > 0) {
-        outputStream.write(nextLine[categoryPosition].toLowerCase() + " ");
-        outputStream.write(nextLine[abstractPosition].toLowerCase() + "\n");
+    int id = 0;
+
+    while ((nextLineNew = readerNew.readNext()) != null) {
+      boolean put = false;
+      CSVReader readerOld = new CSVReader(new FileReader(inputOld));
+      String[] firstLineOld = readerOld.readNext(); //all the unnecessary stuff in the 1st line of the old file
+      nextLineOld = readerOld.readNext(); //column headers in the old file
+      while ((nextLineOld = readerOld.readNext()) != null) {
+        //System.out.println(nextLineNew[abstractPosition] + "NEW=====OLD" + nextLineOld[abstractPosition]);
+        //System.out.println(nextLineOld[abstractPosition]);
+        if (!nextLineNew[abstractPosition].equals(nextLineOld[abstractPosition])
+            && nextLineNew[abstractPosition].length() > 0) {
+          put = true;
+        } if (nextLineNew[abstractPosition].equals(nextLineOld[abstractPosition])
+            && nextLineNew[abstractPosition].length() == 0) {
+          put = false;
+        }
       }
-    }
-    outputStream.close();
+      if (put) {
+        
+          //Path outputFile = Paths.get(outputName, id);
+          //System.out.println(nextLineNew[abstractPosition]);
+          String outFileName = outputName + "/" + id + ".sent";
+          Path outputFile = Paths.get(outFileName);
+          PrintWriter fileWriter = new PrintWriter(Files
+              .newBufferedWriter(outputFile , Charset.forName("UTF-8")));
+          fileWriter.write(nextLineNew[abstractPosition]);
+          fileWriter.close();
+          id++; 
+      }
+    }        
+  
+        // nextLineNew[] is an array of values from the line
+        // if (nextLineNew[categoryPosition].length() > 1
+        // && nextLineNew[abstractPosition].length() > 0) {
+        // outputStream.write(nextLine[categoryPosition].toLowerCase() + " ");
+        // outputStream.write(nextLine[abstractPosition].toLowerCase() + "\n");
+        // }
+    //outputStream.close();
 
   }
 
   public static void main(String[] args) throws IOException {
-    CSVParser parser = new CSVParser(args[0], args[1]);
+    CSVParser parser = new CSVParser(args[0], args[1], args[2]);
 
     parser.read();
   }

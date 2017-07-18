@@ -1,0 +1,1 @@
+A method for incorporating more than one source of control into a CAMAC crate is defined. The aim is to provide for the use of auxiliary controllers in order to extend the capabilities and fields of application of the CAMAC modular instrumentation and interface system of ANSI/IEEE Std 583-1982.

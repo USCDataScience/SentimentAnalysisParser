@@ -1,0 +1,4 @@
+Content-Length: 222
+Sentiment: software
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ieee-standards-model.bin
+resourceName: 1163.sent

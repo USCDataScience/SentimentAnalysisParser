@@ -1,0 +1,1 @@
+This amendment provides direct-link setup enhancements to the IEEE 802.11 MAC and PHY, extending direct-link setup to be independent of the access point (AP), and adding power save capabilities. The direct-link setup is made independent of the AP by tunneling the protocol messages inside data frames.

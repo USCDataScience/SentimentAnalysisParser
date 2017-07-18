@@ -1,0 +1,4 @@
+Content-Length: 2297
+Sentiment: RELEVANT
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/hybrid-v2.bin
+resourceName: 745A9B294BF9DE53743C722A3ECDD93A6B5DC6067FFCCB960D8C3005B66DF8BF.sent

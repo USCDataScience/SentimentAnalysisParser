@@ -1,0 +1,1 @@
+The Subsystem Bus of the IEC 821 BUS is a local subsystem extension bus. It allows a processor board to access additional memory and I/O over a local bus, removing traffic from the global bus and improving the total throughput of the system.<<ETX>>

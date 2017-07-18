@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<properties>
+  <parsers>
+	  <!--<parser class="org.apache.tika.parser.DefaultParser">
+		  <mime-type type="application/sentiment"> 
+	        <mime-exclude>application/sentiment</mime-exclude>
+	        <parser-exclude class="org.apache.tika.parser.DefaultParser"/>
+	      </parser>-->
+	  <parser class="org.apache.tika.parser.sentiment.SentimentAnalysisParser">
+		  <mime>application/sentiment</mime>
+	  	  <!--<mime-type type="application/sentiment">
+	  		<glob pattern="*.sent" />
+	  		<sub-class-of type="text/plain" />
+	  	  </mime-type>-->
+		  <params>
+			  <param name="modelPath" type="string">ieee-standards-model.bin</param>
+		  </params>
+		  <parser class="org.apache.tika.parser.DefaultParser"/>
+    </parser>
+  </parsers>
+</properties>

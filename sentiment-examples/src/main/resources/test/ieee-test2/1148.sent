@@ -1,0 +1,1 @@
+A standard syntax and semantics for VHDL register transfer level (RTL) synthesis is defined. The subset of IEEE 1076 (VHDL) that is suitable for RTL synthesis is defined, along with the semantics of that subset for the synthesis domain.

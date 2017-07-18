@@ -64,17 +64,20 @@ public class TestModel {
         Charset.forName("UTF-8"));
     String line;
     int i = 0;
+    PrintWriter fileWriter = new PrintWriter(
+        Files.newBufferedWriter(outputFileName, Charset.forName("UTF-8")));
     while ((line = reader.readLine()) != null) {
       String[] delims = line.split(" ");
       String label = delims[0];
       String name = Integer.toString(i);
-      Path output = Paths.get(outputFile, name + ".out");
-      PrintWriter fileWriter = new PrintWriter(
-          Files.newBufferedWriter(output, Charset.forName("UTF-8")));
-      fileWriter.write(label);
-      fileWriter.close();
+      //Path output = Paths.get(outputFile, name + ".out");
+//      PrintWriter fileWriter = new PrintWriter(
+//          Files.newBufferedWriter(outputFileName, Charset.forName("UTF-8")));
+      fileWriter.write(label + "\n");
+//      fileWriter.close();
       i++;
     }
+    fileWriter.close();
   }
 
   public void removeLabels() throws IOException {
@@ -89,7 +92,7 @@ public class TestModel {
     while ((line = reader.readLine()) != null) {
       String content = line.substring(line.indexOf(" ") + 1);
       String name = Integer.toString(i);
-      Path output = Paths.get(outputFile, name + ".geot");
+      Path output = Paths.get(outputFile, "/" + name + ".sent");
       PrintWriter fileWriter = new PrintWriter(
           Files.newBufferedWriter(output, Charset.forName("UTF-8")));
       fileWriter.write(content);
@@ -141,12 +144,12 @@ public class TestModel {
 
     TestModel test = new TestModel(fileName, outputName);
     //test.saveLabels();
-     //test.removeLabels();
-    test.compareLabels();
-    System.out.println("TNR: " + test.trueNotRel);
-    System.out.println("TR: " + test.getTrueRel());
-    System.out.println("FNR: " + test.falseNotRel);
-    System.out.println("FR: " + test.getFalseRel());
+    test.removeLabels();
+//    test.compareLabels();
+//    System.out.println("TNR: " + test.trueNotRel);
+//    System.out.println("TR: " + test.getTrueRel());
+//    System.out.println("FNR: " + test.falseNotRel);
+//    System.out.println("FR: " + test.getFalseRel());
     // System.out.println("MATCH: " + match);
     // System.out.println("NOT MATCH: " + notMatch);
 

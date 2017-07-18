@@ -1,0 +1,1 @@
+The waveform and vector exchange specification (WAVES) is an application of the VHSIC hardware description language (VHDL). This standard covers the dataset structure, header file, WAVES files, external files, execution model, and waveform semantics, and defines three standard packages to support WAVES datasets.<<ETX>>

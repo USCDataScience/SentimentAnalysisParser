@@ -1,0 +1,4 @@
+Content-Length: 441
+Sentiment: devices
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ieee-merged.bin
+resourceName: 791.sent

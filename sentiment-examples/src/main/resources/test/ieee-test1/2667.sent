@@ -1,0 +1,1 @@
+This standard defines the protocol and interface that allows analog transducers to communicate digital information with an IEEE 1451 object. It also defines the format of the Transducer TEDS. The Transducer TEDS is based on the IEEE 1451.2TM TEDS. The standard does not specify the transducer design, signal conditioning, or the specific use of the TEDS.

@@ -1,0 +1,4 @@
+Content-Length: 418
+Sentiment: equipment
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ieee-merged.bin
+resourceName: 1248.sent

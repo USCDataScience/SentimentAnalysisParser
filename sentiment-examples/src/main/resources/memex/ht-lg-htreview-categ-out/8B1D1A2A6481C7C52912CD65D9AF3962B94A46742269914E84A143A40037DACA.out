@@ -1,0 +1,4 @@
+Content-Length: 566
+Sentiment: like
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-categ.bin
+resourceName: 8B1D1A2A6481C7C52912CD65D9AF3962B94A46742269914E84A143A40037DACA.sent

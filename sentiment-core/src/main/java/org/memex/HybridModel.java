@@ -122,7 +122,7 @@ public class HybridModel {
     String[] adText = out1.split("\\s+");
     boolean negation = false;
     for (int i = 0; i < adText.length; i++) {
-      if (adText[i].equals("no")) {
+      if (adText[i].toLowerCase().equals("no")) {
         negation = true;
         break;
       } else {

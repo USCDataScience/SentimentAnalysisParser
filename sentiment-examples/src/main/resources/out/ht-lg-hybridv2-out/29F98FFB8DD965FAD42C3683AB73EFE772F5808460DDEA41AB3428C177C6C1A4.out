@@ -1,0 +1,4 @@
+Content-Length: 2019
+Sentiment: NOT_RELEVANT
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/hybrid-v2.bin
+resourceName: 29F98FFB8DD965FAD42C3683AB73EFE772F5808460DDEA41AB3428C177C6C1A4.sent

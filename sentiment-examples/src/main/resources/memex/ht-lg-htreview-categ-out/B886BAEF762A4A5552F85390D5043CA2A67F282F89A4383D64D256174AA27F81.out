@@ -1,0 +1,4 @@
+Content-Length: 2023
+Sentiment: like
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-categ.bin
+resourceName: B886BAEF762A4A5552F85390D5043CA2A67F282F89A4383D64D256174AA27F81.sent

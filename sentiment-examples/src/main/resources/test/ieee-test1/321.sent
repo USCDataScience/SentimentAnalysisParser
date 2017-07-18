@@ -1,0 +1,1 @@
+The syntax and semantics of the protocol messages that pass between the MMS client or MMS module and the MM are described. Since this protocol is only used in the context of the MMS, this standard cannot be understood without a thorough understanding of its architecture as described in IEEE Std 1244.1-2000.

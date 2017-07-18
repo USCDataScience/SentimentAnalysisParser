@@ -1,0 +1,1 @@
+A protocol to synchronize independent clocks running on separate nodes of a distributed measurement and control system to a high degree of accuracy and precision is specified.The protocol is independent of the networking technology,and the system topology is self-configuring.

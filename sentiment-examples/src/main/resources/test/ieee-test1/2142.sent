@@ -1,0 +1,1 @@
+This amendment to IEEE Std 802.3-2005 extends the IEEE 802.3 basic frame format with the addition of an envelope frame to accommodate additional prefixes and suffixes required by higher layer encapsulation protocols such as those defined by IEEE 802.1 (e.g., Provider Bridges, MAC Security), ITU-T or IETF (e.g., MPLS).

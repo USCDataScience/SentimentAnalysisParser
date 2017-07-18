@@ -1,0 +1,4 @@
+Content-Length: 380
+Sentiment: equipment
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ieee-standards-model.bin
+resourceName: 620.sent

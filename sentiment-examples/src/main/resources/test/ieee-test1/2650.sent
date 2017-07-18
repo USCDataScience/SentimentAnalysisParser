@@ -1,0 +1,1 @@
+This standard defines a peer-to-peer data transport (PPDT)rotocol between Serial Bus devices that implement Serial Bus Protocol 2 (SBP-2).The facilities specified include device and service discovery, self-configurable (plug and play )binding,and connection management.

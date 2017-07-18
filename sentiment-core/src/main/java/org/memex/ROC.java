@@ -32,10 +32,10 @@ import org.apache.commons.io.FileUtils;
  */
 public class ROC {
 
-  private static final String correctLabels = "../sentiment-examples/src/main/resources/train/htlg-labels-r";
-  private static final String predictResults = "../sentiment-examples/src/main/resources/out/htlg-test-20";
+  private static final String correctLabels = "../sentiment-examples/src/main/resources/hybrid/hybrid-labels-20";
+  private static final String predictResults = "../sentiment-examples/src/main/resources/hybrid/hybrid-test20-out";
 
-  private static String outputFile = "../sentiment-examples/src/main/resources/roc_data.tsv";
+  private static String outputFile = "../sentiment-examples/src/main/resources/hybrid_roc_data.tsv";
   private PrintWriter outputStream;
 
   private final int SIZE = 4449;
@@ -87,8 +87,10 @@ public class ROC {
       String id = file1.getName();
       if (id.equals(".DS_Store") || id.equals("..out") || id.equals(".out"))
         continue;
+      id = id.replace(".out", "");
+      int idint = Integer.valueOf(id) + 1;
       String out1 = FileUtils.readFileToString(file1);
-      File file2 = new File(correctLabels + "/" + id);
+      File file2 = new File(correctLabels + "/" + idint);
       String out2 = FileUtils.readFileToString(file2);
       if (out1.indexOf("NOT_RELEVANT") == -1
           && out2.indexOf("NOT_RELEVANT") == -1) { // TP ==> TR

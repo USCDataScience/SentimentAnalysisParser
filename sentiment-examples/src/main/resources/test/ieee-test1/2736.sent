@@ -1,0 +1,1 @@
+This standard extends the architecture, protocols, and algorithms specified in IEEE Std 802.1Q, 1998 Edition, to allow data traffic belonging to different VLANs to be allocated to different spanning trees, while retaining interoperability with bridges conformant to that prior specification.

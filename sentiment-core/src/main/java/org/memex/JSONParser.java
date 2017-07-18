@@ -195,7 +195,8 @@ public class JSONParser {
     JSONParser parser = new JSONParser(fileName, outputName);
     // parser.process("_id", new String[] { /*"cluster_id", */
     // /*"_source.extracted_text"*/ "annotation", "_source.extracted_text" });
-    parser.process("_id", new String[] { "annotation", "_source.raw_content" });
+    //parser.process("_id", new String[] { "annotation", "_source.raw_content" });
+    parser.process("_id", new String[] { "cluster_id" });
 
     // TextToTagRatio textToTagRatio=new TextToTagRatio();
     // Metadata metadata = new Metadata();

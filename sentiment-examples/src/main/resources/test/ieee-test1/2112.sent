@@ -1,0 +1,1 @@
+This standard is part of the POSIX series of standards. It defines an application program interface for controlling device drivers. Although it is based on the widely used ioctl() system call, the interface is type-safe and has a fixed number of parameters

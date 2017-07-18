@@ -1,0 +1,1 @@
+This amendment to IEEE Std 802.1Q-2011 specifies protocols, procedures, and managed objects to support topology change signaling to alter the binding (held in an l-Component) of Customer addresses to Backbone addresses on a per-l-SID basis. This is accomplished by extending the use of the Multiple Registration Protocol (MRP).

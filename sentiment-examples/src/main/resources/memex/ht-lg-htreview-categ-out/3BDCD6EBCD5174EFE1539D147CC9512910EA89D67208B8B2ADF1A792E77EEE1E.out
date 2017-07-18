@@ -1,0 +1,4 @@
+Content-Length: 1101
+Sentiment: angry
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-categ.bin
+resourceName: 3BDCD6EBCD5174EFE1539D147CC9512910EA89D67208B8B2ADF1A792E77EEE1E.sent

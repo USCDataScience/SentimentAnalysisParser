@@ -1,0 +1,1 @@
+Data messages, known as protocol data units (PDUs), that are exchanged on a network between simulation applications are defined. These PDUs are for interactions that take place within specified domains called protocol families, which include entity information interaction, warefare, logistics, simulation management, distributed emission regeneration, and radio communications.

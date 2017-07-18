@@ -1,0 +1,1 @@
+This standard specifies the numerical characteristics of the 8*8 inverse discrete cosine transform (IDCT) for use in visual telephony and similar applications where the 8*8 IDCT results are used in a reconstruction loop. The specifications ensure the compatibility between different implementations of the IDCT.<<ETX>>

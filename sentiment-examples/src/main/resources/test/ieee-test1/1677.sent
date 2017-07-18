@@ -1,0 +1,1 @@
+A standard format for data interchange used to transfer multichannel pulse height data on magnetic media between laboratories is provided. The terms used in file records are defined. The contents consist only of ASCII characters and can be transmitted over networks and other direct links. Example programs to read data in FORTRAN, BASIC, and C are provided.<<ETX>>

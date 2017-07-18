@@ -1,0 +1,1 @@
+A signaling method for asynchronous, fully interlocked, bidirectional parallel communications between hosts and printers or other peripherals is defined. A format for a peripheral identification string and a method of returning this string to the host outside of the bidirectional data stream is also specified<<ETX>>
