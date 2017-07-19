@@ -434,7 +434,19 @@
 	        <h3>HT LEAD GENERATION - ANALYSING THE PERFORMANCE OF THE MODEL</h3>
 			<br> </br>
 			<p><b>Step IV.B</b> involves analysing the performance of the HT LG Model. To do this, the dataset #1 (the pre-labeled training dataset) was divided into 80% for training and 20% for testing. The NOT_RELEVANT and VERY_RELEVANT labels remained in the new training dataset, and were removed and saved separately in the test dataset. The new model was trained on the 80% of the data and run on the 20% testing dataset. The results of this run were thereafter compared to the actual saved labels, and the matches were calculated (as true positive, false positive, true negative, false negative). All of this was performed using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/TestModel.java">Test Model Parser</a>. </p>
-			<p><b>The ROC Curve</b> was later on built using the results of the 80:20 run, which was performed using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/ROC.java">ROC creator</a>. To get the X axis and Y axis coordinates for the purpose of plotting the curve, for each test ad in the 20% evaluated, the False Positive Rate (FPR) and the True Positive Rate (TPR) were calculated respectively. To calculate the TRP, the current count of true positive (or, in our case, true relevant) was divided by the total count of true positive. The same was done for FPR, but using the the false postive (or false relevant) count instead.</p>
+			<p>To build the <b>table</b> below, and later on, the 20% of the dataset #1 (4,449 ads) were evaluated in total:</p> 
+			<ol>
+				<li>Before running the newly created 80% model on the 20% test set, the labels of all 4,449 ads were removed and saved separately.</li>
+				<li>The model was run on the 4,449 ads and the predicted labels were saved.</li>
+				<li>The number of ads the initial (actual) label of which was RELEVANT, and the label predicted by the model was also RELEVANT, was calculated to give the total number of <u>TRUE POSITIVE</u> (true relevant) ads, which in this case is 2,213.</li>
+				<li>The number of ads the initial (actual) label of which was RELEVANT, and the label predicted by the model was NOT RELEVANT, was calculated to give the total number of <u>FALSE NEGATIVE</u> (false not relevant) ads, which in this case is 29.</li>
+				<li>The number of ads the initial (actual) label of which was NOT RELEVANT, and the label predicted by the model was also NOT RELEVANT, was calculated to give the total number of <u>TRUE NEGATIVE</u> (true not relevant) ads, which in this case is 2,165.</li>
+				<li>The number of ads the initial (actual) label of which was NOT RELEVANT, and the label predicted by the model was RELEVANT, was calculated to give the total number of <u>FALSE POSITIVE</u> (false relevant) ads, which in this case is 42.</li>
+			</ol>
+			<br> </br>
+			<p><b>The ROC Curve</b> was later on built using the results of the 80:20 run, which was performed using the <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/ROC.java">ROC creator</a>. To get the X axis and Y axis coordinates for the purpose of plotting the curve, for each test ad in the 20% evaluated, the False Positive Rate (FPR) and the True Positive Rate (TPR) were calculated respectively. To calculate the TRP, the current count of true positive (or, in our case, true relevant) was divided by the total count of true positive (as seen in the table). The same was done for FPR, but using the the false postive (or false relevant) count instead.</p>
+			<br> </br>
+			<p><b>The same procedure was followed in Step V (Hybrid Model analysis).</b></p>
 			<br> </br>
 	        <h4>Dividing the train set into 80:20 (80% = training; 20% = testing)</h4>
 			<br> </br>
