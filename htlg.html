@@ -502,6 +502,44 @@
 				<br> </br>
 			<div id="hybrid-1"></div>
 			<br> </br>
+		</ol>
+		<br> </br>
+        <h4>Dividing the hybrid train set into 80:20 (80% = training; 20% = testing)</h4>
+		<br> </br>
+		<!--	insert table here	-->
+		<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;}
+		.tg td{font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+		.tg th{font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+		.tg .tg-baqh{text-align:center;vertical-align:top}
+		.tg .tg-yw4l{vertical-align:top}
+		</style>
+		<table class="tg">
+		  <tr>
+		      <th colspan="2" rowspan="2"></th>
+		      <th colspan="2">Predicted</th>
+		    </tr>
+		    <tr>
+		      <td>RELEVANT</td>
+		      <td>NOT RELEVANT</td>
+		    </tr>
+		    <tr>
+		      <td rowspan="2">Actual</td>
+		      <td>RELEVANT</td>
+		      <td>1,979</td>
+		      <td>228</td>
+		    </tr>
+		    <tr>
+		      <td>NOT RELEVANT</td>
+		      <td>671</td>
+		      <td>1,571</td>
+		    </tr>
+		</table>
+		<br> </br>
+		<br> </br>
+		<h4>Plotting an ROC curve on the 80:20 data</h4>
+		<br> </br>
+		<div id="hybrid-roc"></div>
 		
 	<!--	</div>	-->
 		
@@ -526,6 +564,7 @@
 	<script src="js/ht-gt-htcateg.js"></script>
 	<script src="js/ht-lg-roc.js"></script>
 	<script src="js/hybrid1.js"></script>
+	<script src="js/hybrid-roc.js"></script>
 	<script src="js/ht-lg-cluster-stanford.js"></script>
 	<script src="js/ht-lg-cluster-htcat.js"></script>
   </body>
