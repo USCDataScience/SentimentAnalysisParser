@@ -41,11 +41,11 @@
 .container {
 	float: left;
 	width: 40%;
-	height: 50px;
+	height: 150px;
 }
 
 .container2 {
 	float: right;
 	width: 40%;
-	height: 50px;
+	height: 150px;
 }
