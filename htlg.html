@@ -557,13 +557,54 @@
 		<h2>Step VI</h2>
         <h3>COMPARING THE TWO HT LG MODELS (#5 AND #6)</h3>
 		<br> </br>
-		<p><b>Step VI</b> involves looking at and analysing the two ROC curves created in Steps VI and V to compare and contrast the two HT Lead Generation binary models (#5 and #6).</p>
+		<p><b>Step VI</b> involves looking at the two Binary HT Lead Generation models (#5 and #6) once again and giving a more precise description of depiction of their performance to conclude which one of the two acts as a better and more reliable model for HT relevancy.</p>
+		<p>During the training of the model, Apache OpenNLP provides the user with the <i>accuracy</i> rate for each of the 100 iterations. Looking at the source code, such accuracy is calculated by running the model on the training dataset (i.e. the dataset the model has already seen) and calculating <i>number of correct predictions/total number of events</i>. The curves #1 and #3 depict such accuracy for the HT LG Model (#5) and the Hybrid Model (#6) respectively. However, as mentioned earlier, the model had already seen the data it was being tested on, which makes such an analysis not very reliable. To calculate the same exact accuracy for the test set (20%), some of the OpenNLP source code was used and modifed. The results of such analysis can be seen in curves #2 and #4 for the HT LG Model (#5) and the Hybrid Model (#6) respectively.</p>
 		<br> </br>
-		<div class="container" id="htlg-ac-train"></div>
+		<ol>
+			<li><b>HT LG Model: Accuracy on the training set</b></li>
+			<ul>
+				<li><u>Iteration 1</u>: 0.625028096</li>
+				<li><u>Iteration 100</u>: 0.979489773</li>
+			</ul>
+			<br> </br>
+			<div id="htlg-ac-train"></div>
+			<br> </br>
+			<li><b>HT LG Model: Accuracy on the test set</b></li>
+			<ul>
+				<li><u>Iteration 1</u>: 0</li>
+				<li><u>Iteration 100</u>: 0.333258427</li>
+			</ul>
+			<br> </br>
+			<div id="htlg-ac-test"></div>
+			<br> </br>
+			<li><b>Hybrid Model: Accuracy on the training set</b></li>
+			<ul>
+				<li><u>Iteration 1</u>: 0.374971904</li>
+				<li><u>Iteration 100</u>: 0.841818386</li>
+			</ul>
+			<br> </br>
+			<div id="hybrid-ac-train"></div>
+			<br> </br>
+			<li><b>Hybrid Model: Accuracy on the test set</b></li>
+			<ul>
+				<li><u>Iteration 1</u>: 0.201797753</li>
+				<li><u>Iteration 100</u>: 0.520674157</li>
+			</ul>
+			<br> </br>
+			<div id="hybrid-ac-test"></div>
+		</ol>
+		<br> </br>
+		<h4>Conclusions:</h4>
+		<ul>
+			<li>Since the accuracy when running the model on the test set is much more reliable, it is safe to say that the Hybrid Model outperforms the HT LG Model</li>
+			<li>Not much overfitting can be seen, but 10-20 iterations for the Hybrid Model seems to be enough for training</li>
+			<li>~50 iterations for the HT LG Model seems to be enough for training</li>
+		</ul>
+		<!--<div class="container" id="htlg-ac-train"></div>
 		<div class="container2" id="htlg-ac-test"></div>
 		<br> </br>
 		<div class="container" id="hybrid-ac-train"></div>
-		<div class="container2" id="hybrid-ac-test"></div>
+		<div class="container2" id="hybrid-ac-test"></div> -->
 		<br> </br>
 		<br> </br>
 		
