@@ -87,6 +87,7 @@ public class NASAStandardsTrainNew {
         stream.close();
 
         String content = handlerOCR.toString();
+        //System.out.println(content);
 
         int nameIndex = content.indexOf("NASA-STD-");
         int nameSpace = Math.min(content.indexOf(' ', nameIndex),

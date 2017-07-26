@@ -106,6 +106,8 @@ public class ROC {
         tpr = trueRel / totalTrueRel;
       }
       tprFpr[sampleNum] = new TprFpr(fpr, tpr);
+      System.out.println(tprFpr[sampleNum].getFpr() + "\t"
+          + tprFpr[sampleNum].getTpr());
       outputStream.write(tprFpr[sampleNum].getFpr() + "\t"
           + tprFpr[sampleNum].getTpr() + "\n");
       sampleNum++;
