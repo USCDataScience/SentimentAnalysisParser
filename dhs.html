@@ -70,6 +70,7 @@
 		<ol>
 		  <li><b><u>Categorical</u> - IEEE Standards Abstracts Model</b>: a model trained by extracting abstracts from IEEE standards and using the most common keyword in the respective standard as its category (14 categories).</li>
 		  <li><b><u>Categorical</u> - IEEE Standards Abstracts Model with merged categories</b>: a model trained by extracting abstracts from IEEE standards and using the most common keyword in the respective standard as its category (12 categories).</li>
+		  <li><b><u>Categorical</u> - NASA Technical Standards Model</b>: a model trained by taking 80% of the given 42 NASA technical standards (=> 33), extracting the <i>Scope</i> of each and using the division number in the respective standard as its category (9 categories).</li>
 		</ol>
 		<br> </br>
 		<br> </br>
@@ -77,10 +78,11 @@
 		<br> </br>
 		<ol>
 		  <li><b>IEEE Standards Abstracts (new)</b>: the new (different) abstracts from IEEE standards.</li>
+		  <li><b>NASA Technical Standards (20% of 42)</b>: the remaining 9 standards' scopes.</li>
 		</ol>
 		<br> </br>
 		<br> </br>
-	    <h2>Running IEEE Model (#1) on 1,273 standards abstracts</h2>
+	    <h2>Running IEEE Models (#1 and #2) on 1,273 standards abstracts</h2>
 			<br> </br>
 				<li><b>Results: Categorical IEEE Standards Abstracts Model</b></li>
 				<ul>
@@ -122,6 +124,23 @@
 				<br> </br>
 			</ol>
 			<br> </br>
+		    <h2>Running IEEE Model (#3) on 9 standards abstracts</h2>
+				<br> </br>
+					<li><b>Results: Categorical IEEE Standards Abstracts Model</b></li>
+					<ul>
+						<li>00: 0</li>
+						<li>28: 2</li>
+						<li>30: 0</li>
+						<li>36: 0</li>
+						<li>40: 0</li>
+						<li>50: 4</li>
+						<li>60: 3</li>
+						<li>70: 0</li>
+						<li>NTSP1: 0</li>
+					</ul>
+					<br> </br>
+					<div id="nasa-20"></div>
+					<br> </br>
 		
 	<!--	</div>	-->
 		
@@ -138,5 +157,6 @@
 	<script src="d3/d3.min.js"></script>
 	<script src="js/ieee.js"></script>
 	<script src="js/ieee_merged.js"></script>
+	<script src="js/nasa-20.js"></script>
   </body>
 </html>

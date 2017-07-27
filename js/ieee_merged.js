@@ -1,7 +1,7 @@
 function ieee_merged() {
 	
 var svg = d3.select("#ieee-on-ieee-merged").append("svg"),
-    margin = {top: 20, right: 20, bottom: 90, left: 65},
+    margin = {top: 20, right: 20, bottom: 120, left: 65},
     width = 960,
     height = 500,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -28,7 +28,7 @@ d3.tsv("./data/ieee_on_ieee_merged.tsv", type, function(error, data) {
       .attr("y", 0)
       .attr("x", 9)
       .attr("dy", ".35em")
-      .attr("transform", "rotate(45)")
+      .attr("transform", "rotate(35)")
       .style("text-anchor", "start");
 
   g.append("g")

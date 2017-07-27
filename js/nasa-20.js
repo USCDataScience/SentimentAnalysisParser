@@ -1,29 +1,19 @@
-function ieee() {
+function nasa_20() {
 	
-var svg = d3.select("#ieee-on-ieee").append("svg"),
-    margin = {top: 20, right: 20, bottom: 90, left: 65},
+var svg = d3.select("#nasa-20").append("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 65},
     width = 960,
     height = 500,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 var x = d3.scaleBand()
 	.rangeRound([0, width])
-	.padding(0.2)
 	.paddingInner(0.1);
 
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
-
-
-/*var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);*/
-
-
-d3.tsv("./data/ieee_on_ieee.tsv", type, function(error, data) {
+d3.tsv("./data/nasa-20.tsv", type, function(error, data) {
   if (error) throw error;
 
   x.domain(data.map(function(d) { return d.sentiment; }));
@@ -32,13 +22,7 @@ d3.tsv("./data/ieee_on_ieee.tsv", type, function(error, data) {
   g.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
-.selectAll("text")
-      .attr("y", 0)
-      .attr("x", 9)
-      .attr("dy", ".35em")
-      .attr("transform", "rotate(35)")
-      .style("text-anchor", "start");
+      .call(d3.axisBottom(x));
 
   g.append("g")
       .attr("class", "y axis")
@@ -55,7 +39,7 @@ d3.tsv("./data/ieee_on_ieee.tsv", type, function(error, data) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.sentiment); })
-      .attr("width", x.range()[1]/17)
+      .attr("width", x.range()[1]/10)
       .attr("y", function(d) { return y(d.frequency); })
       .attr("height", function(d) { return height - y(d.frequency); });
 	  //.style("fill", function(d) { return d.color; });
@@ -67,6 +51,43 @@ function type(d) {
   d.frequency = +d.frequency;
   return d;
 }
+
+
 }
 
-ieee();
+nasa_20();
+
+
+
+
+
+
+/*(function() {
+
+var margin = {top: 20, right: 20, bottom: 30, left: 65},
+    width = 550 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+	
+var color = d3.scale.ordinal()
+	.range(["#6b486b", "#ff8c00"]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(10);
+
+var svg = d3.select("#ht-lg-cluster-htcat").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");*/
