@@ -8,7 +8,8 @@ var svg = d3.select("#hybrid-1").append("svg"),
 
 var x = d3.scaleBand()
 	.rangeRound([0, width])
-	.paddingInner(0.01);
+	.padding(0.3)
+	.paddingInner(0.1);
 
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
@@ -40,7 +41,7 @@ g.selectAll(".bar")
   .enter().append("rect")
     .attr("class", "bar")
     .attr("x", function(d) { return x(d.sentiment); })
-    .attr("width", x.range()[1]/2.5)
+    .attr("width", x.range()[1]/3.5)
     .attr("y", function(d) { return y(d.frequency); })
     .attr("height", function(d) { return height - y(d.frequency); });
 	  //.style("fill", function(d) { return d.color; });
