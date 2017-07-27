@@ -1,0 +1,4 @@
+Content-Length: 1170
+Sentiment: 60
+model: ../sentiment-models/src/main/resources/edu/usc/irds/sentiment/nasa-standards-80.bin
+resourceName: 9.sent
