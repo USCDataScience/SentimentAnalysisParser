@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="gr__bl_ocks_org">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+	<!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
     <!-- <link rel="icon" href="../../favicon.ico"> -->
 
     <title>Sentiment Analysis Parser</title>
@@ -16,6 +17,20 @@
 
     <!-- Custom styles for this template -->
     <link href="css/sentiment.css" rel="stylesheet">
+	
+	<style>
+
+	.axis--x path {
+	  display: none;
+	}
+
+	.line {
+	  fill: none;
+	  stroke: steelblue;
+	  stroke-width: 1.5px;
+	}
+
+	</style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -24,7 +39,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body data-gr-c-s-loaded="true">
 
     <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-static-top">
@@ -567,32 +582,130 @@
 				<li><u>Iteration 100</u>: 0.979489773</li>
 			</ul>
 			<br> </br>
-			<div id="htlg-ac-train"></div>
-			<br> </br>
+			<!--<div id="htlg-ac-train"></div> -->
 			<li><b>HT LG Model: Accuracy on the test set</b></li>
 			<ul>
 				<li><u>Iteration 1</u>: 0</li>
 				<li><u>Iteration 100</u>: 0.333258427</li>
 			</ul>
 			<br> </br>
-			<div id="htlg-ac-test"></div>
-			<br> </br>
+			<!--<div id="htlg-ac-test"></div>-->
 			<li><b>Hybrid Model: Accuracy on the training set</b></li>
 			<ul>
 				<li><u>Iteration 1</u>: 0.374971904</li>
 				<li><u>Iteration 100</u>: 0.841818386</li>
 			</ul>
 			<br> </br>
-			<div id="hybrid-ac-train"></div>
-			<br> </br>
+			<!--<div id="hybrid-ac-train"></div> -->
 			<li><b>Hybrid Model: Accuracy on the test set</b></li>
 			<ul>
 				<li><u>Iteration 1</u>: 0.201797753</li>
 				<li><u>Iteration 100</u>: 0.520674157</li>
 			</ul>
 			<br> </br>
-			<div id="hybrid-ac-test"></div>
+			<!--<div id="hybrid-ac-test"></div> -->
 		</ol>
+		<br> </br>
+
+		<svg width="960" height="500">
+		</svg>
+
+		<script src="./index_files/d3.v4.min.js"></script>
+		<script>
+		function a(){
+		var svg = d3.select("svg"),
+		    margin = {top: 20, right: 80, bottom: 30, left: 50},
+		    width = svg.attr("width") - margin.left - margin.right,
+		    height = svg.attr("height") - margin.top - margin.bottom,
+		    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		var x = d3.scaleLinear().range([0, width]),
+		    y = d3.scaleLinear().range([height, 0]),
+		    z = d3.scaleOrdinal(d3.schemeCategory10);
+
+		var line = d3.line()
+		    .curve(d3.curveBasis)
+		    .x(function(d) { return x(d.iteration); })
+		    .y(function(d) { return y(d.accuracy); });
+
+
+		var drawLine = function(error, data) {
+		  if (error) throw error;
+
+		  var cities = data.columns.slice(1).map(function(id) {
+		    return {
+		      id: id,
+		      values: data.map(function(d) {
+		        return {iteration: d.iteration, accuracy: d[id]};
+		      })
+		    };
+		  });
+
+		  x.domain(d3.extent(data, function(d) { return d.iteration; }));
+
+		  y.domain([
+		    d3.min(cities, function(c) { return d3.min(c.values, function(d) { return d.accuracy; }); }),
+		    d3.max(cities, function(c) { return d3.max(c.values, function(d) { return d.accuracy; }); })
+		  ]);
+
+		  z.domain(cities.map(function(c) { return c.id; }));
+
+		  g.append("g")
+		      .attr("class", "axis axis--x")
+		      .attr("transform", "translate(0," + height + ")")
+		      .call(d3.axisBottom(x))
+		      .append("text")
+		      .attr("y", -10)
+		      .attr("x", width - 25)
+		      .attr("dx", "0.71em")
+		      .attr("fill", "#000")
+		      .text("Iterations");
+
+		  g.append("g")
+		      .attr("class", "axis axis--y")
+		      .call(d3.axisLeft(y))
+		      .append("text")
+		      .attr("transform", "rotate(-90)")
+		      .attr("y", 6)
+		      .attr("dy", "0.71em")
+		      .attr("fill", "#000")
+		      .text("Accuracy");
+
+		  var city = g.selectAll(".city")
+		    .data(cities)
+		    .enter().append("g")
+		      .attr("class", "city");
+
+		   city.append("path")
+		      .attr("class", "line")
+		      .attr("d", function(d) { return line(d.values); })
+		      .style("stroke", function(d) { return z(d.id); });
+
+		  city.append("text")
+		      .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
+		      .attr("transform", function(d) { return "translate(" + x(d.value.iteration) + "," + y(d.value.accuracy) + ")"; })
+		      .attr("x", 3)
+		      .attr("dy", "0.35em")
+		      .style("font", "10px sans-serif")
+		      .text(function(d) { return d.id; });
+
+		};
+
+		d3.csv("data.csv", type, drawLine);
+
+		function type(d, _, columns) {
+		  d.iteration = parseInt(d.iteration);
+		  for (var i = 1, n = columns.length, c; i < n; ++i) {
+		    d[c = columns[i]] = d[c];
+		  }
+		  return d;
+		}
+		
+		}
+		a();
+
+		</script>
+		
 		<br> </br>
 		<h4>Conclusions:</h4>
 		<ul>
@@ -608,6 +721,10 @@
 		<br> </br>
 		<br> </br>
 		
+		<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#FFFFFF&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36\&quot; version=\&quot;6.9.5\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;diagram name=\&quot;Page-1\&quot; id=\&quot;59ede80e-27f4-f2b2-6c77-7bacf8aa9f30\&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+		<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
+		
+		
 	<!--	</div>	-->
 		
 	  	
@@ -619,8 +736,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	<script src="d3/d3.min.js"></script>
 	<script src="js/ht-lead-gen-bin.js"></script>
 	<script src="js/ht-lead-gen-categ.js"></script>
 	<script src="js/ht-lead-gen-bin-htmodel.js"></script>
@@ -634,9 +751,9 @@
 	<script src="js/hybrid-roc.js"></script>
 	<script src="js/ht-lg-cluster-stanford.js"></script>
 	<script src="js/ht-lg-cluster-htcat.js"></script>
-	<script src="js/htlg-accuracy-train.js"></script>
+	<!--<script src="js/htlg-accuracy-train.js"></script>
 	<script src="js/htlg-accuracy-test.js"></script>
 	<script src="js/hybrid-accuracy-train.js"></script>
-	<script src="js/hybrid-accuracy-test.js"></script>
-  </body>
+	<script src="js/hybrid-accuracy-test.js"></script>-->
+  </body><!--<span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span>-->
 </html>

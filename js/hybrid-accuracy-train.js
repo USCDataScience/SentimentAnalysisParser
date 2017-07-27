@@ -1,6 +1,23 @@
 (function() {
 	
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
+var svg = d3.select("#hybrid-ac-train").append("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+var x = d3.scaleLinear()
+    .rangeRound([0, width]);
+
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
+
+var line = d3.line()
+    .x(function(d) { return x(d.iteration); })
+    .y(function(d) { return y(d.accuracy); });
+	
+/*var margin = {top: 20, right: 20, bottom: 30, left: 50},
     width = 800 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -26,7 +43,7 @@ var xAxis = d3.svg.axis()
 
 var yAxis = d3.svg.axis()
     .scale(y)
-    .orient("left")
+    .orient("left")*/
 
 d3.tsv("./data/accuracy_train_hybrid.tsv", function(d) {
   d.iteration = +d.iteration;
@@ -40,7 +57,7 @@ d3.tsv("./data/accuracy_train_hybrid.tsv", function(d) {
 
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
+      .call(d3.axisBottom(x))
     .select(".domain")
       .remove();
 	  
@@ -57,7 +74,7 @@ d3.tsv("./data/accuracy_train_hybrid.tsv", function(d) {
       //.text("False Positive Rate");
 
   svg.append("g")
-      .call(yAxis)
+      .call(d3.axisLeft(y))
     .append("text")
       .attr("fill", "#000")
       .attr("transform", "rotate(-90)")

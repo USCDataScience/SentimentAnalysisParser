@@ -1,35 +1,25 @@
-(function() {
+function ht_lg_bin() {
 
-var margin = {top: 20, right: 20, bottom: 30, left: 80},
-    width = 800 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var svg = d3.select("#ht-lead-g-bin").append("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 80},
+    width = 960,
+    height = 500,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+var x0 = d3.scaleBand()
+	.rangeRound([0, width])
+	.paddingInner(0.1);
+	/*d3.scaleOrdinal()
+    .range([0, width], .1);*/
 
-var x0 = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
+var x1 = d3.scaleBand()
+	.padding(0.05);//d3.scaleOrdinal();
 
-var x1 = d3.scale.ordinal();
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
 
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-var color = d3.scale.ordinal()
+var color = d3.scaleOrdinal()
 	.range(["#6b486b", "#ff8c00"]);
-    //.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-
-var xAxis = d3.svg.axis()
-    .scale(x0)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(d3.format(5));
-
-var svg = d3.select("#ht-lead-g-bin").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.json("./data/ht-lead-gen-bin.json", function(error, dataObj) {
   if (error) throw error;
@@ -56,18 +46,18 @@ d3.json("./data/ht-lead-gen-bin.json", function(error, dataObj) {
   var sentNames = ["positive", "negative"];
 
   x0.domain(data.map(function(d) { return d.name; }));
-  x1.domain(sentNames).rangeRoundBands([0, x0.rangeBand()]);
+  x1.domain(sentNames).rangeRound([0, x0.bandwidth()]);
   y.domain([0, d3.max(data, function(d) { return d3.max(d.sentiment, function(d) { return d.value; }); })]);
 
-  svg.append("g")
+  g.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+      .call(d3.axisBottom(x0));
 
-  svg.append("g")
+  g.append("g")
       .attr("class", "y axis")
 	  .attr("transform", "translate(" + (-15) + ",0)")
-      .call(yAxis)
+      .call(d3.axisLeft(y).ticks(null, "s"))//d3.format(5)))
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
@@ -75,22 +65,27 @@ d3.json("./data/ht-lead-gen-bin.json", function(error, dataObj) {
       .style("text-anchor", "end")
       .text("# of ads");
 	  
-  var truthData = svg.selectAll(".truth")
+  //var truthData = g.append("g")//.selectAll(".truth")
+  var truthData = g.append("g")
+	  .selectAll("g")
       .data(data)
     .enter().append("g")
       .attr("class", "truth")
       .attr("transform", function(d) { return "translate(" + x0(d.name) + ",0)"; });
-
+  
+	  //console.log(x1.range());
+  
   truthData.selectAll("rect")
       .data(function(d) { return d.sentiment; })
     .enter().append("rect")
-      .attr("width", x1.rangeBand())
+      .attr("width", x1.range()[1]/2.2)
       .attr("x", function(d) { return x1(d.name); })
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
       .style("fill", function(d) { return color(d.name); });
 
-  var legend = svg.selectAll(".legend")
+  var legend = g.append("g")//.selectAll(".legend")
+	  .selectAll("g")
       .data(sentNames.slice().reverse())
     .enter().append("g")
       .attr("class", "legend")
@@ -111,4 +106,6 @@ d3.json("./data/ht-lead-gen-bin.json", function(error, dataObj) {
 
 });
 
-}())
+}
+
+ht_lg_bin();

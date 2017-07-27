@@ -38,6 +38,137 @@
   display: none;
 }
 
+#hybrid-roc {
+	height: 550px;
+	width: 1030px;
+}
+
+#hybrid-roc svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-lg-roc {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-lg-roc svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-gt-netflix {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-gt-netflix svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-gt-stanford {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-gt-stanford svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-gt-htbin {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-gt-htbin svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-gt-htcateg {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-gt-htcateg svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-lead-g-bin {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-lead-g-bin svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-lead-g-bin-htmodel {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-lead-g-bin-htmodel svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-lead-g-categ {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-lead-g-categ svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-lead-g-categ-htmodel {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-lead-g-categ-htmodel svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-lg-cluster-stan {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-lg-cluster-stan svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#ht-lg-cluster-htcat {
+	height: 550px;
+	width: 1030px;
+}
+
+#ht-lg-cluster-htcat svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#hybrid-1 {
+	height: 550px;
+	width: 1030px;
+}
+
+#hybrid-1 svg {
+	height: 600px;
+	width: 1100px;
+}
+
+/*overflow: visible */
 /*.container {
 	float: left;
 }

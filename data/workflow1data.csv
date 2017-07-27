@@ -1,0 +1,33 @@
+id,value,color
+Tom,
+Tom.Front-End,
+Tom.Front-End.Design,1,#808080
+Tom.Front-End.Ps,0.5,#2E2575
+Tom.Front-End.HTML & CSS,3,#E54F24
+Tom.Front-End.SVG,1.5,#FF9900
+Tom.Front-End.Bootstrap,3,#563B7E
+Tom.Front-End.JavaScript World,
+Tom.Front-End.JavaScript World.JavaScript,3,#D6BA33
+Tom.Front-End.JavaScript World.JQuery,3,#1169AE
+Tom.Front-End.JavaScript World.D3 js,2.5,#F6854D
+Tom.Back-End,
+Tom.Back-End.PHP,1.5,#617CBE
+Tom.Back-End.C++,1,#0073AD
+Tom.Back-End.SQL,1.5,#E58E00
+Tom.Back-End.Java World,
+Tom.Back-End.Java World.Java SE,3,#EB2C2F
+Tom.Back-End.Java World.JSP,2,#EB2C2F
+Tom.Back-End.Java World.Hibernate,2.5,#59666C
+Tom.Back-End.Java World.Spring MVC / Boot,3,#6DB33F
+Tom.Back-End.Java World.Spring Data,2.5,#6DB33F
+Tom.Back-End.Java World.Spring Security,2.5,#5FA134
+Tom.Back-End.Java World.Thymeleaf,3,#005F0F
+Tom.Databases,
+Tom.Databases.MySQL,2.5,#00618A
+Tom.SysAdmin,
+Tom.SysAdmin.VPS & SharedHost,2,#808080
+Tom.SysAdmin.Linux,2.5,#040404
+Tom.SysAdmin.Apache & Tomcat,2,#CA212F
+Tom.CMS,
+Tom.CMS.Wordpress,1.5,#00A0D2
+Tom.CMS.Drupal,1.5,#0678BE

@@ -1,32 +1,18 @@
-(function() {
+function hybrid() {
 
-var margin = {top: 20, right: 20, bottom: 30, left: 60},
-    width = 550 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var svg = d3.select("#hybrid-1").append("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 65},
+    width = 960,
+    height = 500,
+    g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
+var x = d3.scaleBand()
+	.rangeRound([0, width])
+	.paddingInner(0.01);
 
-var y = d3.scale.linear()
-    .range([height, 0]);
-	
-var color = d3.scale.ordinal()
-	.range(["#6b486b", "#ff8c00"]);
+var y = d3.scaleLinear()
+    .rangeRound([height, 0]);
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(10);
-
-var svg = d3.select("#hybrid-1").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.tsv("./data/hybrid1.tsv", type, function(error, data) {
   if (error) throw error;
@@ -34,29 +20,29 @@ d3.tsv("./data/hybrid1.tsv", type, function(error, data) {
   x.domain(data.map(function(d) { return d.sentiment; }));
   y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
+g.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
 
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("# of ads");
+g.append("g")
+    .attr("class", "y axis")
+    .call(d3.axisLeft(y).ticks(null, "s"))
+  .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("# of ads/total ads per cluster");
 
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.sentiment); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
+g.selectAll(".bar")
+    .data(data)
+  .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d) { return x(d.sentiment); })
+    .attr("width", x.range()[1]/2.5)
+    .attr("y", function(d) { return y(d.frequency); })
+    .attr("height", function(d) { return height - y(d.frequency); });
 	  //.style("fill", function(d) { return d.color; });
 	  //.style("fill", function(d) { return color(d.name); });
 	  //.style("fill", color);
@@ -66,4 +52,6 @@ function type(d) {
   d.frequency = +d.frequency;
   return d;
 }
-}())
+}
+
+hybrid();
