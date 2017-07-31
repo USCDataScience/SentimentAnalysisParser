@@ -218,6 +218,16 @@
 	width: 1100px;
 }
 
+#hybrid-2 {
+	height: 550px;
+	width: 1030px;
+}
+
+#hybrid-2 svg {
+	height: 600px;
+	width: 1100px;
+}
+
 /*overflow: visible */
 /*.container {
 	float: left;
