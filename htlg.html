@@ -90,6 +90,8 @@
 		  <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-sentiment-categ.bin"><b><u>Categorical</u> - HT Provider Review Model</b></a>: a model trained by examining HT services reviews.</li>
 		  <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-models/src/main/resources/edu/usc/irds/sentiment/ht-lg-model-raw.bin"><b><u>HT LG Binary</u> - HT Lead Generation Binary</b></a>: a model trained by examining HT Lead Generation ads classified as HT Relevant or Not HT Relevant.</li>
 		  <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-models/src/main/resources/edu/usc/irds/sentiment/hybrid-v2.bin"><b><u>HT LG Binary</u> - Hybrid Model</b></a>: a model trained by combining the results of previous models and the results of running <a href="https://wiki.apache.org/tika/GeoTopicParser">GeoTopicParser</a> on the ads.</li>
+		  <!-- add the link here!!!!!!!!-->
+		  <li><a href=""><b><u>HT LG Binary</u> - Hybrid Model V2</b></a>: a model trained by combining the results of previous models and the results of running <a href="https://wiki.apache.org/tika/GeoTopicParser">GeoTopicParser</a> on the ads. In this case, top 5 geolocations are selected.</li>
 		</ol>
 		<br> </br>
 		<p><b>HT Lead Generation Binary model: </b>Using a MEMEX provided JSON data file (contact mattmann@usc.edu for more information on the source file), the final training dataset was created using a <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/JSONParser.java">JSON Parser</a>, which was also separately implemented within Apache Tika in conjunction with the Text-To-Tag-Ratio algorithm, and a <a href= "https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/PrepareData.java">Data Preparation Parser</a>. The first parser was used to extract the value of the <i>raw_content</i> field in the JSON file and its corresponding <i>annotation</i>, or the label (NOT_RELEVANT or VERY_RELEVANT). Since the value of the <i>raw_content</i> was the HTML source code of the entire ad, the parser's implementation within Tika, along with the Text-To-Tag-Ratio algorithm, was essential to get rid of any site navigation and unnecessary tags, which made the model more reliable. The latter parser made the training dataset even more reliable by ensuring an equal presence of examples per each label and shuffling the data. In the end we ended up with an almost perfect training dataset of total 22,246 lines (11,123 NOT_RELEVANT and 11,123 VERY_RELEVANT examples), where each line started out with a label (NOT_RELEVANT or VERY_RELEVANT) followed by the respective ad. As a result, the model is capable of analysing the given data for its relevancy to human trafficking.</p>
@@ -568,6 +570,14 @@
 		<br> </br>
 		<div id="hybrid-roc"></div>
 		<br> </br>
+		<h3>HT LEAD GENERATION - HYBRID MODEL VERSION II</h3>
+		<br> </br>
+		<p>In this case a new version of the Hybrid Model was built that includes the top 5 geolocations as outputted by the GeoTopicParser rather than just one, as seen in the first version of the Hybrid Model (#6). As a result, an example of an element in the training dataset looks like this: <i>RELEVANT no; no; Oakland County, Cumberland East Bay, San Fernando Valley Division; no</i></p>
+		<br> </br>
+		<h4>Plotting an ROC curve on the 80:20 data for Hybrid Model V2</h4>
+		<br> </br>
+		<div id="hybrid-v3-roc"></div>
+		<br> </br>
 		<br> </br>
 		<h2>Step VI</h2>
         <h3>COMPARING THE TWO HT LG MODELS (#5 AND #6)</h3>
@@ -788,6 +798,7 @@
 	<script src="js/ht-lg-roc.js"></script>
 	<script src="js/hybrid1.js"></script>
 	<script src="js/hybrid-roc.js"></script>
+	<script src="js/hybrid-v3-roc.js"></script>
 	<script src="js/ht-lg-cluster-stanford.js"></script>
 	<script src="js/ht-lg-cluster-htcat.js"></script>
 	<!--<script src="js/htlg-accuracy-train.js"></script>
