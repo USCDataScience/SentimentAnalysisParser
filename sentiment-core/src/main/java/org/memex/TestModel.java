@@ -36,7 +36,7 @@ public class TestModel {
   private static String inputFile;
   private static String outputFile;
 
-  private static final String labels = "../sentiment-examples/src/main/resources/hybrid/hybrid-labels-20";
+  private static final String labels = "../sentiment-examples/src/main/resources/hybrid/hybrid-v3-test20-labels";
   private static final int num = 4449;
 
   // private static int match;
@@ -110,7 +110,7 @@ public class TestModel {
       if (id.equals(".DS_Store") || id.equals("..out") || id.equals(".out"))
         continue;
       id = id.replace(".out", "");
-      int idint = Integer.valueOf(id) + 1;
+      int idint = Integer.valueOf(id);
       String out1 = FileUtils.readFileToString(file1);
       File file2 = new File(labels + "/" + idint);
       String out2 = FileUtils.readFileToString(file2);
@@ -153,16 +153,16 @@ public class TestModel {
   public static void main(String[] args) throws IOException {
 
     String fileName = args[0];
-    //String outputName = args[1];
+    String outputName = args[1];
 
-    TestModel test = new TestModel(fileName);//, outputName);
-    // test.saveLabels();
-    // test.removeLabels();
-    test.compareLabels();
-    System.out.println("TNR: " + test.trueNotRel);
-    System.out.println("TR: " + test.getTrueRel());
-    System.out.println("FNR: " + test.falseNotRel);
-    System.out.println("FR: " + test.getFalseRel());
+    TestModel test = new TestModel(fileName, outputName);
+     test.saveLabels();
+    //test.removeLabels();
+   // test.compareLabels();
+//    System.out.println("TNR: " + test.trueNotRel);
+//    System.out.println("TR: " + test.getTrueRel());
+//    System.out.println("FNR: " + test.falseNotRel);
+//    System.out.println("FR: " + test.getFalseRel());
     // System.out.println("MATCH: " + match);
     // System.out.println("NOT MATCH: " + notMatch);
 

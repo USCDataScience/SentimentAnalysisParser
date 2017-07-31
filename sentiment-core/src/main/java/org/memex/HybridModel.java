@@ -89,14 +89,14 @@ public class HybridModel {
         outputStream.write("RELEVANT ");
       }
       if (stanfordMap.get("Sentiment").equals("love")) {
-        outputStream.write("yes, ");
+        outputStream.write("yes; ");
       } else {
-        outputStream.write("no, ");
+        outputStream.write("no; ");
       }
       if (htMap.get("Sentiment").equals("love")) {
-        outputStream.write("yes, ");
+        outputStream.write("yes; ");
       } else {
-        outputStream.write("no, ");
+        outputStream.write("no; ");
       }
       this.getGeolocation(lines3);
       this.findNegation(file4);
@@ -104,16 +104,31 @@ public class HybridModel {
     outputStream.close();
   }
 
-  private void getGeolocation(List<String> lines3) {
+  private void getGeolocation(List<String> lines3) { //Optional_NAME1
     Map<String, String> geotMap = new HashMap<String, String>();
+    StringBuffer stream = new StringBuffer();
     for (int i = 0; i < lines3.size(); i++) {
       String[] s1 = lines3.get(i).split(": ");
       geotMap.put(s1[0], s1[1]);
     }
     if (geotMap.containsKey("Geographic_NAME")) {
-      outputStream.write(geotMap.get("Geographic_NAME") + ", ");
-    } else {
-      outputStream.write("NONE, ");
+      stream.append(geotMap.get("Geographic_NAME") + ", ");
+      for (int k = 1; k <= 5; k++) {
+        StringBuffer fieldName = new StringBuffer();
+        fieldName.append("Optional_NAME").append(Integer.toString(k));
+        if (geotMap.containsKey(fieldName.toString())) {
+          //System.out.println("helloo");
+          stream.append(geotMap.get(fieldName.toString()) + ", ");
+        }
+      }
+    } 
+    else {
+      stream.append("NONE, ");
+    }
+    
+    String outp = stream.toString();
+    if (outp.charAt(outp.length()-2) == ',') {
+      outputStream.write(outp.substring(0, outp.length()-2) + "; ");
     }
   }
   
@@ -122,7 +137,7 @@ public class HybridModel {
     String[] adText = out1.split("\\s+");
     boolean negation = false;
     for (int i = 0; i < adText.length; i++) {
-      if (adText[i].toLowerCase().equals("no")) {
+      if (adText[i].toLowerCase().equals("no") || adText[i].toLowerCase().equals("don't") || adText[i].toLowerCase().equals("not")) {
         negation = true;
         break;
       } else {
