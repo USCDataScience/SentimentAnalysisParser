@@ -2,7 +2,7 @@ function ht_lg_bin() {
 
 var svg = d3.select("#ht-lead-g-bin").append("svg"),
     margin = {top: 20, right: 20, bottom: 30, left: 80},
-    width = 960,
+    width = 700,
     height = 500,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
@@ -89,7 +89,7 @@ d3.json("./data/ht-lead-gen-bin.json", function(error, dataObj) {
       .data(sentNames.slice().reverse())
     .enter().append("g")
       .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+      .attr("transform", function(d, i) { return "translate(80," + i * 20 + ")"; });
 
   legend.append("rect")
       .attr("x", width - 18)

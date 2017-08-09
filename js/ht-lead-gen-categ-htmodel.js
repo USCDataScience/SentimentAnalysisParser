@@ -2,7 +2,7 @@ function ht_lg_categ_htmodel() {
 	
 var svg = d3.select("#ht-lead-g-categ-htmodel").append("svg"),
     margin = {top: 20, right: 20, bottom: 30, left: 65},
-    width = 960,
+    width = 800,
     height = 500,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	

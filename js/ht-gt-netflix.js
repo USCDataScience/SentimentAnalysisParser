@@ -2,7 +2,7 @@ function ht_gt_netflix() {
 
 var svg = d3.select("#ht-gt-netflix").append("svg"),
     margin = {top: 20, right: 20, bottom: 30, left: 80},
-    width = 960,
+    width = 800,
     height = 500,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
@@ -115,7 +115,11 @@ d3.json("./data/ht-gt-netflix.json", function(error, dataObj) {
       .style("text-anchor", "end")
       .text(function(d) { return d; });
 
+  saveSvgAsPng(document.getElementById("diagram"), "diagram.png");
+
 });
+
+//saveSvgAsPng(document.getElementById("#ht-gt-netflix"), "diagram.png");
 
 }
 
