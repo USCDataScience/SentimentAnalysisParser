@@ -127,6 +127,11 @@
 					<li>Negative: 5,536</li>
 				</ul>
 				<br> </br>
+				<!--<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs>
+					<pattern id="circles-4" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScgLz4KICA8Y2lyY2xlIGN4PScyLjUnIGN5PScyLjUnIHI9JzIuNScgZmlsbD0nYmxhY2snLz4KPC9zdmc+" x="0" y="0" width="10" height="10"> </image> 					</pattern>
+					<pattern id="diagonal-stripe-2" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScvPgogIDxwYXRoIGQ9J00tMSwxIGwyLC0yCiAgICAgICAgICAgTTAsMTAgbDEwLC0xMAogICAgICAgICAgIE05LDExIGwyLC0yJyBzdHJva2U9J2JsYWNrJyBzdHJva2Utd2lkdGg9JzInLz4KPC9zdmc+" x="0" y="0" width="10" height="10"> </image> 
+					</pattern> 
+				</defs> </svg>-->
 				<div id="ht-gt-netflix"></div>
 				<br> </br>
 				<li><b>Correlation between the binary sentiment and the ground truth of the HT data (HT Review model)</b></li>
@@ -711,6 +716,50 @@
 		};
 
 		d3.csv("data.csv", type, drawLine);
+		
+		var drawLineHybrid = function(error, data) {
+		  if (error) throw error;
+
+		  var citiesHybrid = data.columns.slice(1).map(function(id) {
+		    return {
+		      id: id,
+		      values: data.map(function(d) {
+		        return {iteration: d.iteration, accuracy: d[id]};
+		      })
+		    };
+		  });
+
+		  x.domain(d3.extent(data, function(d) { return d.iteration; }));
+
+		  y.domain([
+		    d3.min(citiesHybrid, function(c) { return d3.min(c.values, function(d) { return d.accuracy; }); }),
+		    d3.max(citiesHybrid, function(c) { return d3.max(c.values, function(d) { return d.accuracy; }); })
+		  ]);
+
+		  z.domain(citiesHybrid.map(function(c) { return c.id; }));
+
+		  var cityH = g.selectAll(".cityH")
+		    .data(citiesHybrid)
+		    .enter().append("g")
+		      .attr("class", "cityH");
+
+		   cityH.append("path")
+		      .attr("class", "line")
+		      .attr("d", function(d) { return line(d.values); })
+			  .style("stroke-dasharray", ("3, 3"))
+		      .style("stroke", function(d) { return z(d.id); });
+
+		  cityH.append("text")
+		      .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
+		      .attr("transform", function(d) { return "translate(" + x(d.value.iteration) + "," + y(d.value.accuracy) + ")"; })
+		      .attr("x", 3)
+		      .attr("dy", "0.35em")
+		      .style("font", "10px sans-serif")
+		      .text(function(d) { return d.id; });
+
+		};
+
+		d3.csv("data-hybrid.csv", type, drawLineHybrid);
 
 		function type(d, _, columns) {
 		  d.iteration = parseInt(d.iteration);

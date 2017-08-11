@@ -80,6 +80,53 @@ var drawLine = function(error, data) {
 
 d3.csv("./data/twohybrid_data.csv", type, drawLine);
 
+
+var drawLineHybridV2 = function(error, data) {
+  if (error) throw error;
+
+  var citiesHybrid = data.columns.slice(1).map(function(id) {
+    return {
+      id: id,
+      values: data.map(function(d) {
+        return {iteration: d.iteration, accuracy: d[id]};
+      })
+    };
+  });
+
+  x.domain(d3.extent(data, function(d) { return d.iteration; }));
+
+  y.domain([
+    d3.min(citiesHybrid, function(c) { return d3.min(c.values, function(d) { return d.accuracy; }); }),
+    d3.max(citiesHybrid, function(c) { return d3.max(c.values, function(d) { return d.accuracy; }); })
+  ]);
+
+  z.domain(citiesHybrid.map(function(c) { return c.id; }));
+
+  var cityH = g.selectAll(".cityH")
+    .data(citiesHybrid)
+    .enter().append("g")
+      .attr("class", "cityH");
+
+   cityH.append("path")
+      .attr("class", "line")
+      .attr("d", function(d) { return line(d.values); })
+	  .style("stroke-dasharray", ("3, 3"))
+      .style("stroke", function(d) { return z(d.id); });
+
+  cityH.append("text")
+      .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
+      .attr("transform", function(d) { return "translate(" + x(d.value.iteration) + "," + y(d.value.accuracy) + ")"; })
+      .attr("x", 3)
+      .attr("dy", "0.35em")
+      .style("font", "10px sans-serif")
+      .text(function(d) { return d.id; });
+
+};
+
+d3.csv("./data/twohybrid_data2.csv", type, drawLineHybridV2);
+
+
+
 function type(d, _, columns) {
   d.iteration = parseInt(d.iteration);
   for (var i = 1, n = columns.length, c; i < n; ++i) {

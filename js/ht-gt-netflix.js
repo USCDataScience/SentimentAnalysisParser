@@ -20,6 +20,9 @@ var y = d3.scaleLinear()
 
 var color = d3.scaleOrdinal()
 	.range(["#6b486b", "#ff8c00"]);
+	
+//var fill = d3.scaleOrdinal()
+	//.range(["#circles-4", "#diagonal-stripe-2"]);
     //.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 /*var xAxis = d3.svg.axis()
@@ -76,6 +79,19 @@ d3.json("./data/ht-gt-netflix.json", function(error, dataObj) {
       .style("text-anchor", "end")
       .text("# of ads");
 	  
+  g.append('defs')
+   .append('pattern')
+    	.attr('id', 'diagonalHatch')
+    	.attr('patternUnits', 'userSpaceOnUse')
+    	.attr('width', 4)
+    	.attr('height', 4)
+   .append('path')
+    	.attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+    	.attr('stroke', '#000000')
+    	.attr('stroke-width', 1);
+	  
+  var fill = d3.scaleOrdinal()
+		.range(["##diagonalHatch"]);//, "#circles"]);
   //var truthData = g.append("g")//.selectAll(".truth")
   var truthData = g.append("g")
 	  .selectAll("g")
@@ -93,7 +109,8 @@ d3.json("./data/ht-gt-netflix.json", function(error, dataObj) {
       .attr("x", function(d) { return x1(d.name); })
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
-      .style("fill", function(d) { return color(d.name); });
+	  .attr('fill', 'url(#diagonalHatch)');
+      //.style("fill", function(d) { return fill(d.name); });
 
   var legend = g.append("g")//.selectAll(".legend")
 	  .selectAll("g")
@@ -102,11 +119,17 @@ d3.json("./data/ht-gt-netflix.json", function(error, dataObj) {
       .attr("class", "legend")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
+  //legend.append("rect")
+  //    .attr("x", width - 18)
+  //    .attr("width", 18)
+  //    .attr("height", 18)
+ //     .style("fill", color)
+	  
   legend.append("rect")
       .attr("x", width - 18)
       .attr("width", 18)
       .attr("height", 18)
-      .style("fill", color);
+	  .attr('fill', 'url(#diagonalHatch)');
 
   legend.append("text")
       .attr("x", width - 24)
@@ -115,7 +138,7 @@ d3.json("./data/ht-gt-netflix.json", function(error, dataObj) {
       .style("text-anchor", "end")
       .text(function(d) { return d; });
 
-  saveSvgAsPng(document.getElementById("diagram"), "diagram.png");
+  //saveSvgAsPng(document.getElementById("diagram"), "diagram.png");
 
 });
 
