@@ -133,13 +133,13 @@ g.append('defs')
  //     .style("fill", color)
 	  
   legend.append("rect")
-      .attr("x", width - 18)
+      .attr("x", width + 70)
       .attr("width", 18)
       .attr("height", 18)
 	  .attr('fill', fill);  //'url(#diagonalHatch)'
 
   legend.append("text")
-      .attr("x", width - 24)
+      .attr("x", width + 55)
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
