@@ -6,6 +6,11 @@ var svg = d3.select("#ht-lg-cluster-stan").append("svg"),
     height = 500,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+	function fill(d) {
+		var name = d.name || d;
+		return 'url(#diagonalHatch)';
+	}
+
 var x = d3.scaleBand()
 	.rangeRound([0, width])
 	.paddingInner(0.1);
@@ -33,6 +38,17 @@ d3.tsv("./data/cluster-stanford.tsv", type, function(error, data) {
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("# of ads/total ads per cluster");
+	  
+g.append('defs')
+ .append('pattern')
+  	.attr('id', 'diagonalHatch')
+  	.attr('patternUnits', 'userSpaceOnUse')
+  	.attr('width', 4)
+  	.attr('height', 4)
+ .append('path')
+  	.attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+  	.attr('stroke', '#000000')
+  	.attr('stroke-width', 1);
 
   g.selectAll(".bar")
       .data(data)
@@ -41,7 +57,8 @@ d3.tsv("./data/cluster-stanford.tsv", type, function(error, data) {
       .attr("x", function(d) { return x(d.sentiment); })
       .attr("width", x.range()[1]/6)
       .attr("y", function(d) { return y(d.frequency); })
-      .attr("height", function(d) { return height - y(d.frequency); });
+      .attr("height", function(d) { return height - y(d.frequency); })
+	  .attr('fill', fill);
 	  //.style("fill", function(d) { return d.color; });
 	  //.style("fill", function(d) { return color(d.name); });
 	  //.style("fill", color);

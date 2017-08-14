@@ -13,11 +13,11 @@
 .student {
   text-align: center;
 }
-.bar {
+/*.bar {
   fill: steelblue;
   /*fill: #6b486b;
-  fill: #ff8c00;*/
-}
+  fill: #ff8c00;
+}*/
 
 .bar:hover {
   fill: orangered;
