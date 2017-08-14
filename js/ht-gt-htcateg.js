@@ -14,6 +14,22 @@ var x1 = d3.scaleOrdinal();
 var y = d3.scaleLinear()
     .range([height, 0]);*/
 	
+	function fill(d) {
+		var name = d.name || d;
+		if(name === 'neutral') {
+			return 'url(#diagonalHatch)';
+		} else if(name === 'like') {
+			return 'url(#crosshatch)';
+		} else if(name === 'sad') {
+			return 'url(#dots)';
+		} else if(name === 'angry') {
+			return 'url(#check)';
+		} else if(name === 'love') {
+			return 'url(#boo)';
+		}
+		return null;
+	}
+	
 var x0 = d3.scaleBand()
 	.rangeRound([0, width])
 	.paddingInner(0.1);
@@ -76,6 +92,65 @@ d3.json("./data/ht-gt-htcat.json", function(error, dataObj) {
       .style("text-anchor", "end")
       .text("# of ads");
 	  
+	  
+g.append('defs')
+ .append('pattern')
+  	.attr('id', 'diagonalHatch')
+  	.attr('patternUnits', 'userSpaceOnUse')
+  	.attr('width', 4)
+  	.attr('height', 4)
+ .append('path')
+  	.attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+  	.attr('stroke', '#000000')
+  	.attr('stroke-width', 1);
+	
+g.append('defs')
+ .append('pattern')
+  	.attr('id', 'crosshatch')
+  	.attr('patternUnits', 'userSpaceOnUse')
+  	.attr('width', 8)
+  	.attr('height', 8)
+ .append('path')
+  	//.attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+  	.attr('d', 'M2,2 l5,5')
+  	.attr('stroke', '#000000')
+  	.attr('stroke-width', 1);
+	
+g.append('defs')
+ .append('pattern')
+  	.attr('id', 'dots')
+  	.attr('patternUnits', 'userSpaceOnUse')
+  	.attr('width', 10)
+  	.attr('height', 10)
+ .append('path')
+  	//.attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+  	.attr('d', 'M2,2 l5,-4 M3,5')
+  	.attr('stroke', '#000000')
+  	.attr('stroke-width', 1);
+	
+g.append('defs')
+ .append('pattern')
+  	.attr('id', 'check')
+  	.attr('patternUnits', 'userSpaceOnUse')
+  	.attr('width', 2)
+  	.attr('height', 2)
+ .append('path')
+  	.attr('d', 'M-1,1 M0,4 l4,-4 M3,15')
+  	.attr('stroke', '#000000')
+  	.attr('stroke-width', 2);
+	
+g.append('defs')
+ .append('pattern')
+  	.attr('id', 'boo')
+  	.attr('patternUnits', 'userSpaceOnUse')
+  	.attr('width', 8)
+  	.attr('height', 8)
+ .append('path')
+  	//.attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+  	.attr('d', 'M2,2 l5,5 l4, -10')
+  	.attr('stroke', '#000000')
+  	.attr('stroke-width', 1);
+	  
   //var truthData = g.append("g")//.selectAll(".truth")
   var truthData = g.append("g")
 	  .selectAll("g")
@@ -93,7 +168,8 @@ d3.json("./data/ht-gt-htcat.json", function(error, dataObj) {
       .attr("x", function(d) { return x1(d.name); })
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
-      .style("fill", function(d) { return color(d.name); });
+	  .attr('fill', fill);
+      //.style("fill", function(d) { return color(d.name); });
 
   var legend = g.append("g")//.selectAll(".legend")
 	  .selectAll("g")
@@ -106,7 +182,8 @@ d3.json("./data/ht-gt-htcat.json", function(error, dataObj) {
       .attr("x", width - 18)
       .attr("width", 18)
       .attr("height", 18)
-      .style("fill", color);
+	  .attr('fill', fill);
+      //.style("fill", color);
 
   legend.append("text")
       .attr("x", width - 24)
