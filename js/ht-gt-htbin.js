@@ -6,6 +6,16 @@ var svg = d3.select("#ht-gt-htbin").append("svg"),
     height = 500,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 	
+function fill(d) {
+		var name = d.name || d;
+		if(name === 'positive') {
+			return 'url(#diagonalHatch)';
+		} else if(name === 'negative') {
+			return 'url(#crosshatch)';
+		}
+		return null;
+}
+	
 var x0 = d3.scaleBand()
 	.rangeRound([0, width])
 	.paddingInner(0.1);
@@ -65,6 +75,31 @@ d3.json("./data/ht-gt-htbin.json", function(error, dataObj) {
       .style("text-anchor", "end")
       .text("# of ads");
 	  
+  g.append('defs')
+   .append('pattern')
+    	.attr('id', 'diagonalHatch')
+    	.attr('patternUnits', 'userSpaceOnUse')
+    	.attr('width', 4)
+    	.attr('height', 4)
+   .append('path')
+    	.attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+    	.attr('stroke', '#000000')
+    	.attr('stroke-width', 1);
+		
+  g.append('defs')
+   .append('pattern')
+    	.attr('id', 'crosshatch')
+    	.attr('patternUnits', 'userSpaceOnUse')
+    	.attr('width', 8)
+    	.attr('height', 8)
+   .append('path')
+    	//.attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+    	.attr('d', 'M2,2 l5,5')
+    	.attr('stroke', '#000000')
+    	.attr('stroke-width', 1);
+	  
+//  var fill = d3.scaleOrdinal()
+//		.range(["##diagonalHatch"]);//, "#circles"]);
   //var truthData = g.append("g")//.selectAll(".truth")
   var truthData = g.append("g")
 	  .selectAll("g")
@@ -82,7 +117,8 @@ d3.json("./data/ht-gt-htbin.json", function(error, dataObj) {
       .attr("x", function(d) { return x1(d.name); })
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
-      .style("fill", function(d) { return color(d.name); });
+	  .attr('fill', fill);
+      //.style("fill", function(d) { return fill(d.name); });
 
   var legend = g.append("g")//.selectAll(".legend")
 	  .selectAll("g")
@@ -91,11 +127,17 @@ d3.json("./data/ht-gt-htbin.json", function(error, dataObj) {
       .attr("class", "legend")
       .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
+  //legend.append("rect")
+  //    .attr("x", width - 18)
+  //    .attr("width", 18)
+  //    .attr("height", 18)
+ //     .style("fill", color)
+	  
   legend.append("rect")
       .attr("x", width - 18)
       .attr("width", 18)
       .attr("height", 18)
-      .style("fill", color);
+	  .attr('fill', fill);  //'url(#diagonalHatch)'
 
   legend.append("text")
       .attr("x", width - 24)
