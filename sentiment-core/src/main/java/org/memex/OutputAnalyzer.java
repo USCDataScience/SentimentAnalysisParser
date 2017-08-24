@@ -223,7 +223,7 @@ public class OutputAnalyzer {
 //    System.out.println("LOVE NOT_REL: " + analyze.loveNotRelevant);
     //analyze.parseIEEE(args[1]);
     
-    analyze.countRelevant(args[0]);
+    analyze.countRelevant(args[1]);
 
     // analyze.countRelevant(args[1]);
   }
