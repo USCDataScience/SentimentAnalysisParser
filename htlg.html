@@ -839,8 +839,89 @@
 		<div class="container2" id="hybrid-ac-test"></div> -->
 		<br> </br>
 		<br> </br>
-
+		
 		<h2>Step VII</h2>
+        <h3>DEBIASED HT LG DATA ANALYSIS - the HT LG Ground Truth</h3>
+		<br> </br>
+		<p><b>Step VII</b> involves performing the same steps as in Step II.A</p>
+		<br> </br>
+		<ol>
+			<li><b>Correlation between the binary sentiment and the ground truth of the debiased HT data (Netflix model)</b></li>
+			<h5>RELEVANT</h5>
+			<ul>
+				<li>Postive: 2,131</li>
+				<li>Negative: 5,282</li>
+			</ul>
+			<h5>NOT RELEVANT</h5>
+			<ul>
+				<li>Postive: 37,102</li>
+				<li>Negative: 54,819</li>
+			</ul>
+			<br> </br>
+			<div id="debiased-ht-gt-netflix"></div>
+			<br> </br>
+			<li><b>Correlation between the binary sentiment and the ground truth of the debiased HT data (HT Review model)</b></li>
+			<h5>RELEVANT</h5>
+			<ul>
+				<li>Postive: 5,586</li>
+				<li>Negative: 1,827</li>
+			</ul>
+			<h5>NOT RELEVANT</h5>
+			<ul>
+				<li>Postive: 63,771</li>
+				<li>Negative: 28,150</li>
+			</ul>
+			<br> </br>
+			<div id="debiased-ht-gt-htbin"></div>
+			<br> </br>
+			<li><b>Correlation between the categorical sentiment and the ground truth of the debiased HT data (Stanford model)</b></li>
+			<h5>RELEVANT</h5>
+			<ul>
+				<li>Angry: 0</li>
+				<li>Sad: 72</li>
+				<li>Neutral: 7,297</li>
+				<li>Like: 44</li>
+				<li>Love: 0</li>
+			</ul>
+			<h5>NOT RELEVANT</h5>
+			<ul>
+				<li>Angry: 15</li>
+				<li>Sad: 1,514</li>
+				<li>Neutral: 89,105</li>
+				<li>Like: 1,280</li>
+				<li>Love: 0</li>
+			</ul>
+			<br> </br>
+			<div id="debiased-ht-gt-stanford"></div>
+			<br> </br>
+			<li><b>Correlation between the categorical sentiment and the ground truth of the debiased HT data (HT Review model)</b></li>
+			<h5>RELEVANT</h5>
+			<ul>
+				<li>Angry: 54</li>
+				<li>Sad: 2,752</li>
+				<li>Neutral: 699</li>
+				<li>Like: 3,853</li>
+				<li>Love: 55</li>
+			</ul>
+			<h5>NOT RELEVANT</h5>
+			<ul>
+				<li>Angry: 1,980</li>
+				<li>Sad: 36,917</li>
+				<li>Neutral: 5,827</li>
+				<li>Like: 45,989</li>
+				<li>Love: 0</li>
+			</ul>
+			<br> </br>
+			<div id="debiased-ht-gt-htcateg"></div>
+			<br> </br>
+		</ol>
+		<br> </br>
+		<br> </br>
+		
+		<br> </br>
+		<br> </br>
+
+		<h2>Step VIII</h2>
         <h3>EXPLAINING THE WORKFLOW</h3>
 		<br> </br>
 		<p><b>Step VII</b> involves analysing and explaining the flow of the work done for the previous steps.</p>
@@ -912,6 +993,10 @@
 	<script src="js/two_hybrid.js"></script>
 	<script src="js/ht-lg-cluster-stanford.js"></script>
 	<script src="js/ht-lg-cluster-htcat.js"></script>
+	<script src="js/debiased-ht-gt-netflix.js"></script>
+	<script src="js/debiased-ht-gt-stanford.js"></script>
+	<script src="js/debiased-ht-gt-htbin.js"></script>
+	<script src="js/debiased-ht-gt-htcateg.js"></script>
 	<!--<script src="js/htlg-accuracy-train.js"></script>
 	<script src="js/htlg-accuracy-test.js"></script>
 	<script src="js/hybrid-accuracy-train.js"></script>

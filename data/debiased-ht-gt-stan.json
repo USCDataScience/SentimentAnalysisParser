@@ -1,0 +1,22 @@
+{
+  "RELEVANT": {
+    "total": 7413,
+    "prediction": {
+      "angry": 0,
+      "sad": 72,
+	  "neutral": 7297,
+	  "like": 44,
+	  "love": 0
+    }
+  },
+  "NOT RELEVANT": {
+    "total": 91921,
+    "prediction": {
+      "angry": 15,
+      "sad": 1514,
+  	  "neutral": 89105,
+  	  "like": 1280,
+  	  "love": 0
+    }
+  }
+}
