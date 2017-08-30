@@ -1,0 +1,16 @@
+{
+  "RELEVANT": {
+    "total": 10794,
+    "prediction": {
+      "positive": 4285,
+      "negative": 6509
+    }
+  },
+  "NOT RELEVANT": {
+    "total": 27769,
+    "prediction": {
+      "positive": 12966,
+	  "negative": 14803
+    }
+  }
+}

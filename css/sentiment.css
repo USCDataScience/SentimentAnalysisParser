@@ -268,6 +268,46 @@
 	width: 1100px;
 }
 
+#bal-debiased-ht-lg-netflix {
+	height: 550px;
+	width: 1030px;
+}
+
+#bal-debiased-ht-lg-netflix svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#bal-debiased-ht-lg-stanford {
+	height: 550px;
+	width: 1030px;
+}
+
+#bal-debiased-ht-lg-stanford svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#bal-debiased-ht-lg-htbin {
+	height: 550px;
+	width: 1030px;
+}
+
+#bal-debiased-ht-lg-htbin svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#bal-debiased-ht-lg-htcateg {
+	height: 550px;
+	width: 1030px;
+}
+
+#bal-debiased-ht-lg-htcateg svg {
+	height: 600px;
+	width: 1100px;
+}
+
 /*overflow: visible */
 /*.container {
 	float: left;

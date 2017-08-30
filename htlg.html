@@ -92,6 +92,7 @@
 		  <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-models/src/main/resources/edu/usc/irds/sentiment/hybrid-v2.bin"><b><u>HT LG Binary</u> - Hybrid Model</b></a>: a model trained by combining the results of previous models and the results of running <a href="https://wiki.apache.org/tika/GeoTopicParser">GeoTopicParser</a> on the ads.</li>
 		  <!-- add the link here!!!!!!!!-->
 		  <li><a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/master/sentiment-models/src/main/resources/edu/usc/irds/sentiment/hybrid-v3.bin"><b><u>HT LG Binary</u> - Hybrid Model V2</b></a>: a model trained by combining the results of previous models and the results of running <a href="https://wiki.apache.org/tika/GeoTopicParser">GeoTopicParser</a> on the ads. In this case, top 5 geolocations are selected.</li>
+		  <li><a href=""><b><u>HT LG Binary</u> - HT LG V2</b></a>: a model trained on the balanced debiased dataset.</li>
 		</ol>
 		<br> </br>
 		<p><b>HT Lead Generation Binary model: </b>Using a MEMEX provided JSON data file (contact mattmann@usc.edu for more information on the source file), the final training dataset was created using a <a href="https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/JSONParser.java">JSON Parser</a>, which was also separately implemented within Apache Tika in conjunction with the Text-To-Tag-Ratio algorithm, and a <a href= "https://github.com/USCDataScience/SentimentAnalysisParser/blob/CleaningParser/sentiment-core/src/main/java/org/memex/PrepareData.java">Data Preparation Parser</a>. The first parser was used to extract the value of the <i>raw_content</i> field in the JSON file and its corresponding <i>annotation</i>, or the label (NOT_RELEVANT or VERY_RELEVANT). Since the value of the <i>raw_content</i> was the HTML source code of the entire ad, the parser's implementation within Tika, along with the Text-To-Tag-Ratio algorithm, was essential to get rid of any site navigation and unnecessary tags, which made the model more reliable. The latter parser made the training dataset even more reliable by ensuring an equal presence of examples per each label and shuffling the data. In the end we ended up with an almost perfect training dataset of total 22,246 lines (11,123 NOT_RELEVANT and 11,123 VERY_RELEVANT examples), where each line started out with a label (NOT_RELEVANT or VERY_RELEVANT) followed by the respective ad. As a result, the model is capable of analysing the given data for its relevancy to human trafficking.</p>
@@ -840,10 +841,10 @@
 		<br> </br>
 		<br> </br>
 		
-		<h2>Step VII</h2>
+		<h2>Step VII.A (NEW)</h2>
         <h3>DEBIASED HT LG DATA ANALYSIS - the HT LG Ground Truth</h3>
 		<br> </br>
-		<p><b>Step VII</b> involves performing the same steps as in Step II.A</p>
+		<p><b>Step VII.A</b> involves performing the same steps as in Step II.A</p>
 		<br> </br>
 		<ol>
 			<li><b>Correlation between the binary sentiment and the ground truth of the debiased HT data (Netflix model)</b></li>
@@ -913,6 +914,84 @@
 			</ul>
 			<br> </br>
 			<div id="debiased-ht-gt-htcateg"></div>
+			<br> </br>
+		</ol>
+		<br> </br>
+		<br> </br>
+		
+		<h2>Step VII.B (NEW)</h2>
+        <h3>DEBIASED HT LG DATA ANALYSIS - the HT LG Model II</h3>
+		<br> </br>
+		<p><b>Step VII.B</b> involves performing the same steps as in Step II.B. The initial debiased labeled dataset consisted of 99,334 elements, only 7,431 of which were labeled as RELEVANT. When a new HT LG model was trained on that dataset, almost all of the analysed ads were classified as NOT_RELEVANT due to the completely unbalanced nature of the training dataset. Because of that, the training dataset was balanced out, resulting in a total of 14,826 elements (7,431 RELEVANT and 7,431 NOT_RELEVANT). A new model was trained on that dataset and run on the unlabeled dataset #2. The results were as follows:</p>
+		<br> </br>
+		<ol>
+			<li><b>Correlation between the binary sentiment and the truth of the debiased HT data (Netflix model)</b></li>
+			<h5>RELEVANT</h5>
+			<ul>
+				<li>Postive: 4,285</li>
+				<li>Negative: 6,509</li>
+			</ul>
+			<h5>NOT RELEVANT</h5>
+			<ul>
+				<li>Postive: 12,966</li>
+				<li>Negative: 14,803</li>
+			</ul>
+			<br> </br>
+			<div id="bal-debiased-ht-lg-netflix"></div>
+			<br> </br>
+			<li><b>Correlation between the binary sentiment and the truth of the debiased HT data (HT Review model)</b></li>
+			<h5>RELEVANT</h5>
+			<ul>
+				<li>Postive: 6,597</li>
+				<li>Negative: 4,197</li>
+			</ul>
+			<h5>NOT RELEVANT</h5>
+			<ul>
+				<li>Postive: 23,400</li>
+				<li>Negative: 4,369</li>
+			</ul>
+			<br> </br>
+			<div id="bal-debiased-ht-lg-htbin"></div>
+			<br> </br>
+			<li><b>Correlation between the categorical sentiment and the truth of the debiased HT data (Stanford model)</b></li>
+			<h5>RELEVANT</h5>
+			<ul>
+				<li>Angry: 2</li>
+				<li>Sad: 109</li>
+				<li>Neutral: 10,550</li>
+				<li>Like: 132</li>
+				<li>Love: 1</li>
+			</ul>
+			<h5>NOT RELEVANT</h5>
+			<ul>
+				<li>Angry: 1</li>
+				<li>Sad: 73</li>
+				<li>Neutral: 27,204</li>
+				<li>Like: 480</li>
+				<li>Love: 0</li>
+			</ul>
+			<br> </br>
+			<div id="bal-debiased-ht-lg-stanford"></div>
+			<br> </br>
+			<li><b>Correlation between the categorical sentiment and the truth of the debiased HT data (HT Review model)</b></li>
+			<h5>RELEVANT</h5>
+			<ul>
+				<li>Angry: 246</li>
+				<li>Sad: 4,663</li>
+				<li>Neutral: 775</li>
+				<li>Like: 5,048</li>
+				<li>Love: 62</li>
+			</ul>
+			<h5>NOT RELEVANT</h5>
+			<ul>
+				<li>Angry: 580</li>
+				<li>Sad: 7,261</li>
+				<li>Neutral: 2,104</li>
+				<li>Like: 17,571</li>
+				<li>Love: 0</li>
+			</ul>
+			<br> </br>
+			<div id="bal-debiased-ht-lg-htcateg"></div>
 			<br> </br>
 		</ol>
 		<br> </br>
@@ -997,6 +1076,10 @@
 	<script src="js/debiased-ht-gt-stanford.js"></script>
 	<script src="js/debiased-ht-gt-htbin.js"></script>
 	<script src="js/debiased-ht-gt-htcateg.js"></script>
+	<script src="js/debiased-ht-lg-netflix.js"></script>
+	<script src="js/debiased-ht-lg-stanford.js"></script>
+	<script src="js/debiased-ht-lg-htbin.js"></script>
+	<script src="js/debiased-ht-lg-htcateg.js"></script>
 	<!--<script src="js/htlg-accuracy-train.js"></script>
 	<script src="js/htlg-accuracy-test.js"></script>
 	<script src="js/hybrid-accuracy-train.js"></script>
