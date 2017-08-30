@@ -139,13 +139,13 @@ d3.json("./data/debiased-ht-gt-netflix.json", function(error, dataObj) {
  //     .style("fill", color)
 	  
   legend.append("rect")
-      .attr("x", width - 18)
+      .attr("x", width + 15)
       .attr("width", 18)
       .attr("height", 18)
 	  .attr('fill', fill);  //'url(#diagonalHatch)'
 
   legend.append("text")
-      .attr("x", width - 24)
+      .attr("x", width + 80)
       .attr("y", 9)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
