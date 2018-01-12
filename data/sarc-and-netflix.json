@@ -1,0 +1,16 @@
+{
+  "SARCASTIC": {
+    "total": 31068,
+    "prediction": {
+      "positive": 9015,
+      "negative": 22053
+    }
+  },
+  "NOT SARCASTIC": {
+    "total": 33598,
+    "prediction": {
+      "positive": 9464,
+	  "negative": 24134
+    }
+  }
+}

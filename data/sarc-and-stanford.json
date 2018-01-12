@@ -1,0 +1,22 @@
+{
+  "SARCASTIC": {
+    "total": 31068,
+    "prediction": {
+      "angry": 2103,
+      "sad": 6458,
+	  "neutral": 14342,
+	  "like": 6521,
+	  "love": 1644
+    }
+  },
+  "NOT SARCASTIC": {
+    "total": 33598,
+    "prediction": {
+      "angry": 2347,
+      "sad": 6838,
+  	  "neutral": 17276,
+  	  "like": 7137,
+  	  "love": 0
+    }
+  }
+}
