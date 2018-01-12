@@ -308,6 +308,66 @@
 	width: 1100px;
 }
 
+#sarc-and-netflix {
+	height: 550px;
+	width: 1030px;
+}
+
+#sarc-and-netflix svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#sarc-and-twitter {
+	height: 550px;
+	width: 1030px;
+}
+
+#sarc-and-twitter svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#sarc-and-stanford {
+	height: 550px;
+	width: 1030px;
+}
+
+#sarc-and-stanford svg {
+	height: 600px;
+	width: 1100px;
+}
+
+/*#sarc-roc {
+	height: 550px;
+	width: 1030px;
+}
+
+#sarc-roc svg {
+	height: 600px;
+	width: 1100px;
+}*/
+
+#twitter-roc {
+	height: 550px;
+	width: 1030px;
+}
+
+#twitter-roc svg {
+	height: 600px;
+	width: 1100px;
+}
+
+#netflix-roc {
+	height: 550px;
+	width: 1030px;
+}
+
+#netflix-roc svg {
+	height: 600px;
+	width: 1100px;
+}
+
 /*overflow: visible */
 /*.container {
 	float: left;
