@@ -101,7 +101,63 @@
 		</ol>
 		<br> </br>
 		<br> </br>
-	        <h2>Step II</h2>
+	        <h2>Step II.A</h2>
+	        <h3>SARC ANALYSIS - the SARC Ground Truth</h3>
+			<br> </br>
+			<ol>
+				<li><b>Correlation between the binary sentiment and the sarcastic nature (according to the Netflix model and SARC ground truth)</b></li>
+				<h5>SARCASTIC</h5>
+				<ul>
+					<li>Postive: 9,074</li>
+					<li>Negative: 23,259</li>
+				</ul>
+				<h5>NOT SARCASTIC</h5>
+				<ul>
+					<li>Postive: 9,405</li>
+					<li>Negative: 22,928</li>
+				</ul>
+				<br> </br>
+				<div id="sarc-gt-and-netflix"></div>
+				<br> </br>
+				<li><b>Correlation between the binary sentiment aand the sarcastic nature (according to the Twitter model and SARC ground truth)</b></li>
+				<h5>SARCASTIC</h5>
+				<ul>
+					<li>Postive: 18,109</li>
+					<li>Negative: 14,224</li>
+				</ul>
+				<h5>NOT SARCASTIC</h5>
+				<ul>
+					<li>Postive: 17,869</li>
+					<li>Negative: 14,464</li>
+				</ul>
+				<br> </br>
+				<div id="sarc-gt-and-twitter"></div>
+				<br> </br>
+				<li><b>Correlation between the categorical sentiment and the sarcastic nature (according to the Stanford model and SARC ground truth)</b></li>
+				<h5>SARCASTIC</h5>
+				<ul>
+					<li>Angry: 2,181</li>
+					<li>Sad: 6,815</li>
+					<li>Neutral: 15,148</li>
+					<li>Like: 6,647</li>
+					<li>Love: 1,542</li>
+				</ul>
+				<h5>NOT SARCASTIC</h5>
+				<ul>
+					<li>Angry: 2,469</li>
+					<li>Sad: 6,567</li>
+					<li>Neutral: 15,986</li>
+					<li>Like: 7,311</li>
+					<li>Love: 0</li>
+				</ul>
+				<br> </br>
+				<div id="sarc-gt-and-stanford"></div>
+				<br> </br>
+			</ol>
+
+		<br> </br>
+		<br> </br>
+	        <h2>Step II.B</h2>
 	        <h3>SARC ANALYSIS - the SARC Model</h3>
 			<br> </br>
 			<ol>
@@ -192,6 +248,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/sarc-gt-and-netflix.js"></script>
+	<script src="js/sarc-gt-and-twitter.js"></script>
+	<script src="js/sarc-gt-and-stanford.js"></script>
 	<script src="js/sarc-and-netflix.js"></script>
 	<script src="js/sarc-and-twitter.js"></script>
 	<script src="js/sarc-and-stanford.js"></script>
