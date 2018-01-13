@@ -34,7 +34,7 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")*/
 
-d3.tsv("./data/sarc_roc_data.tsv", function(d) {
+d3.tsv("./data/sarc_roc_data-v2.tsv", function(d) {
   d.fpr = +d.fpr;
   d.tpr = +d.tpr;
   return d;
